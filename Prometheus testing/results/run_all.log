@@ -1,0 +1,53 @@
+[2026-02-06 23:29:04] ╔══════════════════════════════════════════════════════════════╗
+[2026-02-06 23:29:04] ║       PROMETHEUS STRESS TEST SUITE — STARTING               ║
+[2026-02-06 23:29:04] ║       2026-02-06 23:29:04                                  ║
+[2026-02-06 23:29:04] ║       Start from: R0                                     ║
+[2026-02-06 23:29:04] ╚══════════════════════════════════════════════════════════════╝
+[2026-02-06 23:29:04] 
+[2026-02-06 23:29:04] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 23:29:04] STARTING R0
+[2026-02-06 23:29:04] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+═══════════════════════════════════════════════════════════════
+  Scenario R0: Sanity baseline
+═══════════════════════════════════════════════════════════════
+
+  Nodes:            10
+  Targets:          40
+  Duration:         900s (15m)
+  Poll interval:    30s
+  Results dir:      /home/ubuntu/oci-ai-incubations/lens-stress-testing/Prometheus testing/results/R0
+
+[runner] Starting port-forward to Prometheus...
+[runner] Port-forward active (PID 1581393)
+[runner] Starting health monitor...
+[runner] Monitor PID: 1581535
+
+[runner] Setting targets to N=10...
+Generating targets for N=10 nodes (40 total targets)...
+  targets-node-exporter.json: 82 lines
+  targets-amd-gpu.json: 82 lines
+  targets-lens-node.json: 82 lines
+  targets-drhpc.json: 82 lines
+Patching ConfigMap lens-prometheus-server with new target files...
+DEBUG:oci_cli.cli_util:Check if Propagation Enabled: None
+DEBUG:oci_cli.cli_util:Is Propagation Enabled: None
+[monitor] Started for R0 (PID 1581535), pod=lens-prometheus-server-6b44bdc9b7-vm7lx
+configmap/lens-prometheus-server configured
+
+Targets set to N=10 (40 total).
+Prometheus will discover them within ~15–60 seconds (file_sd refresh + kubelet sync).
+
+[runner] Waiting for Prometheus to discover 40 targets...
+[runner] All 40 targets discovered.
+
+[runner] Starting metric collection for 900s...
+
+[2026-02-06T23:29:13+00:00] targets=40/40 up=40 (100%) | dur_p50=0.004s p95=0.009s | series=200574 mem=7.4GB cpu=0.012958333333331969
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:29:46+00:00] targets=40/40 up=40 (100%) | dur_p50=0.005s p95=0.009s | series=200574 mem=7.4GB cpu=0.012958333333331969
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:30:19+00:00] targets=40/40 up=40 (100%) | dur_p50=0.005s p95=0.009s | series=200574 mem=7.4GB cpu=0.012958333333331969
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:30:52+00:00] targets=40/40 up=40 (100%) | dur_p50=0.004s p95=0.009s | series=200574 mem=7.4GB cpu=0.013750000000000758
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.

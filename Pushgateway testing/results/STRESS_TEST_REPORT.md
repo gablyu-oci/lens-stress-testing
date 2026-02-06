@@ -152,8 +152,8 @@ The I0 pattern illustrates this clearly:
 
 **`client_max_body_size: 1m`** — A secondary concern. The Ingress caps request bodies at 1 MB. The largest payload (`amd-gpu-exporter` at 767 KB) fits today, but this leaves no headroom. Any payload growth would trigger 413 errors.
 
-At higher node counts (I2+), the Pushgateway is perpetually saturated, so nginx almost never establishes a connection within 5 seconds — driving the 503 rate to 87–91%. The 502 errors (1–8% of failures) represent cases where nginx did connect but the Pushgateway dropped the connection mid-request under load.
-
+At higher node counts (I2+), the Pushgateway is perpetually saturated, so nginx almost never establishes a connection within 5 seconds — driving the 503 rate to 87–91%. The 502 errors (1–8% of failures) represent cases where nginx did connect but the Pushgateway dropped the connection mid-request under load
+.
 **Relevant nginx configuration (from `lens-ingress-nginx-controller` pod, `/etc/nginx/nginx.conf`):**
 
 The Pushgateway location block (`pushgateway.150.230.181.224.nip.io`, upstream `lens-lens-prometheus-pushgateway-9091`) uses these settings:

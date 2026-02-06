@@ -1,0 +1,14 @@
+========================================
+Monitor started: 2026-02-06T23:29:09+00:00
+Scenario:        R0
+Poll interval:   30s
+Prometheus pod:  lens-prometheus-server-6b44bdc9b7-vm7lx
+========================================
+2026-02-06T23:29:09+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-06T23:29:09+00:00 cpu=6m mem=8821Mi restarts=1
+2026-02-06T23:29:45+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-06T23:29:45+00:00 cpu=10m mem=8823Mi restarts=1
+2026-02-06T23:30:21+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-06T23:30:21+00:00 cpu=9m mem=8823Mi restarts=1
+2026-02-06T23:30:56+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-06T23:30:56+00:00 cpu=7m mem=8823Mi restarts=1
