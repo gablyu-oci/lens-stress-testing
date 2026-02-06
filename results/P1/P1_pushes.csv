@@ -1,0 +1,31 @@
+timestamp,cycle,job,instance,status_code,latency_ms,payload_bytes,error
+1770382997.903,1,oci_lens_pod_metrics,pod-node-mapper-stress-test,0,0.83,20659,"Cannot connect to host 10.96.230.201:9091 ssl:default [Connect call failed ('10.96.230.201', 9091)]"
+1770383060.398,2,oci_lens_pod_metrics,pod-node-mapper-stress-test,0,0.92,20659,"Cannot connect to host 10.96.230.201:9091 ssl:default [Connect call failed ('10.96.230.201', 9091)]"
+1770383118.149,3,oci_lens_pod_metrics,pod-node-mapper-stress-test,0,1.03,20659,"Cannot connect to host 10.96.230.201:9091 ssl:default [Connect call failed ('10.96.230.201', 9091)]"
+1770383177.899,4,oci_lens_pod_metrics,pod-node-mapper-stress-test,0,1.03,20659,"Cannot connect to host 10.96.230.201:9091 ssl:default [Connect call failed ('10.96.230.201', 9091)]"
+1770383240.379,5,oci_lens_pod_metrics,pod-node-mapper-stress-test,0,0.82,20659,"Cannot connect to host 10.96.230.201:9091 ssl:default [Connect call failed ('10.96.230.201', 9091)]"
+1770383297.057,6,oci_lens_pod_metrics,pod-node-mapper-stress-test,200,5.28,20659,
+1770383356.746,7,oci_lens_pod_metrics,pod-node-mapper-stress-test,200,5.95,20659,
+1770383421.022,8,oci_lens_pod_metrics,pod-node-mapper-stress-test,200,5.36,20659,
+1770383480.858,9,oci_lens_pod_metrics,pod-node-mapper-stress-test,200,5.13,20659,
+1770383538.086,10,oci_lens_pod_metrics,pod-node-mapper-stress-test,200,4.88,20659,
+1770383599.265,11,oci_lens_pod_metrics,pod-node-mapper-stress-test,200,5.16,20659,
+1770383657.458,12,oci_lens_pod_metrics,pod-node-mapper-stress-test,200,5.03,20659,
+1770383720.770,13,oci_lens_pod_metrics,pod-node-mapper-stress-test,200,5.13,20659,
+1770383780.798,14,oci_lens_pod_metrics,pod-node-mapper-stress-test,200,5.09,20659,
+1770383836.609,15,oci_lens_pod_metrics,pod-node-mapper-stress-test,200,4.97,20659,
+1770383898.934,16,oci_lens_pod_metrics,pod-node-mapper-stress-test,200,5.14,20659,
+1770383961.096,17,oci_lens_pod_metrics,pod-node-mapper-stress-test,200,5.09,20659,
+1770384018.841,18,oci_lens_pod_metrics,pod-node-mapper-stress-test,200,6.04,20659,
+1770384077.922,19,oci_lens_pod_metrics,pod-node-mapper-stress-test,200,5.95,20659,
+1770384139.136,20,oci_lens_pod_metrics,pod-node-mapper-stress-test,200,5.98,20659,
+1770384196.656,21,oci_lens_pod_metrics,pod-node-mapper-stress-test,200,5.91,20659,
+1770384258.877,22,oci_lens_pod_metrics,pod-node-mapper-stress-test,200,4.82,20659,
+1770384317.337,23,oci_lens_pod_metrics,pod-node-mapper-stress-test,200,5.11,20659,
+1770384378.229,24,oci_lens_pod_metrics,pod-node-mapper-stress-test,200,5.38,20659,
+1770384437.275,25,oci_lens_pod_metrics,pod-node-mapper-stress-test,200,5.78,20659,
+1770384500.257,26,oci_lens_pod_metrics,pod-node-mapper-stress-test,200,5.18,20659,
+1770384561.082,27,oci_lens_pod_metrics,pod-node-mapper-stress-test,200,5.26,20659,
+1770384617.587,28,oci_lens_pod_metrics,pod-node-mapper-stress-test,200,5.29,20659,
+1770384678.163,29,oci_lens_pod_metrics,pod-node-mapper-stress-test,200,5.63,20659,
+1770384737.739,30,oci_lens_pod_metrics,pod-node-mapper-stress-test,200,5.07,20659,

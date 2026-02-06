@@ -1,0 +1,2437 @@
+[2026-02-06 01:30:01] ╔══════════════════════════════════════════════════════════════╗
+[2026-02-06 01:30:01] ║          FULL STRESS TEST SUITE — STARTING                  ║
+[2026-02-06 01:30:01] ║          2026-02-06 01:30:01                               ║
+[2026-02-06 01:30:01] ║          Mode: FULL (including soak tests)                  ║
+[2026-02-06 01:30:01] ╚══════════════════════════════════════════════════════════════╝
+[2026-02-06 01:30:01] 
+[2026-02-06 01:30:01] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 01:30:01] STARTING scenario C0
+[2026-02-06 01:30:01]   Params: --endpoint http://10.96.230.201:9091 --nodes 10 --jitter 5 --interval 60 --duration 300 --jobs node+cluster
+[2026-02-06 01:30:01] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 01:30:01] Cleaning Pushgateway (deleting all metric groups)...
+  Deleted 41 groups
+
+======================================================================
+Pushgateway Stress Test — Scenario C0
+======================================================================
+Endpoint:        http://10.96.230.201:9091
+Nodes:           10
+Interval:        60s
+Duration:        300s (5 min)
+Jitter:          5.0s (ON)
+Max in-flight:   500
+Jobs filter:     node+cluster
+Pod multiplier:  1x
+
+Jobs per cycle:
+  [node-level]    amd-gpu-exporter × 10 nodes = 10 pushes
+  [node-level]    node-exporter × 10 nodes = 10 pushes
+  [node-level]    oci_lens_node_metrics × 10 nodes = 10 pushes
+  [node-level]    oci_lens_drhpc_metrics × 10 nodes = 10 pushes
+  [cluster-level] oci_lens_pod_metrics × 1 = 1 push
+  Total: 41 pushes/cycle
+
+Loading payloads...
+  Loaded amd-gpu-exporter: sample-amd-gpu-payload.txt (766.1 KB)
+  Loaded node-exporter: sample-node-exporter-payload.txt (569.9 KB)
+  Loaded oci_lens_node_metrics: payload-oci-lens-node.txt (24.9 KB)
+  Loaded oci_lens_drhpc_metrics: payload-oci-lens-drhpc.txt (14.6 KB)
+  Loaded oci_lens_pod_metrics: payload-oci-lens-pod.txt (20.2 KB)
+
+Starting test: 5 cycles × 41 pushes = 205 total pushes
+======================================================================
+
+  Cycle    1 |    41 pushes | 41 ok / 0 err | p50=  119.6ms p95=  409.1ms max=  595.0ms | cycle_time=5.3s | OK
+         /metrics probe: 17681 KB in 398ms
+  Cycle    2 |    41 pushes | 41 ok / 0 err | p50= 1423.4ms p95= 2644.8ms max= 2787.4ms | cycle_time=7.7s | OK
+  Cycle    3 |    41 pushes | 41 ok / 0 err | p50= 1144.8ms p95= 3064.4ms max= 3216.5ms | cycle_time=8.1s | OK
+  Cycle    4 |    41 pushes | 41 ok / 0 err | p50= 1255.9ms p95= 2797.8ms max= 2973.3ms | cycle_time=7.9s | OK
+  Cycle    5 |    41 pushes | 41 ok / 0 err | p50= 1847.8ms p95= 2947.8ms max= 3043.2ms | cycle_time=8.0s | OK
+         /metrics probe: 17681 KB in 433ms
+
+==========================================================================================
+FINAL REPORT — Scenario C0
+==========================================================================================
+Endpoint:       http://10.96.230.201:9091
+Nodes:          10
+Total duration: 248.8s (4.1 min)
+Total pushes:   205
+
+--- Per-Job Summary ---
+Job                              Total      OK    Fail    Rate    p50ms    p95ms    p99ms    MaxMs
+--------------------------------------------------------------------------------------------------------------
+amd-gpu-exporter                    50      50       0  100.0%   1112.2   2588.0   2843.3   2973.3
+node-exporter                       50      50       0  100.0%   1138.5   2928.6   3029.1   3064.4
+oci_lens_drhpc_metrics              50      50       0  100.0%   1335.9   2945.9   3212.0   3216.5
+oci_lens_node_metrics               50      50       0  100.0%    857.6   2756.8   2803.6   2819.1
+oci_lens_pod_metrics                 5       5       0  100.0%    286.5   2329.2   2451.1   2481.6
+--------------------------------------------------------------------------------------------------------------
+TOTAL                              205     205       0  100.0%   1094.6   2795.7   3063.6   3216.5
+
+--- HTTP Status Codes ---
+  200: 205
+
+--- /metrics Endpoint Probe ---
+ Cycle        Bytes    Time_ms   Status
+     1     17.27 MB      398.2      200
+     5     17.27 MB      433.1      200
+
+  /metrics size growth: 17681 KB → 17681 KB (1.00x)
+
+==========================================================================================
+
+Results written to: /opt/stress-test/results/C0/
+  C0_pushes.csv  — per-push detail
+  C0_probes.csv  — /metrics endpoint probes
+  C0_summary.txt — this summary
+[2026-02-06 01:34:11] COMPLETED scenario C0 in 4m (exit 0)
+[2026-02-06 01:34:11] 
+[2026-02-06 01:34:16] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 01:34:16] STARTING scenario C1
+[2026-02-06 01:34:16]   Params: --endpoint http://10.96.230.201:9091 --nodes 100 --jitter 20 --interval 60 --duration 600 --jobs node+cluster
+[2026-02-06 01:34:16] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 01:34:16] Cleaning Pushgateway (deleting all metric groups)...
+  Deleted 41 groups
+
+======================================================================
+Pushgateway Stress Test — Scenario C1
+======================================================================
+Endpoint:        http://10.96.230.201:9091
+Nodes:           100
+Interval:        60s
+Duration:        600s (10 min)
+Jitter:          20.0s (ON)
+Max in-flight:   500
+Jobs filter:     node+cluster
+Pod multiplier:  1x
+
+Jobs per cycle:
+  [node-level]    amd-gpu-exporter × 100 nodes = 100 pushes
+  [node-level]    node-exporter × 100 nodes = 100 pushes
+  [node-level]    oci_lens_node_metrics × 100 nodes = 100 pushes
+  [node-level]    oci_lens_drhpc_metrics × 100 nodes = 100 pushes
+  [cluster-level] oci_lens_pod_metrics × 1 = 1 push
+  Total: 401 pushes/cycle
+
+Loading payloads...
+  Loaded amd-gpu-exporter: sample-amd-gpu-payload.txt (766.1 KB)
+  Loaded node-exporter: sample-node-exporter-payload.txt (569.9 KB)
+  Loaded oci_lens_node_metrics: payload-oci-lens-node.txt (24.9 KB)
+  Loaded oci_lens_drhpc_metrics: payload-oci-lens-drhpc.txt (14.6 KB)
+  Loaded oci_lens_pod_metrics: payload-oci-lens-pod.txt (20.2 KB)
+
+Starting test: 10 cycles × 401 pushes = 4010 total pushes
+======================================================================
+
+  Cycle    1 |   401 pushes | 123 ok / 278 err | p50=30266.5ms p95=30953.3ms max=31001.5ms | cycle_time=50.6s | FAIL(278)
+         /metrics probe: 61992 KB in 1676ms
+  Cycle    2 |   401 pushes | 0 ok / 401 err | p50=30498.8ms p95=30954.2ms max=31001.9ms | cycle_time=50.0s | FAIL(401)
+  Cycle    3 |   401 pushes | 0 ok / 401 err | p50=30515.1ms p95=30946.0ms max=31000.5ms | cycle_time=50.0s | FAIL(401)
+  Cycle    4 |   401 pushes | 0 ok / 401 err | p50=30508.5ms p95=30962.3ms max=30998.3ms | cycle_time=50.9s | FAIL(401)
+  Cycle    5 |   401 pushes | 112 ok / 289 err | p50=30171.5ms p95=30932.4ms max=30998.8ms | cycle_time=50.9s | FAIL(289)
+         /metrics probe: 55571 KB in 1560ms
+  Cycle    6 |   401 pushes | 0 ok / 401 err | p50=30506.9ms p95=30961.0ms max=30997.6ms | cycle_time=50.4s | FAIL(401)
+  Cycle    7 |   401 pushes | 0 ok / 401 err | p50=30515.5ms p95=30952.3ms max=31000.5ms | cycle_time=50.4s | FAIL(401)
+  Cycle    8 |   401 pushes | 0 ok / 401 err | p50=30478.6ms p95=30943.2ms max=31000.8ms | cycle_time=50.4s | FAIL(401)
+  Cycle    9 |   401 pushes | 127 ok / 274 err | p50=30210.1ms p95=30915.9ms max=31000.3ms | cycle_time=50.4s | FAIL(274)
+  Cycle   10 |   401 pushes | 0 ok / 401 err | p50=30508.1ms p95=30959.2ms max=31001.2ms | cycle_time=50.4s | FAIL(401)
+         /metrics probe: 90360 KB in 2302ms
+
+==========================================================================================
+FINAL REPORT — Scenario C1
+==========================================================================================
+Endpoint:       http://10.96.230.201:9091
+Nodes:          100
+Total duration: 595.9s (9.9 min)
+Total pushes:   4010
+
+--- Per-Job Summary ---
+Job                              Total      OK    Fail    Rate    p50ms    p95ms    p99ms    MaxMs
+--------------------------------------------------------------------------------------------------------------
+amd-gpu-exporter                  1000      85     915    8.5%  30456.4  30947.6  30990.7  31001.2
+node-exporter                     1000      84     916    8.4%  30453.8  30957.2  30993.8  31001.5
+oci_lens_drhpc_metrics            1000     101     899   10.1%  30430.5  30946.4  30993.1  31000.5
+oci_lens_node_metrics             1000      92     908    9.2%  30435.9  30954.1  30992.2  31001.9
+oci_lens_pod_metrics                10       0      10    0.0%  30329.0  30867.0  30942.1  30960.8
+--------------------------------------------------------------------------------------------------------------
+TOTAL                             4010     362    3648    9.0%  30443.0  30952.0  30992.9  31001.9
+
+--- HTTP Status Codes ---
+  200: 362
+  ERR:Cannot connect to host 10.96.2: 28
+  ERR:timeout: 3620
+
+--- /metrics Endpoint Probe ---
+ Cycle        Bytes    Time_ms   Status
+     1     60.54 MB     1675.5      200
+     5     54.27 MB     1559.7      200
+    10     88.24 MB     2302.4      200
+
+  /metrics size growth: 61992 KB → 90360 KB (1.46x)
+
+==========================================================================================
+
+Results written to: /opt/stress-test/results/C1/
+  C1_pushes.csv  — per-push detail
+  C1_probes.csv  — /metrics endpoint probes
+  C1_summary.txt — this summary
+[2026-02-06 01:44:14] COMPLETED scenario C1 in 9m (exit 0)
+[2026-02-06 01:44:14] 
+[2026-02-06 01:44:19] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 01:44:19] STARTING scenario C2
+[2026-02-06 01:44:19]   Params: --endpoint http://10.96.230.201:9091 --nodes 250 --jitter 20 --interval 60 --duration 600 --jobs node+cluster
+[2026-02-06 01:44:19] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 01:44:19] Cleaning Pushgateway (deleting all metric groups)...
+  Deleted 222 groups
+
+======================================================================
+Pushgateway Stress Test — Scenario C2
+======================================================================
+Endpoint:        http://10.96.230.201:9091
+Nodes:           250
+Interval:        60s
+Duration:        600s (10 min)
+Jitter:          20.0s (ON)
+Max in-flight:   500
+Jobs filter:     node+cluster
+Pod multiplier:  1x
+
+Jobs per cycle:
+  [node-level]    amd-gpu-exporter × 250 nodes = 250 pushes
+  [node-level]    node-exporter × 250 nodes = 250 pushes
+  [node-level]    oci_lens_node_metrics × 250 nodes = 250 pushes
+  [node-level]    oci_lens_drhpc_metrics × 250 nodes = 250 pushes
+  [cluster-level] oci_lens_pod_metrics × 1 = 1 push
+  Total: 1001 pushes/cycle
+
+Loading payloads...
+  Loaded amd-gpu-exporter: sample-amd-gpu-payload.txt (766.1 KB)
+  Loaded node-exporter: sample-node-exporter-payload.txt (569.9 KB)
+  Loaded oci_lens_node_metrics: payload-oci-lens-node.txt (24.9 KB)
+  Loaded oci_lens_drhpc_metrics: payload-oci-lens-drhpc.txt (14.6 KB)
+  Loaded oci_lens_pod_metrics: payload-oci-lens-pod.txt (20.2 KB)
+
+Starting test: 10 cycles × 1001 pushes = 10010 total pushes
+======================================================================
+
+  Cycle    1 |  1001 pushes | 0 ok / 1001 err | p50=30901.6ms p95=51510.0ms max=52124.3ms | cycle_time=64.8s | FAIL(1001)
+  Cycle    2 |  1001 pushes | 118 ok / 883 err | p50=30579.8ms p95=50008.9ms max=50724.2ms | cycle_time=70.4s | FAIL(883)
+  Cycle    3 |  1001 pushes | 0 ok / 1001 err | p50=30832.1ms p95=31592.1ms max=31880.6ms | cycle_time=51.0s | FAIL(1001)
+  Cycle    4 |  1001 pushes | 126 ok / 875 err | p50=30705.9ms p95=50079.2ms max=50385.0ms | cycle_time=70.0s | FAIL(875)
+  Cycle    5 |  1001 pushes | 0 ok / 1001 err | p50=30763.7ms p95=31578.1ms max=31928.1ms | cycle_time=51.0s | FAIL(1001)
+  Cycle    6 |  1001 pushes | 128 ok / 873 err | p50=30679.8ms p95=49984.6ms max=51028.0ms | cycle_time=71.0s | FAIL(873)
+  Cycle    7 |  1001 pushes | 0 ok / 1001 err | p50=30867.9ms p95=32059.5ms max=32410.1ms | cycle_time=52.0s | FAIL(1001)
+  Cycle    8 |  1001 pushes | 117 ok / 884 err | p50=30673.9ms p95=51593.9ms max=52477.2ms | cycle_time=72.0s | FAIL(884)
+  Cycle    9 |  1001 pushes | 0 ok / 1001 err | p50=30931.4ms p95=31891.8ms max=32126.9ms | cycle_time=51.0s | FAIL(1001)
+  Cycle   10 |  1001 pushes | 0 ok / 1001 err | p50=10908.4ms p95=11984.4ms max=12395.6ms | cycle_time=31.0s | FAIL(1001)
+
+==========================================================================================
+FINAL REPORT — Scenario C2
+==========================================================================================
+Endpoint:       http://10.96.230.201:9091
+Nodes:          250
+Total duration: 619.2s (10.3 min)
+Total pushes:   10010
+
+--- Per-Job Summary ---
+Job                              Total      OK    Fail    Rate    p50ms    p95ms    p99ms    MaxMs
+--------------------------------------------------------------------------------------------------------------
+amd-gpu-exporter                  2500      89    2411    3.6%  30736.2  50036.3  51396.0  52393.7
+node-exporter                     2500     107    2393    4.3%  30716.0  50122.7  51632.7  52326.1
+oci_lens_drhpc_metrics            2500     146    2354    5.8%  30656.8  49896.9  51472.4  52477.2
+oci_lens_node_metrics             2500     146    2354    5.8%  30660.6  49985.6  51581.7  52431.6
+oci_lens_pod_metrics                10       1       9   10.0%  30857.4  41767.5  48419.5  50082.5
+--------------------------------------------------------------------------------------------------------------
+TOTAL                            10010     489    9521    4.9%  30689.3  50035.6  51552.4  52477.2
+
+--- HTTP Status Codes ---
+  200: 489
+  ERR:Cannot connect to host 10.96.2: 199
+  ERR:Server disconnected: 39
+  ERR:timeout: 9283
+
+--- /metrics Endpoint Probe ---
+ Cycle        Bytes    Time_ms   Status
+     1        ERROR        1.0        0
+     5        ERROR        1.2        0
+    10        ERROR        1.1        0
+
+==========================================================================================
+
+Results written to: /opt/stress-test/results/C2/
+  C2_pushes.csv  — per-push detail
+  C2_probes.csv  — /metrics endpoint probes
+  C2_summary.txt — this summary
+[2026-02-06 01:54:43] COMPLETED scenario C2 in 10m (exit 0)
+[2026-02-06 01:54:43] 
+[2026-02-06 01:54:48] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 01:54:48] STARTING scenario C3
+[2026-02-06 01:54:48]   Params: --endpoint http://10.96.230.201:9091 --nodes 500 --jitter 20 --interval 60 --duration 900 --jobs node+cluster
+[2026-02-06 01:54:48] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 01:54:48] Cleaning Pushgateway (deleting all metric groups)...
+  Warning: cleanup failed: <urlopen error [Errno 111] Connection refused>
+
+======================================================================
+Pushgateway Stress Test — Scenario C3
+======================================================================
+Endpoint:        http://10.96.230.201:9091
+Nodes:           500
+Interval:        60s
+Duration:        900s (15 min)
+Jitter:          20.0s (ON)
+Max in-flight:   500
+Jobs filter:     node+cluster
+Pod multiplier:  1x
+
+Jobs per cycle:
+  [node-level]    amd-gpu-exporter × 500 nodes = 500 pushes
+  [node-level]    node-exporter × 500 nodes = 500 pushes
+  [node-level]    oci_lens_node_metrics × 500 nodes = 500 pushes
+  [node-level]    oci_lens_drhpc_metrics × 500 nodes = 500 pushes
+  [cluster-level] oci_lens_pod_metrics × 1 = 1 push
+  Total: 2001 pushes/cycle
+
+Loading payloads...
+  Loaded amd-gpu-exporter: sample-amd-gpu-payload.txt (766.1 KB)
+  Loaded node-exporter: sample-node-exporter-payload.txt (569.9 KB)
+  Loaded oci_lens_node_metrics: payload-oci-lens-node.txt (24.9 KB)
+  Loaded oci_lens_drhpc_metrics: payload-oci-lens-drhpc.txt (14.6 KB)
+  Loaded oci_lens_pod_metrics: payload-oci-lens-pod.txt (20.2 KB)
+
+Starting test: 15 cycles × 2001 pushes = 30015 total pushes
+======================================================================
+
+  Cycle    1 |  2001 pushes | 0 ok / 2001 err | p50=16854.2ms p95=28688.3ms max=29006.6ms | cycle_time=48.6s | FAIL(2001)
+  Cycle    2 |  2001 pushes | 0 ok / 2001 err | p50=16469.6ms p95=28168.3ms max=28605.0ms | cycle_time=47.6s | FAIL(2001)
+  Cycle    3 |  2001 pushes | 103 ok / 1898 err | p50=56602.0ms p95=88659.3ms max=101400.5ms | cycle_time=119.2s | FAIL(1898)
+  Cycle    4 |  2001 pushes | 0 ok / 2001 err | p50=16892.5ms p95=28533.5ms max=28837.0ms | cycle_time=48.3s | FAIL(2001)
+  Cycle    5 |  2001 pushes | 0 ok / 2001 err | p50=17151.3ms p95=28551.9ms max=29050.5ms | cycle_time=48.3s | FAIL(2001)
+  Cycle    6 |  2001 pushes | 0 ok / 2001 err | p50=16950.2ms p95=28598.7ms max=28903.1ms | cycle_time=48.3s | FAIL(2001)
+  Cycle    7 |  2001 pushes | 0 ok / 2001 err | p50=16766.1ms p95=28353.1ms max=28668.3ms | cycle_time=48.3s | FAIL(2001)
+  Cycle    8 |  2001 pushes | 0 ok / 2001 err | p50=16665.0ms p95=28532.6ms max=28849.1ms | cycle_time=48.3s | FAIL(2001)
+  Cycle    9 |  2001 pushes | 127 ok / 1874 err | p50=36750.6ms p95=87891.2ms max=88686.9ms | cycle_time=108.3s | FAIL(1874)
+  Cycle   10 |  2001 pushes | 138 ok / 1863 err | p50=17026.5ms p95=54840.7ms max=68574.9ms | cycle_time=88.0s | FAIL(1863)
+         /metrics probe: 53193 KB in 1243ms
+  Cycle   11 |  2001 pushes | 0 ok / 2001 err | p50=57164.1ms p95=68662.0ms max=69193.1ms | cycle_time=88.7s | FAIL(2001)
+  Cycle   12 |  2001 pushes | 0 ok / 2001 err | p50=16925.5ms p95=28547.3ms max=28968.8ms | cycle_time=48.0s | FAIL(2001)
+  Cycle   13 |  2001 pushes | 0 ok / 2001 err | p50=16958.1ms p95=28628.0ms max=28907.3ms | cycle_time=48.0s | FAIL(2001)
+  Cycle   14 |  2001 pushes | 0 ok / 2001 err | p50=16925.9ms p95=28426.0ms max=28731.8ms | cycle_time=48.0s | FAIL(2001)
+  Cycle   15 |  2001 pushes | 0 ok / 2001 err | p50=16955.6ms p95=28630.8ms max=28941.5ms | cycle_time=48.0s | FAIL(2001)
+
+==========================================================================================
+FINAL REPORT — Scenario C3
+==========================================================================================
+Endpoint:       http://10.96.230.201:9091
+Nodes:          500
+Total duration: 1053.6s (17.6 min)
+Total pushes:   30015
+
+--- Per-Job Summary ---
+Job                              Total      OK    Fail    Rate    p50ms    p95ms    p99ms    MaxMs
+--------------------------------------------------------------------------------------------------------------
+amd-gpu-exporter                  7500      88    7412    1.2%  22029.1  68017.6  88245.8  99773.9
+node-exporter                     7500      83    7417    1.1%  22028.7  68006.8  88274.8 101400.5
+oci_lens_drhpc_metrics            7500     101    7399    1.3%  21981.8  67995.6  88338.5 100764.2
+oci_lens_node_metrics             7500      96    7404    1.3%  22036.4  67998.3  88244.4 101393.3
+oci_lens_pod_metrics                15       0      15    0.0%  16665.7  38063.5  52333.0  55900.4
+--------------------------------------------------------------------------------------------------------------
+TOTAL                            30015     368   29647    1.2%  22024.2  68004.5  88280.0 101400.5
+
+--- HTTP Status Codes ---
+  200: 368
+  ERR:Cannot connect to host 10.96.2: 675
+  ERR:Server disconnected: 2
+  ERR:timeout: 28970
+
+--- /metrics Endpoint Probe ---
+ Cycle        Bytes    Time_ms   Status
+     1        ERROR        1.4        0
+     5        ERROR        1.9        0
+    10     51.95 MB     1243.4      200
+    15        ERROR        1.9        0
+
+==========================================================================================
+
+Results written to: /opt/stress-test/results/C3/
+  C3_pushes.csv  — per-push detail
+  C3_probes.csv  — /metrics endpoint probes
+  C3_summary.txt — this summary
+[2026-02-06 02:12:23] COMPLETED scenario C3 in 17m (exit 0)
+[2026-02-06 02:12:23] 
+[2026-02-06 02:12:28] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 02:12:28] STARTING scenario C4
+[2026-02-06 02:12:28]   Params: --endpoint http://10.96.230.201:9091 --nodes 750 --jitter 20 --interval 60 --duration 900 --jobs node+cluster
+[2026-02-06 02:12:28] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 02:12:28] Cleaning Pushgateway (deleting all metric groups)...
+  Warning: cleanup failed: <urlopen error [Errno 111] Connection refused>
+
+======================================================================
+Pushgateway Stress Test — Scenario C4
+======================================================================
+Endpoint:        http://10.96.230.201:9091
+Nodes:           750
+Interval:        60s
+Duration:        900s (15 min)
+Jitter:          20.0s (ON)
+Max in-flight:   500
+Jobs filter:     node+cluster
+Pod multiplier:  1x
+
+Jobs per cycle:
+  [node-level]    amd-gpu-exporter × 750 nodes = 750 pushes
+  [node-level]    node-exporter × 750 nodes = 750 pushes
+  [node-level]    oci_lens_node_metrics × 750 nodes = 750 pushes
+  [node-level]    oci_lens_drhpc_metrics × 750 nodes = 750 pushes
+  [cluster-level] oci_lens_pod_metrics × 1 = 1 push
+  Total: 3001 pushes/cycle
+
+Loading payloads...
+  Loaded amd-gpu-exporter: sample-amd-gpu-payload.txt (766.1 KB)
+  Loaded node-exporter: sample-node-exporter-payload.txt (569.9 KB)
+  Loaded oci_lens_node_metrics: payload-oci-lens-node.txt (24.9 KB)
+  Loaded oci_lens_drhpc_metrics: payload-oci-lens-drhpc.txt (14.6 KB)
+  Loaded oci_lens_pod_metrics: payload-oci-lens-pod.txt (20.2 KB)
+
+Starting test: 15 cycles × 3001 pushes = 45015 total pushes
+======================================================================
+
+  Cycle    1 |  3001 pushes | 0 ok / 3001 err | p50=26185.2ms p95=48623.9ms max=49034.1ms | cycle_time=68.5s | FAIL(3001)
+  Cycle    2 |  3001 pushes | 126 ok / 2875 err | p50=85949.2ms p95=109109.7ms max=109864.6ms | cycle_time=129.0s | FAIL(2875)
+  Cycle    3 |  3001 pushes | 200 ok / 2801 err | p50=65877.3ms p95=108713.1ms max=117040.6ms | cycle_time=131.6s | FAIL(2801)
+  Cycle    4 |  3001 pushes | 0 ok / 3001 err | p50=25989.8ms p95=48609.0ms max=49018.4ms | cycle_time=68.4s | FAIL(3001)
+  Cycle    5 |  3001 pushes | 0 ok / 3001 err | p50=26288.5ms p95=48584.7ms max=48994.6ms | cycle_time=68.0s | FAIL(3001)
+  Cycle    6 |  3001 pushes | 0 ok / 3001 err | p50=26191.6ms p95=48707.4ms max=49033.9ms | cycle_time=69.0s | FAIL(3001)
+  Cycle    7 |  3001 pushes | 0 ok / 3001 err | p50=26184.0ms p95=48508.6ms max=49071.4ms | cycle_time=69.0s | FAIL(3001)
+  Cycle    8 |  3001 pushes | 209 ok / 2792 err | p50=26362.5ms p95=87274.6ms max=88179.8ms | cycle_time=108.0s | FAIL(2792)
+  Cycle    9 |  3001 pushes | 158 ok / 2843 err | p50=45835.8ms p95=107990.6ms max=108787.1ms | cycle_time=128.0s | FAIL(2843)
+  Cycle   10 |  3001 pushes | 0 ok / 3001 err | p50=46179.2ms p95=68908.1ms max=69331.1ms | cycle_time=89.0s | FAIL(3001)
+  Cycle   11 |  3001 pushes | 0 ok / 3001 err | p50=26212.6ms p95=48700.0ms max=49085.3ms | cycle_time=69.0s | FAIL(3001)
+  Cycle   12 |  3001 pushes | 0 ok / 3001 err | p50=26156.1ms p95=48685.3ms max=49047.8ms | cycle_time=69.0s | FAIL(3001)
+  Cycle   13 |  3001 pushes | 0 ok / 3001 err | p50=26121.3ms p95=48686.6ms max=49082.1ms | cycle_time=68.0s | FAIL(3001)
+  Cycle   14 |  3001 pushes | 0 ok / 3001 err | p50=26367.1ms p95=48571.5ms max=48987.5ms | cycle_time=69.0s | FAIL(3001)
+  Cycle   15 |  3001 pushes | 135 ok / 2866 err | p50=65867.7ms p95=108153.9ms max=111274.6ms | cycle_time=129.0s | FAIL(2866)
+
+==========================================================================================
+FINAL REPORT — Scenario C4
+==========================================================================================
+Endpoint:       http://10.96.230.201:9091
+Nodes:          750
+Total duration: 1332.5s (22.2 min)
+Total pushes:   45015
+
+--- Per-Job Summary ---
+Job                              Total      OK    Fail    Rate    p50ms    p95ms    p99ms    MaxMs
+--------------------------------------------------------------------------------------------------------------
+amd-gpu-exporter                 11250      83   11167    0.7%  33670.2 100894.1 108748.1 116413.9
+node-exporter                    11250     168   11082    1.5%  33710.5 101247.4 108826.9 116421.9
+oci_lens_drhpc_metrics           11250     295   10955    2.6%  33621.5 101214.5 108850.8 116403.8
+oci_lens_node_metrics            11250     282   10968    2.5%  33621.5 100924.4 108763.5 117040.6
+oci_lens_pod_metrics                15       0      15    0.0%  40510.2  76222.6  95233.9  99986.8
+--------------------------------------------------------------------------------------------------------------
+TOTAL                            45015     828   44187    1.8%  33656.4 101095.5 108791.1 117040.6
+
+--- HTTP Status Codes ---
+  200: 828
+  ERR:Cannot connect to host 10.96.2: 914
+  ERR:Server disconnected: 6
+  ERR:timeout: 43267
+
+--- /metrics Endpoint Probe ---
+ Cycle        Bytes    Time_ms   Status
+     1        ERROR        1.8        0
+     5        ERROR        2.5        0
+    10        ERROR        2.9        0
+    15        ERROR        2.5        0
+
+==========================================================================================
+
+Results written to: /opt/stress-test/results/C4/
+  C4_pushes.csv  — per-push detail
+  C4_probes.csv  — /metrics endpoint probes
+  C4_summary.txt — this summary
+[2026-02-06 02:34:42] COMPLETED scenario C4 in 22m (exit 0)
+[2026-02-06 02:34:42] 
+[2026-02-06 02:34:47] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 02:34:47] STARTING scenario C5
+[2026-02-06 02:34:47]   Params: --endpoint http://10.96.230.201:9091 --nodes 1000 --jitter 20 --interval 60 --duration 1200 --jobs node+cluster
+[2026-02-06 02:34:47] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 02:34:47] Cleaning Pushgateway (deleting all metric groups)...
+  Warning: cleanup failed: <urlopen error [Errno 111] Connection refused>
+
+======================================================================
+Pushgateway Stress Test — Scenario C5
+======================================================================
+Endpoint:        http://10.96.230.201:9091
+Nodes:           1000
+Interval:        60s
+Duration:        1200s (20 min)
+Jitter:          20.0s (ON)
+Max in-flight:   500
+Jobs filter:     node+cluster
+Pod multiplier:  1x
+
+Jobs per cycle:
+  [node-level]    amd-gpu-exporter × 1000 nodes = 1000 pushes
+  [node-level]    node-exporter × 1000 nodes = 1000 pushes
+  [node-level]    oci_lens_node_metrics × 1000 nodes = 1000 pushes
+  [node-level]    oci_lens_drhpc_metrics × 1000 nodes = 1000 pushes
+  [cluster-level] oci_lens_pod_metrics × 1 = 1 push
+  Total: 4001 pushes/cycle
+
+Loading payloads...
+  Loaded amd-gpu-exporter: sample-amd-gpu-payload.txt (766.1 KB)
+  Loaded node-exporter: sample-node-exporter-payload.txt (569.9 KB)
+  Loaded oci_lens_node_metrics: payload-oci-lens-node.txt (24.9 KB)
+  Loaded oci_lens_drhpc_metrics: payload-oci-lens-drhpc.txt (14.6 KB)
+  Loaded oci_lens_pod_metrics: payload-oci-lens-pod.txt (20.2 KB)
+
+Starting test: 20 cycles × 4001 pushes = 80020 total pushes
+======================================================================
+
+  Cycle    1 |  4001 pushes | 122 ok / 3879 err | p50=96280.3ms p95=129932.2ms max=130504.9ms | cycle_time=150.4s | FAIL(3879)
+  Cycle    2 |  4001 pushes | 0 ok / 4001 err | p50=36166.4ms p95=69660.5ms max=70157.2ms | cycle_time=90.0s | FAIL(4001)
+  Cycle    3 |  4001 pushes | 0 ok / 4001 err | p50=36162.6ms p95=69632.4ms max=70112.5ms | cycle_time=90.0s | FAIL(4001)
+  Cycle    4 |  4001 pushes | 0 ok / 4001 err | p50=36494.4ms p95=69716.4ms max=70241.4ms | cycle_time=90.0s | FAIL(4001)
+  Cycle    5 |  4001 pushes | 136 ok / 3865 err | p50=85162.7ms p95=129676.7ms max=132946.7ms | cycle_time=153.0s | FAIL(3865)
+  Cycle    6 |  4001 pushes | 126 ok / 3875 err | p50=72046.1ms p95=87506.1ms max=108429.2ms | cycle_time=116.6s | FAIL(3875)
+  Cycle    7 |  4001 pushes | 0 ok / 4001 err | p50=36208.6ms p95=69587.2ms max=70233.7ms | cycle_time=89.3s | FAIL(4001)
+  Cycle    8 |  4001 pushes | 0 ok / 4001 err | p50=36344.5ms p95=69584.8ms max=70100.4ms | cycle_time=90.0s | FAIL(4001)
+  Cycle    9 |  4001 pushes | 0 ok / 4001 err | p50=36104.5ms p95=69720.4ms max=70196.4ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   10 |  4001 pushes | 163 ok / 3838 err | p50=36132.3ms p95=129600.6ms max=142097.1ms | cycle_time=160.6s | FAIL(3838)
+  Cycle   11 |  4001 pushes | 127 ok / 3874 err | p50=96147.5ms p95=129709.6ms max=130332.6ms | cycle_time=149.3s | FAIL(3874)
+  Cycle   12 |  4001 pushes | 0 ok / 4001 err | p50=36396.3ms p95=69754.8ms max=70274.7ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   13 |  4001 pushes | 0 ok / 4001 err | p50=36446.5ms p95=69703.3ms max=70153.9ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   14 |  4001 pushes | 0 ok / 4001 err | p50=36034.8ms p95=69736.9ms max=70253.5ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   15 |  4001 pushes | 140 ok / 3861 err | p50=56142.2ms p95=129568.6ms max=133877.9ms | cycle_time=150.6s | FAIL(3861)
+  Cycle   16 |  4001 pushes | 121 ok / 3880 err | p50=96340.6ms p95=129971.9ms max=130559.6ms | cycle_time=150.3s | FAIL(3880)
+  Cycle   17 |  4001 pushes | 0 ok / 4001 err | p50=36202.2ms p95=69553.0ms max=70088.4ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   18 |  4001 pushes | 0 ok / 4001 err | p50=36177.6ms p95=69639.4ms max=70103.6ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   19 |  4001 pushes | 0 ok / 4001 err | p50=36240.8ms p95=69702.7ms max=70182.8ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   20 |  4001 pushes | 153 ok / 3848 err | p50=56382.3ms p95=129905.3ms max=133648.8ms | cycle_time=150.0s | FAIL(3848)
+
+==========================================================================================
+FINAL REPORT — Scenario C5
+==========================================================================================
+Endpoint:       http://10.96.230.201:9091
+Nodes:          1000
+Total duration: 2260.4s (37.7 min)
+Total pushes:   80020
+
+--- Per-Job Summary ---
+Job                              Total      OK    Fail    Rate    p50ms    p95ms    p99ms    MaxMs
+--------------------------------------------------------------------------------------------------------------
+amd-gpu-exporter                 20000     146   19854    0.7%  44704.0 121574.3 130049.2 141442.0
+node-exporter                    20000     239   19761    1.2%  44672.9 121514.8 130022.9 142069.0
+oci_lens_drhpc_metrics           20000     351   19649    1.8%  44616.1 121590.0 130059.0 140466.7
+oci_lens_node_metrics            20000     352   19648    1.8%  44683.0 121513.0 130010.9 142097.1
+oci_lens_pod_metrics                20       0      20    0.0%  52985.4 120947.4 121121.6 121165.2
+--------------------------------------------------------------------------------------------------------------
+TOTAL                            80020    1088   78932    1.4%  44666.3 121553.3 130039.9 142097.1
+
+--- HTTP Status Codes ---
+  200: 1088
+  ERR:Cannot connect to host 10.96.2: 4062
+  ERR:Server disconnected: 17
+  ERR:timeout: 74853
+
+--- /metrics Endpoint Probe ---
+ Cycle        Bytes    Time_ms   Status
+     1        ERROR        2.0        0
+     5        ERROR        2.7        0
+    10        ERROR        3.0        0
+    15        ERROR        3.0        0
+    20        ERROR        4.2        0
+
+==========================================================================================
+
+Results written to: /opt/stress-test/results/C5/
+  C5_pushes.csv  — per-push detail
+  C5_probes.csv  — /metrics endpoint probes
+  C5_summary.txt — this summary
+[2026-02-06 03:12:30] COMPLETED scenario C5 in 37m (exit 0)
+[2026-02-06 03:12:30] 
+[2026-02-06 03:12:35] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 03:12:35] STARTING scenario C6
+[2026-02-06 03:12:35]   Params: --endpoint http://10.96.230.201:9091 --nodes 1000 --jitter 20 --interval 60 --duration 7200 --jobs node+cluster
+[2026-02-06 03:12:35] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 03:12:35] Cleaning Pushgateway (deleting all metric groups)...
+  Warning: cleanup failed: <urlopen error [Errno 111] Connection refused>
+
+======================================================================
+Pushgateway Stress Test — Scenario C6
+======================================================================
+Endpoint:        http://10.96.230.201:9091
+Nodes:           1000
+Interval:        60s
+Duration:        7200s (120 min)
+Jitter:          20.0s (ON)
+Max in-flight:   500
+Jobs filter:     node+cluster
+Pod multiplier:  1x
+
+Jobs per cycle:
+  [node-level]    amd-gpu-exporter × 1000 nodes = 1000 pushes
+  [node-level]    node-exporter × 1000 nodes = 1000 pushes
+  [node-level]    oci_lens_node_metrics × 1000 nodes = 1000 pushes
+  [node-level]    oci_lens_drhpc_metrics × 1000 nodes = 1000 pushes
+  [cluster-level] oci_lens_pod_metrics × 1 = 1 push
+  Total: 4001 pushes/cycle
+
+Loading payloads...
+  Loaded amd-gpu-exporter: sample-amd-gpu-payload.txt (766.1 KB)
+  Loaded node-exporter: sample-node-exporter-payload.txt (569.9 KB)
+  Loaded oci_lens_node_metrics: payload-oci-lens-node.txt (24.9 KB)
+  Loaded oci_lens_drhpc_metrics: payload-oci-lens-drhpc.txt (14.6 KB)
+  Loaded oci_lens_pod_metrics: payload-oci-lens-pod.txt (20.2 KB)
+
+Starting test: 120 cycles × 4001 pushes = 480120 total pushes
+======================================================================
+
+  Cycle    1 |  4001 pushes | 123 ok / 3878 err | p50=96328.1ms p95=129314.4ms max=130178.0ms | cycle_time=150.1s | FAIL(3878)
+  Cycle    2 |  4001 pushes | 0 ok / 4001 err | p50=36247.1ms p95=69678.2ms max=70139.0ms | cycle_time=90.0s | FAIL(4001)
+  Cycle    3 |  4001 pushes | 0 ok / 4001 err | p50=36171.1ms p95=69856.4ms max=70386.2ms | cycle_time=90.0s | FAIL(4001)
+  Cycle    4 |  4001 pushes | 0 ok / 4001 err | p50=36305.7ms p95=69607.0ms max=70132.1ms | cycle_time=90.0s | FAIL(4001)
+  Cycle    5 |  4001 pushes | 323 ok / 3678 err | p50=95734.1ms p95=149141.1ms max=150090.3ms | cycle_time=170.0s | FAIL(3678)
+         /metrics probe: 48494 KB in 1312ms
+  Cycle    6 |  4001 pushes | 0 ok / 4001 err | p50=76455.9ms p95=109767.6ms max=110290.1ms | cycle_time=129.7s | FAIL(4001)
+  Cycle    7 |  4001 pushes | 0 ok / 4001 err | p50=36065.9ms p95=69781.2ms max=70264.6ms | cycle_time=90.0s | FAIL(4001)
+  Cycle    8 |  4001 pushes | 0 ok / 4001 err | p50=36545.2ms p95=69691.9ms max=70184.6ms | cycle_time=90.0s | FAIL(4001)
+  Cycle    9 |  4001 pushes | 0 ok / 4001 err | p50=36287.1ms p95=69885.6ms max=70283.5ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   10 |  4001 pushes | 374 ok / 3627 err | p50=96227.9ms p95=126518.9ms max=149893.7ms | cycle_time=169.0s | FAIL(3627)
+         /metrics probe: 51375 KB in 1310ms
+  Cycle   11 |  4001 pushes | 0 ok / 4001 err | p50=76333.1ms p95=109699.1ms max=110157.9ms | cycle_time=129.7s | FAIL(4001)
+  Cycle   12 |  4001 pushes | 0 ok / 4001 err | p50=36389.8ms p95=69733.5ms max=70260.9ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   13 |  4001 pushes | 0 ok / 4001 err | p50=36113.3ms p95=69696.1ms max=70210.0ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   14 |  4001 pushes | 0 ok / 4001 err | p50=36240.5ms p95=69880.8ms max=70402.1ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   15 |  4001 pushes | 325 ok / 3676 err | p50=97558.8ms p95=168945.0ms max=169972.3ms | cycle_time=190.0s | FAIL(3676)
+         /metrics probe: 58101 KB in 1473ms
+  Cycle   16 |  4001 pushes | 0 ok / 4001 err | p50=56356.8ms p95=89575.3ms max=90089.5ms | cycle_time=109.5s | FAIL(4001)
+  Cycle   17 |  4001 pushes | 0 ok / 4001 err | p50=35939.0ms p95=69604.2ms max=70126.1ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   18 |  4001 pushes | 0 ok / 4001 err | p50=36443.3ms p95=69772.6ms max=70242.2ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   19 |  4001 pushes | 0 ok / 4001 err | p50=36424.0ms p95=69787.4ms max=70290.5ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   20 |  4001 pushes | 286 ok / 3715 err | p50=96808.5ms p95=168844.8ms max=169588.7ms | cycle_time=189.0s | FAIL(3715)
+         /metrics probe: 73391 KB in 2020ms
+  Cycle   21 |  4001 pushes | 0 ok / 4001 err | p50=56373.1ms p95=89748.8ms max=90249.6ms | cycle_time=110.0s | FAIL(4001)
+  Cycle   22 |  4001 pushes | 0 ok / 4001 err | p50=36326.4ms p95=69586.4ms max=70159.1ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   23 |  4001 pushes | 0 ok / 4001 err | p50=36164.1ms p95=69551.9ms max=70039.1ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   24 |  4001 pushes | 0 ok / 4001 err | p50=36334.6ms p95=69603.6ms max=70233.4ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   25 |  4001 pushes | 317 ok / 3684 err | p50=96509.7ms p95=168660.8ms max=170343.6ms | cycle_time=190.0s | FAIL(3684)
+         /metrics probe: 68902 KB in 1907ms
+  Cycle   26 |  4001 pushes | 0 ok / 4001 err | p50=56196.1ms p95=89642.9ms max=90152.2ms | cycle_time=110.1s | FAIL(4001)
+  Cycle   27 |  4001 pushes | 0 ok / 4001 err | p50=36171.5ms p95=69783.3ms max=70231.4ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   28 |  4001 pushes | 0 ok / 4001 err | p50=36233.3ms p95=69575.1ms max=70029.1ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   29 |  4001 pushes | 224 ok / 3777 err | p50=36441.2ms p95=88940.4ms max=90149.1ms | cycle_time=110.0s | FAIL(3777)
+  Cycle   30 |  4001 pushes | 194 ok / 3807 err | p50=76388.0ms p95=169175.5ms max=170029.0ms | cycle_time=189.0s | FAIL(3807)
+  Cycle   31 |  4001 pushes | 0 ok / 4001 err | p50=36235.0ms p95=69622.2ms max=70069.2ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   32 |  4001 pushes | 0 ok / 4001 err | p50=36421.8ms p95=69670.1ms max=70167.1ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   33 |  4001 pushes | 0 ok / 4001 err | p50=36271.9ms p95=69941.4ms max=70455.3ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   34 |  4001 pushes | 198 ok / 3803 err | p50=36331.4ms p95=108948.7ms max=109745.9ms | cycle_time=129.0s | FAIL(3803)
+  Cycle   35 |  4001 pushes | 148 ok / 3853 err | p50=56306.6ms p95=149791.6ms max=161177.1ms | cycle_time=179.6s | FAIL(3853)
+  Cycle   36 |  4001 pushes | 0 ok / 4001 err | p50=36117.5ms p95=69763.6ms max=70349.9ms | cycle_time=89.3s | FAIL(4001)
+  Cycle   37 |  4001 pushes | 0 ok / 4001 err | p50=36325.3ms p95=69865.8ms max=70339.6ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   38 |  4001 pushes | 0 ok / 4001 err | p50=36289.2ms p95=69786.2ms max=70268.6ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   39 |  4001 pushes | 130 ok / 3871 err | p50=36260.5ms p95=129940.0ms max=142318.1ms | cycle_time=160.6s | FAIL(3871)
+  Cycle   40 |  4001 pushes | 124 ok / 3877 err | p50=95998.6ms p95=129664.3ms max=130201.9ms | cycle_time=149.3s | FAIL(3877)
+  Cycle   41 |  4001 pushes | 0 ok / 4001 err | p50=36098.7ms p95=69734.1ms max=70285.2ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   42 |  4001 pushes | 0 ok / 4001 err | p50=36080.8ms p95=69613.2ms max=70083.6ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   43 |  4001 pushes | 0 ok / 4001 err | p50=36132.7ms p95=69731.2ms max=70250.4ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   44 |  4001 pushes | 132 ok / 3869 err | p50=65854.1ms p95=129722.1ms max=135934.9ms | cycle_time=156.0s | FAIL(3869)
+  Cycle   45 |  4001 pushes | 113 ok / 3888 err | p50=95992.6ms p95=129496.1ms max=130179.2ms | cycle_time=150.0s | FAIL(3888)
+  Cycle   46 |  4001 pushes | 0 ok / 4001 err | p50=36328.3ms p95=69607.4ms max=70109.1ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   47 |  4001 pushes | 0 ok / 4001 err | p50=36405.2ms p95=69723.9ms max=70180.2ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   48 |  4001 pushes | 0 ok / 4001 err | p50=36365.4ms p95=69709.2ms max=70184.8ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   49 |  4001 pushes | 322 ok / 3679 err | p50=96253.0ms p95=148738.2ms max=152874.5ms | cycle_time=173.0s | FAIL(3679)
+  Cycle   50 |  4001 pushes | 0 ok / 4001 err | p50=76126.7ms p95=109593.4ms max=110118.4ms | cycle_time=130.0s | FAIL(4001)
+  Cycle   51 |  4001 pushes | 0 ok / 4001 err | p50=36068.5ms p95=69921.6ms max=70421.2ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   52 |  4001 pushes | 0 ok / 4001 err | p50=36247.8ms p95=69687.7ms max=70240.0ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   53 |  4001 pushes | 0 ok / 4001 err | p50=36292.7ms p95=69709.6ms max=70233.6ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   54 |  4001 pushes | 379 ok / 3622 err | p50=96130.4ms p95=129622.1ms max=149847.0ms | cycle_time=169.0s | FAIL(3622)
+  Cycle   55 |  4001 pushes | 0 ok / 4001 err | p50=86583.2ms p95=116782.9ms max=120363.8ms | cycle_time=140.0s | FAIL(4001)
+  Cycle   56 |  4001 pushes | 0 ok / 4001 err | p50=36290.7ms p95=69752.4ms max=70299.3ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   57 |  4001 pushes | 0 ok / 4001 err | p50=36251.5ms p95=69829.6ms max=70337.1ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   58 |  4001 pushes | 0 ok / 4001 err | p50=36249.3ms p95=69814.2ms max=70272.3ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   59 |  4001 pushes | 277 ok / 3724 err | p50=96003.3ms p95=168977.5ms max=189017.4ms | cycle_time=209.0s | FAIL(3724)
+  Cycle   60 |  4001 pushes | 0 ok / 4001 err | p50=56440.2ms p95=89779.0ms max=90193.8ms | cycle_time=110.0s | FAIL(4001)
+  Cycle   61 |  4001 pushes | 0 ok / 4001 err | p50=36439.5ms p95=69782.7ms max=70312.8ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   62 |  4001 pushes | 0 ok / 4001 err | p50=36304.1ms p95=69532.5ms max=70088.6ms | cycle_time=89.0s | FAIL(4001)
+  Cycle   63 |  4001 pushes | 138 ok / 3863 err | p50=36191.4ms p95=69963.6ms max=90371.2ms | cycle_time=110.0s | FAIL(3863)
+  Cycle   64 |  4001 pushes | 163 ok / 3838 err | p50=76199.4ms p95=169426.1ms max=170170.0ms | cycle_time=190.0s | FAIL(3838)
+  Cycle   65 |  4001 pushes | 0 ok / 4001 err | p50=36031.5ms p95=69633.4ms max=70227.2ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   66 |  4001 pushes | 0 ok / 4001 err | p50=36319.5ms p95=69838.2ms max=70286.5ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   67 |  4001 pushes | 0 ok / 4001 err | p50=36183.4ms p95=69756.9ms max=70186.9ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   68 |  4001 pushes | 167 ok / 3834 err | p50=36110.1ms p95=69933.1ms max=90300.1ms | cycle_time=110.0s | FAIL(3834)
+  Cycle   69 |  4001 pushes | 161 ok / 3840 err | p50=76259.4ms p95=169568.0ms max=170183.2ms | cycle_time=190.0s | FAIL(3840)
+  Cycle   70 |  4001 pushes | 0 ok / 4001 err | p50=36243.4ms p95=69539.8ms max=70028.3ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   71 |  4001 pushes | 0 ok / 4001 err | p50=36220.0ms p95=69714.5ms max=70194.3ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   72 |  4001 pushes | 0 ok / 4001 err | p50=36306.0ms p95=69803.0ms max=70284.0ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   73 |  4001 pushes | 139 ok / 3862 err | p50=36439.5ms p95=89384.8ms max=89999.6ms | cycle_time=109.0s | FAIL(3862)
+  Cycle   74 |  4001 pushes | 211 ok / 3790 err | p50=76273.6ms p95=169103.5ms max=170442.0ms | cycle_time=190.0s | FAIL(3790)
+  Cycle   75 |  4001 pushes | 0 ok / 4001 err | p50=36332.7ms p95=69846.1ms max=70495.4ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   76 |  4001 pushes | 0 ok / 4001 err | p50=36229.1ms p95=69601.0ms max=70129.0ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   77 |  4001 pushes | 0 ok / 4001 err | p50=36404.3ms p95=69813.4ms max=70215.4ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   78 |  4001 pushes | 67 ok / 3934 err | p50=36172.5ms p95=69621.5ms max=73970.0ms | cycle_time=94.0s | FAIL(3934)
+  Cycle   79 |  4001 pushes | 173 ok / 3828 err | p50=98433.7ms p95=169525.9ms max=170222.0ms | cycle_time=190.0s | FAIL(3828)
+  Cycle   80 |  4001 pushes | 0 ok / 4001 err | p50=56127.2ms p95=89603.2ms max=90185.0ms | cycle_time=110.0s | FAIL(4001)
+  Cycle   81 |  4001 pushes | 0 ok / 4001 err | p50=36247.2ms p95=69760.8ms max=70207.8ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   82 |  4001 pushes | 0 ok / 4001 err | p50=36068.0ms p95=69659.8ms max=70126.3ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   83 |  4001 pushes | 142 ok / 3859 err | p50=36355.4ms p95=89460.9ms max=90296.7ms | cycle_time=109.0s | FAIL(3859)
+  Cycle   84 |  4001 pushes | 141 ok / 3860 err | p50=86514.3ms p95=157556.7ms max=173796.4ms | cycle_time=194.0s | FAIL(3860)
+  Cycle   85 |  4001 pushes | 0 ok / 4001 err | p50=56355.0ms p95=89859.5ms max=90235.9ms | cycle_time=110.0s | FAIL(4001)
+  Cycle   86 |  4001 pushes | 0 ok / 4001 err | p50=36515.4ms p95=69812.8ms max=70287.0ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   87 |  4001 pushes | 0 ok / 4001 err | p50=36498.8ms p95=69598.2ms max=70065.4ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   88 |  4001 pushes | 0 ok / 4001 err | p50=36125.2ms p95=69631.3ms max=70069.9ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   89 |  4001 pushes | 313 ok / 3688 err | p50=96407.2ms p95=168731.5ms max=169695.4ms | cycle_time=189.0s | FAIL(3688)
+  Cycle   90 |  4001 pushes | 0 ok / 4001 err | p50=56461.4ms p95=89702.8ms max=90177.9ms | cycle_time=110.0s | FAIL(4001)
+  Cycle   91 |  4001 pushes | 0 ok / 4001 err | p50=36070.3ms p95=69782.8ms max=70305.3ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   92 |  4001 pushes | 0 ok / 4001 err | p50=36079.5ms p95=69778.0ms max=70279.1ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   93 |  4001 pushes | 0 ok / 4001 err | p50=36121.2ms p95=69807.7ms max=70316.0ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   94 |  4001 pushes | 301 ok / 3700 err | p50=96275.4ms p95=168757.1ms max=170173.2ms | cycle_time=190.0s | FAIL(3700)
+  Cycle   95 |  4001 pushes | 0 ok / 4001 err | p50=56118.0ms p95=89710.3ms max=90171.9ms | cycle_time=110.0s | FAIL(4001)
+  Cycle   96 |  4001 pushes | 0 ok / 4001 err | p50=36117.0ms p95=69780.6ms max=70291.7ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   97 |  4001 pushes | 0 ok / 4001 err | p50=36280.3ms p95=69594.4ms max=70122.8ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   98 |  4001 pushes | 0 ok / 4001 err | p50=36263.7ms p95=69657.2ms max=70052.0ms | cycle_time=90.0s | FAIL(4001)
+  Cycle   99 |  4001 pushes | 318 ok / 3683 err | p50=96516.4ms p95=168604.8ms max=170285.5ms | cycle_time=190.0s | FAIL(3683)
+  Cycle  100 |  4001 pushes | 0 ok / 4001 err | p50=56194.1ms p95=89683.5ms max=90161.7ms | cycle_time=110.0s | FAIL(4001)
+  Cycle  101 |  4001 pushes | 0 ok / 4001 err | p50=36110.5ms p95=69690.3ms max=70146.3ms | cycle_time=90.0s | FAIL(4001)
+  Cycle  102 |  4001 pushes | 0 ok / 4001 err | p50=36280.6ms p95=69796.1ms max=70184.6ms | cycle_time=90.0s | FAIL(4001)
+  Cycle  103 |  4001 pushes | 0 ok / 4001 err | p50=36556.1ms p95=69883.5ms max=70406.3ms | cycle_time=90.0s | FAIL(4001)
+  Cycle  104 |  4001 pushes | 290 ok / 3711 err | p50=96483.4ms p95=168764.5ms max=170207.4ms | cycle_time=190.0s | FAIL(3711)
+  Cycle  105 |  4001 pushes | 0 ok / 4001 err | p50=56382.8ms p95=89765.9ms max=90154.4ms | cycle_time=110.0s | FAIL(4001)
+  Cycle  106 |  4001 pushes | 0 ok / 4001 err | p50=36089.8ms p95=69763.4ms max=70211.8ms | cycle_time=90.0s | FAIL(4001)
+  Cycle  107 |  4001 pushes | 0 ok / 4001 err | p50=36198.9ms p95=69751.1ms max=70254.6ms | cycle_time=90.0s | FAIL(4001)
+  Cycle  108 |  4001 pushes | 182 ok / 3819 err | p50=36214.2ms p95=89385.2ms max=90237.4ms | cycle_time=110.0s | FAIL(3819)
+  Cycle  109 |  4001 pushes | 135 ok / 3866 err | p50=76365.1ms p95=169018.2ms max=169610.1ms | cycle_time=189.0s | FAIL(3866)
+  Cycle  110 |  4001 pushes | 0 ok / 4001 err | p50=36274.6ms p95=69708.7ms max=70146.5ms | cycle_time=90.0s | FAIL(4001)
+  Cycle  111 |  4001 pushes | 0 ok / 4001 err | p50=36251.1ms p95=69830.8ms max=70229.7ms | cycle_time=90.0s | FAIL(4001)
+  Cycle  112 |  4001 pushes | 0 ok / 4001 err | p50=36137.6ms p95=69769.7ms max=70243.9ms | cycle_time=90.0s | FAIL(4001)
+  Cycle  113 |  4001 pushes | 150 ok / 3851 err | p50=36445.1ms p95=89574.6ms max=90239.2ms | cycle_time=110.0s | FAIL(3851)
+  Cycle  114 |  4001 pushes | 154 ok / 3847 err | p50=76421.6ms p95=169417.2ms max=170181.5ms | cycle_time=190.0s | FAIL(3847)
+  Cycle  115 |  4001 pushes | 0 ok / 4001 err | p50=36323.5ms p95=69552.3ms max=70103.4ms | cycle_time=90.0s | FAIL(4001)
+  Cycle  116 |  4001 pushes | 0 ok / 4001 err | p50=36295.4ms p95=69733.9ms max=70199.6ms | cycle_time=90.0s | FAIL(4001)
+  Cycle  117 |  4001 pushes | 0 ok / 4001 err | p50=36322.9ms p95=69699.0ms max=70197.4ms | cycle_time=90.0s | FAIL(4001)
+  Cycle  118 |  4001 pushes | 118 ok / 3883 err | p50=36396.2ms p95=109095.8ms max=109682.4ms | cycle_time=129.0s | FAIL(3883)
+  Cycle  119 |  4001 pushes | 133 ok / 3868 err | p50=57520.2ms p95=149464.4ms max=163820.9ms | cycle_time=181.6s | FAIL(3868)
+  Cycle  120 |  4001 pushes | 0 ok / 4001 err | p50=36664.5ms p95=69710.8ms max=70243.9ms | cycle_time=89.3s | FAIL(4001)
+
+==========================================================================================
+FINAL REPORT — Scenario C6
+==========================================================================================
+Endpoint:       http://10.96.230.201:9091
+Nodes:          1000
+Total duration: 13832.1s (230.5 min)
+Total pushes:   480120
+
+--- Per-Job Summary ---
+Job                              Total      OK    Fail    Rate    p50ms    p95ms    p99ms    MaxMs
+--------------------------------------------------------------------------------------------------------------
+amd-gpu-exporter                120000     770  119230    0.6%  47688.4 120517.6 158964.7 189005.3
+node-exporter                   120000    1535  118465    1.3%  47622.4 120162.0 160475.5 189011.4
+oci_lens_drhpc_metrics          120000    2597  117403    2.2%  47732.2 116587.5 157595.9 188998.6
+oci_lens_node_metrics           120000    2679  117321    2.2%  47455.5 116866.8 159420.6 189017.4
+oci_lens_pod_metrics               120       4     116    3.3%  52934.6 103803.8 139683.8 169504.3
+--------------------------------------------------------------------------------------------------------------
+TOTAL                           480120    7585  472535    1.6%  47624.4 117867.1 158955.4 189017.4
+
+--- HTTP Status Codes ---
+  200: 7585
+  ERR:Cannot connect to host 10.96.2: 9623
+  ERR:Server disconnected: 220
+  ERR:timeout: 462692
+
+--- /metrics Endpoint Probe ---
+ Cycle        Bytes    Time_ms   Status
+     1        ERROR        2.1        0
+     5     47.36 MB     1311.6      200
+    10     50.17 MB     1310.0      200
+    15     56.74 MB     1473.2      200
+    20     71.67 MB     2020.2      200
+    25     67.29 MB     1907.2      200
+    30        ERROR        3.0        0
+    35        ERROR        3.0        0
+    40        ERROR        3.1        0
+    45        ERROR        3.0        0
+    50        ERROR        3.1        0
+    55        ERROR        4.7        0
+    60        ERROR        3.7        0
+    65        ERROR        3.1        0
+    70        ERROR        3.1        0
+    75        ERROR        2.9        0
+    80        ERROR        2.9        0
+    85        ERROR        3.0        0
+    90        ERROR        3.1        0
+    95        ERROR        3.1        0
+   100        ERROR        5.0        0
+   105        ERROR        3.1        0
+   110        ERROR        3.2        0
+   115        ERROR        3.3        0
+   120        ERROR        3.2        0
+
+==========================================================================================
+
+Results written to: /opt/stress-test/results/C6/
+  C6_pushes.csv  — per-push detail
+  C6_probes.csv  — /metrics endpoint probes
+  C6_summary.txt — this summary
+[2026-02-06 07:03:13] COMPLETED scenario C6 in 230m (exit 0)
+[2026-02-06 07:03:13] 
+[2026-02-06 07:03:18] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 07:03:18] STARTING scenario C7
+[2026-02-06 07:03:18]   Params: --endpoint http://10.96.230.201:9091 --nodes 1000 --jitter 0 --interval 60 --duration 1200 --jobs node+cluster
+[2026-02-06 07:03:18] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 07:03:18] Cleaning Pushgateway (deleting all metric groups)...
+  Warning: cleanup failed: <urlopen error [Errno 111] Connection refused>
+
+======================================================================
+Pushgateway Stress Test — Scenario C7
+======================================================================
+Endpoint:        http://10.96.230.201:9091
+Nodes:           1000
+Interval:        60s
+Duration:        1200s (20 min)
+Jitter:          0.0s (OFF)
+Max in-flight:   500
+Jobs filter:     node+cluster
+Pod multiplier:  1x
+
+Jobs per cycle:
+  [node-level]    amd-gpu-exporter × 1000 nodes = 1000 pushes
+  [node-level]    node-exporter × 1000 nodes = 1000 pushes
+  [node-level]    oci_lens_node_metrics × 1000 nodes = 1000 pushes
+  [node-level]    oci_lens_drhpc_metrics × 1000 nodes = 1000 pushes
+  [cluster-level] oci_lens_pod_metrics × 1 = 1 push
+  Total: 4001 pushes/cycle
+
+Loading payloads...
+  Loaded amd-gpu-exporter: sample-amd-gpu-payload.txt (766.1 KB)
+  Loaded node-exporter: sample-node-exporter-payload.txt (569.9 KB)
+  Loaded oci_lens_node_metrics: payload-oci-lens-node.txt (24.9 KB)
+  Loaded oci_lens_drhpc_metrics: payload-oci-lens-drhpc.txt (14.6 KB)
+  Loaded oci_lens_pod_metrics: payload-oci-lens-pod.txt (20.2 KB)
+
+Starting test: 20 cycles × 4001 pushes = 80020 total pushes
+======================================================================
+
+  Cycle    1 |  4001 pushes | 0 ok / 4001 err | p50=43117.8ms p95=87087.8ms max=87099.6ms | cycle_time=87.3s | FAIL(4001)
+  Cycle    2 |  4001 pushes | 0 ok / 4001 err | p50=43859.8ms p95=87795.7ms max=87807.2ms | cycle_time=88.0s | FAIL(4001)
+  Cycle    3 |  4001 pushes | 264 ok / 3737 err | p50=43845.8ms p95=147806.0ms max=164476.3ms | cycle_time=164.6s | FAIL(3737)
+  Cycle    4 |  4001 pushes | 259 ok / 3742 err | p50=103151.7ms p95=147134.1ms max=149127.4ms | cycle_time=149.3s | FAIL(3742)
+  Cycle    5 |  4001 pushes | 0 ok / 4001 err | p50=43878.3ms p95=87848.2ms max=87859.8ms | cycle_time=88.0s | FAIL(4001)
+  Cycle    6 |  4001 pushes | 0 ok / 4001 err | p50=43851.9ms p95=87778.2ms max=87789.7ms | cycle_time=88.0s | FAIL(4001)
+  Cycle    7 |  4001 pushes | 0 ok / 4001 err | p50=43841.1ms p95=87811.2ms max=87823.4ms | cycle_time=88.0s | FAIL(4001)
+  Cycle    8 |  4001 pushes | 156 ok / 3845 err | p50=63818.7ms p95=147798.4ms max=147810.7ms | cycle_time=148.0s | FAIL(3845)
+  Cycle    9 |  4001 pushes | 195 ok / 3806 err | p50=103820.5ms p95=147805.1ms max=148793.2ms | cycle_time=149.0s | FAIL(3806)
+  Cycle   10 |  4001 pushes | 0 ok / 4001 err | p50=43853.0ms p95=87824.5ms max=87836.8ms | cycle_time=88.0s | FAIL(4001)
+  Cycle   11 |  4001 pushes | 0 ok / 4001 err | p50=43839.3ms p95=87809.9ms max=87821.6ms | cycle_time=88.0s | FAIL(4001)
+  Cycle   12 |  4001 pushes | 0 ok / 4001 err | p50=43829.7ms p95=87749.0ms max=87762.5ms | cycle_time=88.0s | FAIL(4001)
+  Cycle   13 |  4001 pushes | 208 ok / 3793 err | p50=43800.7ms p95=147767.5ms max=165407.2ms | cycle_time=165.6s | FAIL(3793)
+  Cycle   14 |  4001 pushes | 267 ok / 3734 err | p50=103209.2ms p95=147108.1ms max=149101.1ms | cycle_time=149.3s | FAIL(3734)
+  Cycle   15 |  4001 pushes | 0 ok / 4001 err | p50=43859.8ms p95=87829.6ms max=87841.4ms | cycle_time=88.0s | FAIL(4001)
+  Cycle   16 |  4001 pushes | 0 ok / 4001 err | p50=43839.8ms p95=87751.1ms max=87762.4ms | cycle_time=88.0s | FAIL(4001)
+  Cycle   17 |  4001 pushes | 0 ok / 4001 err | p50=43816.0ms p95=87786.2ms max=87798.4ms | cycle_time=88.0s | FAIL(4001)
+  Cycle   18 |  4001 pushes | 145 ok / 3856 err | p50=63807.2ms p95=147788.8ms max=147801.8ms | cycle_time=148.0s | FAIL(3856)
+  Cycle   19 |  4001 pushes | 207 ok / 3794 err | p50=103795.2ms p95=147776.2ms max=149764.9ms | cycle_time=150.0s | FAIL(3794)
+  Cycle   20 |  4001 pushes | 0 ok / 4001 err | p50=43827.5ms p95=87799.6ms max=87812.6ms | cycle_time=88.0s | FAIL(4001)
+
+==========================================================================================
+FINAL REPORT — Scenario C7
+==========================================================================================
+Endpoint:       http://10.96.230.201:9091
+Nodes:          1000
+Total duration: 2279.3s (38.0 min)
+Total pushes:   80020
+
+--- Per-Job Summary ---
+Job                              Total      OK    Fail    Rate    p50ms    p95ms    p99ms    MaxMs
+--------------------------------------------------------------------------------------------------------------
+amd-gpu-exporter                 20000      53   19947    0.3%  54822.0 136821.5 147802.6 165391.3
+node-exporter                    20000     124   19876    0.6%  54822.3 136820.5 147802.3 165391.2
+oci_lens_drhpc_metrics           20000     759   19241    3.8%  54814.6 136822.6 147802.3 165407.2
+oci_lens_node_metrics            20000     765   19235    3.8%  54815.0 136822.7 147802.6 165391.2
+oci_lens_pod_metrics                20       0      20    0.0%  87817.3 147870.0 148875.4 149126.8
+--------------------------------------------------------------------------------------------------------------
+TOTAL                            80020    1701   78319    2.1%  54818.7 136822.2 147802.5 165407.2
+
+--- HTTP Status Codes ---
+  200: 1701
+  ERR:Cannot connect to host 10.96.2: 1590
+  ERR:Server disconnected: 35
+  ERR:timeout: 76694
+
+--- /metrics Endpoint Probe ---
+ Cycle        Bytes    Time_ms   Status
+     1        ERROR        2.4        0
+     5        ERROR        3.0        0
+    10        ERROR        2.9        0
+    15        ERROR        2.9        0
+    20        ERROR        4.2        0
+
+==========================================================================================
+
+Results written to: /opt/stress-test/results/C7/
+  C7_pushes.csv  — per-push detail
+  C7_probes.csv  — /metrics endpoint probes
+  C7_summary.txt — this summary
+[2026-02-06 07:41:19] COMPLETED scenario C7 in 38m (exit 0)
+[2026-02-06 07:41:19] 
+[2026-02-06 07:41:24] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 07:41:24] STARTING scenario I0
+[2026-02-06 07:41:24]   Params: --endpoint https://pushgateway.150.230.181.224.nip.io --nodes 10 --jitter 5 --interval 60 --duration 300 --jobs node+cluster
+[2026-02-06 07:41:24] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 07:41:24] Cleaning Pushgateway (deleting all metric groups)...
+  Warning: cleanup failed: <urlopen error [Errno 111] Connection refused>
+
+======================================================================
+Pushgateway Stress Test — Scenario I0
+======================================================================
+Endpoint:        https://pushgateway.150.230.181.224.nip.io
+Nodes:           10
+Interval:        60s
+Duration:        300s (5 min)
+Jitter:          5.0s (ON)
+Max in-flight:   500
+Jobs filter:     node+cluster
+Pod multiplier:  1x
+
+Jobs per cycle:
+  [node-level]    amd-gpu-exporter × 10 nodes = 10 pushes
+  [node-level]    node-exporter × 10 nodes = 10 pushes
+  [node-level]    oci_lens_node_metrics × 10 nodes = 10 pushes
+  [node-level]    oci_lens_drhpc_metrics × 10 nodes = 10 pushes
+  [cluster-level] oci_lens_pod_metrics × 1 = 1 push
+  Total: 41 pushes/cycle
+
+Loading payloads...
+  Loaded amd-gpu-exporter: sample-amd-gpu-payload.txt (766.1 KB)
+  Loaded node-exporter: sample-node-exporter-payload.txt (569.9 KB)
+  Loaded oci_lens_node_metrics: payload-oci-lens-node.txt (24.9 KB)
+  Loaded oci_lens_drhpc_metrics: payload-oci-lens-drhpc.txt (14.6 KB)
+  Loaded oci_lens_pod_metrics: payload-oci-lens-pod.txt (20.2 KB)
+
+Starting test: 5 cycles × 41 pushes = 205 total pushes
+======================================================================
+
+  Cycle    1 |    41 pushes | 0 ok / 41 err | p50=    3.2ms p95=  527.2ms max=  818.6ms | cycle_time=5.0s | FAIL(41)
+         /metrics probe: 0 KB in 7ms
+  Cycle    2 |    41 pushes | 0 ok / 41 err | p50=    7.2ms p95=  212.3ms max=  557.7ms | cycle_time=4.9s | FAIL(41)
+  Cycle    3 |    41 pushes | 0 ok / 41 err | p50=    2.4ms p95=  503.2ms max=  653.1ms | cycle_time=5.0s | FAIL(41)
+  Cycle    4 |    41 pushes | 0 ok / 41 err | p50=    2.2ms p95=    9.4ms max=   11.2ms | cycle_time=5.0s | FAIL(41)
+  Cycle    5 |    41 pushes | 41 ok / 0 err | p50=  174.8ms p95=  672.3ms max=  859.8ms | cycle_time=5.2s | OK
+         /metrics probe: 17679 KB in 386ms
+
+==========================================================================================
+FINAL REPORT — Scenario I0
+==========================================================================================
+Endpoint:       https://pushgateway.150.230.181.224.nip.io
+Nodes:          10
+Total duration: 245.6s (4.1 min)
+Total pushes:   205
+
+--- Per-Job Summary ---
+Job                              Total      OK    Fail    Rate    p50ms    p95ms    p99ms    MaxMs
+--------------------------------------------------------------------------------------------------------------
+amd-gpu-exporter                    50      10      40   20.0%      8.7    444.6    587.3    645.0
+node-exporter                       50      10      40   20.0%      2.7    663.6    748.3    818.6
+oci_lens_drhpc_metrics              50      10      40   20.0%      7.2    280.5    607.4    626.6
+oci_lens_node_metrics               50      10      40   20.0%      7.5    539.6    820.8    859.8
+oci_lens_pod_metrics                 5       1       4   20.0%      1.4     26.1     29.6     30.5
+--------------------------------------------------------------------------------------------------------------
+TOTAL                              205      41     164   20.0%      7.4    525.2    776.1    859.8
+
+--- HTTP Status Codes ---
+  200: 41
+  503: 164
+
+--- /metrics Endpoint Probe ---
+ Cycle        Bytes    Time_ms   Status
+     1      0.00 MB        7.4      503
+     5     17.27 MB      385.9      200
+
+  /metrics size growth: 0 KB → 17679 KB (95282.92x)
+
+==========================================================================================
+
+Results written to: /opt/stress-test/results/I0/
+  I0_pushes.csv  — per-push detail
+  I0_probes.csv  — /metrics endpoint probes
+  I0_summary.txt — this summary
+[2026-02-06 07:45:31] COMPLETED scenario I0 in 4m (exit 0)
+[2026-02-06 07:45:31] 
+[2026-02-06 07:45:36] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 07:45:36] STARTING scenario I1
+[2026-02-06 07:45:36]   Params: --endpoint https://pushgateway.150.230.181.224.nip.io --nodes 100 --jitter 20 --interval 60 --duration 600 --jobs node+cluster
+[2026-02-06 07:45:36] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 07:45:36] Cleaning Pushgateway (deleting all metric groups)...
+  Deleted 41 groups
+
+======================================================================
+Pushgateway Stress Test — Scenario I1
+======================================================================
+Endpoint:        https://pushgateway.150.230.181.224.nip.io
+Nodes:           100
+Interval:        60s
+Duration:        600s (10 min)
+Jitter:          20.0s (ON)
+Max in-flight:   500
+Jobs filter:     node+cluster
+Pod multiplier:  1x
+
+Jobs per cycle:
+  [node-level]    amd-gpu-exporter × 100 nodes = 100 pushes
+  [node-level]    node-exporter × 100 nodes = 100 pushes
+  [node-level]    oci_lens_node_metrics × 100 nodes = 100 pushes
+  [node-level]    oci_lens_drhpc_metrics × 100 nodes = 100 pushes
+  [cluster-level] oci_lens_pod_metrics × 1 = 1 push
+  Total: 401 pushes/cycle
+
+Loading payloads...
+  Loaded amd-gpu-exporter: sample-amd-gpu-payload.txt (766.1 KB)
+  Loaded node-exporter: sample-node-exporter-payload.txt (569.9 KB)
+  Loaded oci_lens_node_metrics: payload-oci-lens-node.txt (24.9 KB)
+  Loaded oci_lens_drhpc_metrics: payload-oci-lens-drhpc.txt (14.6 KB)
+  Loaded oci_lens_pod_metrics: payload-oci-lens-pod.txt (20.2 KB)
+
+Starting test: 10 cycles × 401 pushes = 4010 total pushes
+======================================================================
+
+  Cycle    1 |   401 pushes | 116 ok / 285 err | p50=30350.2ms p95=30915.1ms max=30990.4ms | cycle_time=50.3s | FAIL(285)
+         /metrics probe: 63657 KB in 1653ms
+  Cycle    2 |   401 pushes | 0 ok / 401 err | p50=30485.9ms p95=30936.1ms max=30998.8ms | cycle_time=50.7s | FAIL(401)
+  Cycle    3 |   401 pushes | 0 ok / 401 err | p50=30487.6ms p95=30950.0ms max=31000.5ms | cycle_time=50.7s | FAIL(401)
+  Cycle    4 |   401 pushes | 0 ok / 401 err | p50=30481.8ms p95=30950.2ms max=31002.2ms | cycle_time=50.7s | FAIL(401)
+  Cycle    5 |   401 pushes | 135 ok / 266 err | p50=    8.9ms p95=30659.4ms max=30943.1ms | cycle_time=50.7s | FAIL(266)
+         /metrics probe: 54988 KB in 1276ms
+  Cycle    6 |   401 pushes | 10 ok / 391 err | p50=30452.1ms p95=30962.6ms max=31002.7ms | cycle_time=50.4s | FAIL(391)
+  Cycle    7 |   401 pushes | 0 ok / 401 err | p50=30491.3ms p95=30965.1ms max=31001.0ms | cycle_time=50.4s | FAIL(401)
+  Cycle    8 |   401 pushes | 0 ok / 401 err | p50=30495.8ms p95=30951.7ms max=31000.2ms | cycle_time=50.4s | FAIL(401)
+  Cycle    9 |   401 pushes | 0 ok / 401 err | p50=    2.0ms p95=    4.3ms max=  251.6ms | cycle_time=19.9s | FAIL(401)
+Future exception was never retrieved
+future: <Future finished exception=ConnectionError('Connection lost')>
+aiohttp.client_exceptions.ServerDisconnectedError: Server disconnected
+
+The above exception was the direct cause of the following exception:
+
+ConnectionError: Connection lost
+  Cycle   10 |   401 pushes | 0 ok / 401 err | p50=    2.2ms p95=   10.3ms max=  706.8ms | cycle_time=20.0s | FAIL(401)
+         /metrics probe: 0 KB in 1ms
+
+==========================================================================================
+FINAL REPORT — Scenario I1
+==========================================================================================
+Endpoint:       https://pushgateway.150.230.181.224.nip.io
+Nodes:          100
+Total duration: 562.9s (9.4 min)
+Total pushes:   4010
+
+--- Per-Job Summary ---
+Job                              Total      OK    Fail    Rate    p50ms    p95ms    p99ms    MaxMs
+--------------------------------------------------------------------------------------------------------------
+amd-gpu-exporter                  1000      64     936    6.4%  30255.7  30920.8  30986.4  31001.0
+node-exporter                     1000      65     935    6.5%  30261.3  30916.0  30991.9  31002.7
+oci_lens_drhpc_metrics            1000      67     933    6.7%  30294.6  30936.2  30982.5  31002.2
+oci_lens_node_metrics             1000      65     935    6.5%  30262.2  30920.5  30986.2  31002.1
+oci_lens_pod_metrics                10       0      10    0.0%  30041.6  30630.5  30709.2  30728.9
+--------------------------------------------------------------------------------------------------------------
+TOTAL                             4010     261    3749    6.5%  30263.8  30925.2  30987.5  31002.7
+
+--- HTTP Status Codes ---
+  200: 261
+  503: 1020
+  ERR:timeout: 2729
+
+--- /metrics Endpoint Probe ---
+ Cycle        Bytes    Time_ms   Status
+     1     62.17 MB     1652.8      200
+     5     53.70 MB     1275.5      200
+    10      0.00 MB        1.2      503
+
+  /metrics size growth: 63657 KB → 0 KB (0.00x)
+
+==========================================================================================
+
+Results written to: /opt/stress-test/results/I1/
+  I1_pushes.csv  — per-push detail
+  I1_probes.csv  — /metrics endpoint probes
+  I1_summary.txt — this summary
+[2026-02-06 07:55:00] COMPLETED scenario I1 in 9m (exit 0)
+[2026-02-06 07:55:00] 
+[2026-02-06 07:55:05] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 07:55:05] STARTING scenario I2
+[2026-02-06 07:55:05]   Params: --endpoint https://pushgateway.150.230.181.224.nip.io --nodes 250 --jitter 20 --interval 60 --duration 600 --jobs node+cluster
+[2026-02-06 07:55:05] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 07:55:05] Cleaning Pushgateway (deleting all metric groups)...
+  Warning: cleanup failed: <urlopen error [Errno 111] Connection refused>
+
+======================================================================
+Pushgateway Stress Test — Scenario I2
+======================================================================
+Endpoint:        https://pushgateway.150.230.181.224.nip.io
+Nodes:           250
+Interval:        60s
+Duration:        600s (10 min)
+Jitter:          20.0s (ON)
+Max in-flight:   500
+Jobs filter:     node+cluster
+Pod multiplier:  1x
+
+Jobs per cycle:
+  [node-level]    amd-gpu-exporter × 250 nodes = 250 pushes
+  [node-level]    node-exporter × 250 nodes = 250 pushes
+  [node-level]    oci_lens_node_metrics × 250 nodes = 250 pushes
+  [node-level]    oci_lens_drhpc_metrics × 250 nodes = 250 pushes
+  [cluster-level] oci_lens_pod_metrics × 1 = 1 push
+  Total: 1001 pushes/cycle
+
+Loading payloads...
+  Loaded amd-gpu-exporter: sample-amd-gpu-payload.txt (766.1 KB)
+  Loaded node-exporter: sample-node-exporter-payload.txt (569.9 KB)
+  Loaded oci_lens_node_metrics: payload-oci-lens-node.txt (24.9 KB)
+  Loaded oci_lens_drhpc_metrics: payload-oci-lens-drhpc.txt (14.6 KB)
+  Loaded oci_lens_pod_metrics: payload-oci-lens-pod.txt (20.2 KB)
+
+Starting test: 10 cycles × 1001 pushes = 10010 total pushes
+======================================================================
+
+  Cycle    1 |  1001 pushes | 0 ok / 1001 err | p50=    2.0ms p95=    9.0ms max=  289.8ms | cycle_time=20.0s | FAIL(1001)
+         /metrics probe: 0 KB in 1ms
+  Cycle    2 |  1001 pushes | 0 ok / 1001 err | p50=    1.9ms p95=    8.6ms max=  602.4ms | cycle_time=20.0s | FAIL(1001)
+  Cycle    3 |  1001 pushes | 0 ok / 1001 err | p50=    1.8ms p95=    7.8ms max=  254.6ms | cycle_time=20.0s | FAIL(1001)
+  Cycle    4 |  1001 pushes | 0 ok / 1001 err | p50=    1.9ms p95=    8.5ms max=   49.3ms | cycle_time=20.0s | FAIL(1001)
+  Cycle    5 |  1001 pushes | 121 ok / 880 err | p50=30334.5ms p95=51537.2ms max=52247.0ms | cycle_time=72.0s | FAIL(880)
+         /metrics probe: 76215 KB in 2414ms
+  Cycle    6 |  1001 pushes | 0 ok / 1001 err | p50=30683.2ms p95=51744.8ms max=52118.3ms | cycle_time=68.2s | FAIL(1001)
+  Cycle    7 |  1001 pushes | 117 ok / 884 err | p50=    2.8ms p95=30878.0ms max=31006.3ms | cycle_time=50.4s | FAIL(884)
+  Cycle    8 |  1001 pushes | 0 ok / 1001 err | p50=41882.9ms p95=51726.3ms max=52282.7ms | cycle_time=71.3s | FAIL(1001)
+Future exception was never retrieved
+future: <Future finished exception=ConnectionError('Connection lost')>
+aiohttp.client_exceptions.ServerDisconnectedError: Server disconnected
+
+The above exception was the direct cause of the following exception:
+
+ConnectionError: Connection lost
+  Cycle    9 |  1001 pushes | 0 ok / 1001 err | p50=    2.1ms p95=    8.9ms max=  293.8ms | cycle_time=20.0s | FAIL(1001)
+  Cycle   10 |  1001 pushes | 0 ok / 1001 err | p50=    2.1ms p95=    9.1ms max=   79.2ms | cycle_time=20.0s | FAIL(1001)
+         /metrics probe: 0 KB in 1ms
+
+==========================================================================================
+FINAL REPORT — Scenario I2
+==========================================================================================
+Endpoint:       https://pushgateway.150.230.181.224.nip.io
+Nodes:          250
+Total duration: 594.1s (9.9 min)
+Total pushes:   10010
+
+--- Per-Job Summary ---
+Job                              Total      OK    Fail    Rate    p50ms    p95ms    p99ms    MaxMs
+--------------------------------------------------------------------------------------------------------------
+amd-gpu-exporter                  2500      62    2438    2.5%      2.9  51326.3  51909.3  52241.7
+node-exporter                     2500      55    2445    2.2%      2.7  51256.0  51734.1  52247.0
+oci_lens_drhpc_metrics            2500      56    2444    2.2%      1.6  51357.2  51821.3  52282.7
+oci_lens_node_metrics             2500      65    2435    2.6%      1.7  51347.0  51805.1  52245.3
+oci_lens_pod_metrics                10       0      10    0.0%      1.5  42003.2  49447.9  51309.1
+--------------------------------------------------------------------------------------------------------------
+TOTAL                            10010     238    9772    2.4%      2.6  51324.5  51802.5  52282.7
+
+--- HTTP Status Codes ---
+  200: 238
+  502: 188
+  503: 6754
+  ERR:timeout: 2830
+
+--- /metrics Endpoint Probe ---
+ Cycle        Bytes    Time_ms   Status
+     1      0.00 MB        1.1      503
+     5     74.43 MB     2414.3      200
+    10      0.00 MB        1.2      503
+
+  /metrics size growth: 0 KB → 0 KB (1.00x)
+
+==========================================================================================
+
+Results written to: /opt/stress-test/results/I2/
+  I2_pushes.csv  — per-push detail
+  I2_probes.csv  — /metrics endpoint probes
+  I2_summary.txt — this summary
+[2026-02-06 08:05:00] COMPLETED scenario I2 in 9m (exit 0)
+[2026-02-06 08:05:00] 
+[2026-02-06 08:05:05] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 08:05:05] STARTING scenario I3
+[2026-02-06 08:05:05]   Params: --endpoint https://pushgateway.150.230.181.224.nip.io --nodes 500 --jitter 20 --interval 60 --duration 900 --jobs node+cluster
+[2026-02-06 08:05:05] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 08:05:05] Cleaning Pushgateway (deleting all metric groups)...
+  Warning: cleanup failed: <urlopen error [Errno 111] Connection refused>
+
+======================================================================
+Pushgateway Stress Test — Scenario I3
+======================================================================
+Endpoint:        https://pushgateway.150.230.181.224.nip.io
+Nodes:           500
+Interval:        60s
+Duration:        900s (15 min)
+Jitter:          20.0s (ON)
+Max in-flight:   500
+Jobs filter:     node+cluster
+Pod multiplier:  1x
+
+Jobs per cycle:
+  [node-level]    amd-gpu-exporter × 500 nodes = 500 pushes
+  [node-level]    node-exporter × 500 nodes = 500 pushes
+  [node-level]    oci_lens_node_metrics × 500 nodes = 500 pushes
+  [node-level]    oci_lens_drhpc_metrics × 500 nodes = 500 pushes
+  [cluster-level] oci_lens_pod_metrics × 1 = 1 push
+  Total: 2001 pushes/cycle
+
+Loading payloads...
+  Loaded amd-gpu-exporter: sample-amd-gpu-payload.txt (766.1 KB)
+  Loaded node-exporter: sample-node-exporter-payload.txt (569.9 KB)
+  Loaded oci_lens_node_metrics: payload-oci-lens-node.txt (24.9 KB)
+  Loaded oci_lens_drhpc_metrics: payload-oci-lens-drhpc.txt (14.6 KB)
+  Loaded oci_lens_pod_metrics: payload-oci-lens-pod.txt (20.2 KB)
+
+Starting test: 15 cycles × 2001 pushes = 30015 total pushes
+======================================================================
+
+  Cycle    1 |  2001 pushes | 0 ok / 2001 err | p50=    1.8ms p95=    8.7ms max=  428.7ms | cycle_time=20.0s | FAIL(2001)
+         /metrics probe: 0 KB in 1ms
+  Cycle    2 |  2001 pushes | 0 ok / 2001 err | p50=    1.9ms p95=   12.0ms max=  764.8ms | cycle_time=20.0s | FAIL(2001)
+  Cycle    3 |  2001 pushes | 0 ok / 2001 err | p50=    1.8ms p95=    9.2ms max=  789.0ms | cycle_time=20.0s | FAIL(2001)
+  Cycle    4 |  2001 pushes | 0 ok / 2001 err | p50=    1.7ms p95=    8.1ms max=  812.1ms | cycle_time=20.0s | FAIL(2001)
+  Cycle    5 |  2001 pushes | 113 ok / 1888 err | p50=    3.5ms p95=56346.1ms max=56993.3ms | cycle_time=76.5s | FAIL(1888)
+         /metrics probe: 71890 KB in 2633ms
+  Cycle    6 |  2001 pushes | 0 ok / 2001 err | p50=23565.5ms p95=56128.8ms max=56893.4ms | cycle_time=63.0s | FAIL(2001)
+  Cycle    7 |  2001 pushes | 121 ok / 1880 err | p50=    3.2ms p95=56764.6ms max=57100.7ms | cycle_time=76.3s | FAIL(1880)
+  Cycle    8 |  2001 pushes | 0 ok / 2001 err | p50=21575.7ms p95=30834.9ms max=31041.6ms | cycle_time=36.0s | FAIL(2001)
+  Cycle    9 |  2001 pushes | 0 ok / 2001 err | p50=    1.8ms p95=    2.5ms max=   67.8ms | cycle_time=20.0s | FAIL(2001)
+  Cycle   10 |  2001 pushes | 0 ok / 2001 err | p50=    1.8ms p95=    3.3ms max=  528.9ms | cycle_time=20.0s | FAIL(2001)
+         /metrics probe: 0 KB in 1ms
+  Cycle   11 |  2001 pushes | 0 ok / 2001 err | p50=    1.9ms p95=    2.9ms max=  638.2ms | cycle_time=20.0s | FAIL(2001)
+  Cycle   12 |  2001 pushes | 0 ok / 2001 err | p50=    1.9ms p95=    3.1ms max=  550.4ms | cycle_time=20.0s | FAIL(2001)
+  Cycle   13 |  2001 pushes | 0 ok / 2001 err | p50=    1.8ms p95=    3.2ms max=   19.5ms | cycle_time=20.0s | FAIL(2001)
+  Cycle   14 |  2001 pushes | 127 ok / 1874 err | p50=    2.2ms p95=30759.6ms max=31007.1ms | cycle_time=50.9s | FAIL(1874)
+  Cycle   15 |  2001 pushes | 0 ok / 2001 err | p50=47494.1ms p95=56953.6ms max=57300.6ms | cycle_time=66.9s | FAIL(2001)
+         /metrics probe: 0 KB in 1ms
+
+==========================================================================================
+FINAL REPORT — Scenario I3
+==========================================================================================
+Endpoint:       https://pushgateway.150.230.181.224.nip.io
+Nodes:          500
+Total duration: 945.6s (15.8 min)
+Total pushes:   30015
+
+--- Per-Job Summary ---
+Job                              Total      OK    Fail    Rate    p50ms    p95ms    p99ms    MaxMs
+--------------------------------------------------------------------------------------------------------------
+amd-gpu-exporter                  7500      87    7413    1.2%      2.5  49302.2  56716.3  57278.6
+node-exporter                     7500      88    7412    1.2%      2.3  50288.3  56799.7  57294.1
+oci_lens_drhpc_metrics            7500      99    7401    1.3%      1.5  50098.1  56784.7  57266.8
+oci_lens_node_metrics             7500      87    7413    1.2%      1.5  50172.5  56810.5  57300.6
+oci_lens_pod_metrics                15       0      15    0.0%      1.6  38319.0  52704.2  56300.5
+--------------------------------------------------------------------------------------------------------------
+TOTAL                            30015     361   29654    1.2%      2.1  49938.4  56781.4  57300.6
+
+--- HTTP Status Codes ---
+  200: 361
+  502: 1373
+  503: 24248
+  ERR:timeout: 4033
+
+--- /metrics Endpoint Probe ---
+ Cycle        Bytes    Time_ms   Status
+     1      0.00 MB        1.2      503
+     5     70.21 MB     2632.6      200
+    10      0.00 MB        1.4      503
+    15      0.00 MB        1.5      503
+
+  /metrics size growth: 0 KB → 0 KB (1.00x)
+
+==========================================================================================
+
+Results written to: /opt/stress-test/results/I3/
+  I3_pushes.csv  — per-push detail
+  I3_probes.csv  — /metrics endpoint probes
+  I3_summary.txt — this summary
+[2026-02-06 08:20:52] COMPLETED scenario I3 in 15m (exit 0)
+[2026-02-06 08:20:52] 
+[2026-02-06 08:20:57] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 08:20:57] STARTING scenario I4
+[2026-02-06 08:20:57]   Params: --endpoint https://pushgateway.150.230.181.224.nip.io --nodes 750 --jitter 20 --interval 60 --duration 900 --jobs node+cluster
+[2026-02-06 08:20:57] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 08:20:57] Cleaning Pushgateway (deleting all metric groups)...
+  Warning: cleanup failed: <urlopen error [Errno 111] Connection refused>
+
+======================================================================
+Pushgateway Stress Test — Scenario I4
+======================================================================
+Endpoint:        https://pushgateway.150.230.181.224.nip.io
+Nodes:           750
+Interval:        60s
+Duration:        900s (15 min)
+Jitter:          20.0s (ON)
+Max in-flight:   500
+Jobs filter:     node+cluster
+Pod multiplier:  1x
+
+Jobs per cycle:
+  [node-level]    amd-gpu-exporter × 750 nodes = 750 pushes
+  [node-level]    node-exporter × 750 nodes = 750 pushes
+  [node-level]    oci_lens_node_metrics × 750 nodes = 750 pushes
+  [node-level]    oci_lens_drhpc_metrics × 750 nodes = 750 pushes
+  [cluster-level] oci_lens_pod_metrics × 1 = 1 push
+  Total: 3001 pushes/cycle
+
+Loading payloads...
+  Loaded amd-gpu-exporter: sample-amd-gpu-payload.txt (766.1 KB)
+  Loaded node-exporter: sample-node-exporter-payload.txt (569.9 KB)
+  Loaded oci_lens_node_metrics: payload-oci-lens-node.txt (24.9 KB)
+  Loaded oci_lens_drhpc_metrics: payload-oci-lens-drhpc.txt (14.6 KB)
+  Loaded oci_lens_pod_metrics: payload-oci-lens-pod.txt (20.2 KB)
+
+Starting test: 15 cycles × 3001 pushes = 45015 total pushes
+======================================================================
+
+  Cycle    1 |  3001 pushes | 0 ok / 3001 err | p50=    2.1ms p95=    4.0ms max=  348.4ms | cycle_time=20.0s | FAIL(3001)
+         /metrics probe: 0 KB in 2ms
+  Cycle    2 |  3001 pushes | 131 ok / 2870 err | p50=73923.4ms p95=86121.7ms max=109362.1ms | cycle_time=120.1s | FAIL(2870)
+  Cycle    3 |  3001 pushes | 0 ok / 3001 err | p50=    1.8ms p95=    3.0ms max=  349.2ms | cycle_time=20.1s | FAIL(3001)
+  Cycle    4 |  3001 pushes | 0 ok / 3001 err | p50=    1.9ms p95=    3.4ms max=  353.3ms | cycle_time=20.0s | FAIL(3001)
+  Cycle    5 |  3001 pushes | 0 ok / 3001 err | p50=    1.9ms p95=    3.4ms max=  523.1ms | cycle_time=20.0s | FAIL(3001)
+         /metrics probe: 0 KB in 2ms
+  Cycle    6 |  3001 pushes | 0 ok / 3001 err | p50=    1.9ms p95=    3.2ms max=   61.9ms | cycle_time=20.0s | FAIL(3001)
+  Cycle    7 |  3001 pushes | 0 ok / 3001 err | p50=    1.8ms p95=    3.2ms max=  307.5ms | cycle_time=20.0s | FAIL(3001)
+  Cycle    8 |  3001 pushes | 109 ok / 2892 err | p50=   88.2ms p95=63419.8ms max=86037.9ms | cycle_time=105.3s | FAIL(2892)
+  Cycle    9 |  3001 pushes | 0 ok / 3001 err | p50=    1.9ms p95=    3.4ms max=  259.2ms | cycle_time=20.0s | FAIL(3001)
+  Cycle   10 |  3001 pushes | 104 ok / 2897 err | p50=69056.2ms p95=86178.9ms max=103890.8ms | cycle_time=114.6s | FAIL(2897)
+         /metrics probe: 0 KB in 2ms
+  Cycle   11 |  3001 pushes | 0 ok / 3001 err | p50=    1.9ms p95=    3.7ms max=  272.7ms | cycle_time=20.0s | FAIL(3001)
+  Cycle   12 |  3001 pushes | 0 ok / 3001 err | p50=    1.8ms p95=    3.2ms max=   90.1ms | cycle_time=20.0s | FAIL(3001)
+  Cycle   13 |  3001 pushes | 0 ok / 3001 err | p50=    2.0ms p95=    3.7ms max=  468.7ms | cycle_time=20.0s | FAIL(3001)
+  Cycle   14 |  3001 pushes | 0 ok / 3001 err | p50=    1.9ms p95=   34.3ms max=  946.1ms | cycle_time=20.0s | FAIL(3001)
+  Cycle   15 |  3001 pushes | 0 ok / 3001 err | p50=    1.9ms p95=   52.6ms max=  848.0ms | cycle_time=20.0s | FAIL(3001)
+         /metrics probe: 0 KB in 2ms
+
+==========================================================================================
+FINAL REPORT — Scenario I4
+==========================================================================================
+Endpoint:       https://pushgateway.150.230.181.224.nip.io
+Nodes:          750
+Total duration: 1020.3s (17.0 min)
+Total pushes:   45015
+
+--- Per-Job Summary ---
+Job                              Total      OK    Fail    Rate    p50ms    p95ms    p99ms    MaxMs
+--------------------------------------------------------------------------------------------------------------
+amd-gpu-exporter                 11250      79   11171    0.7%      2.5  73792.5  86046.8 109362.1
+node-exporter                    11250      85   11165    0.8%      2.3  73795.3  85975.0 109362.0
+oci_lens_drhpc_metrics           11250      94   11156    0.8%      1.5  73882.3  85910.3 109354.2
+oci_lens_node_metrics            11250      86   11164    0.8%      1.5  73654.9  85928.1 104803.2
+oci_lens_pod_metrics                15       0      15    0.0%      2.0  63155.9  71471.4  73550.3
+--------------------------------------------------------------------------------------------------------------
+TOTAL                            45015     344   44671    0.8%      2.0  73792.0  85972.3 109362.1
+
+--- HTTP Status Codes ---
+  200: 344
+  502: 1247
+  503: 39350
+  ERR:timeout: 4074
+
+--- /metrics Endpoint Probe ---
+ Cycle        Bytes    Time_ms   Status
+     1      0.00 MB        1.8      503
+     5      0.00 MB        1.8      503
+    10      0.00 MB        2.2      503
+    15      0.00 MB        2.1      503
+
+  /metrics size growth: 0 KB → 0 KB (1.00x)
+
+==========================================================================================
+
+Results written to: /opt/stress-test/results/I4/
+  I4_pushes.csv  — per-push detail
+  I4_probes.csv  — /metrics endpoint probes
+  I4_summary.txt — this summary
+[2026-02-06 08:37:59] COMPLETED scenario I4 in 17m (exit 0)
+[2026-02-06 08:37:59] 
+[2026-02-06 08:38:04] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 08:38:04] STARTING scenario I5
+[2026-02-06 08:38:04]   Params: --endpoint https://pushgateway.150.230.181.224.nip.io --nodes 1000 --jitter 20 --interval 60 --duration 1200 --jobs node+cluster
+[2026-02-06 08:38:04] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 08:38:04] Cleaning Pushgateway (deleting all metric groups)...
+  Warning: cleanup failed: <urlopen error [Errno 111] Connection refused>
+
+======================================================================
+Pushgateway Stress Test — Scenario I5
+======================================================================
+Endpoint:        https://pushgateway.150.230.181.224.nip.io
+Nodes:           1000
+Interval:        60s
+Duration:        1200s (20 min)
+Jitter:          20.0s (ON)
+Max in-flight:   500
+Jobs filter:     node+cluster
+Pod multiplier:  1x
+
+Jobs per cycle:
+  [node-level]    amd-gpu-exporter × 1000 nodes = 1000 pushes
+  [node-level]    node-exporter × 1000 nodes = 1000 pushes
+  [node-level]    oci_lens_node_metrics × 1000 nodes = 1000 pushes
+  [node-level]    oci_lens_drhpc_metrics × 1000 nodes = 1000 pushes
+  [cluster-level] oci_lens_pod_metrics × 1 = 1 push
+  Total: 4001 pushes/cycle
+
+Loading payloads...
+  Loaded amd-gpu-exporter: sample-amd-gpu-payload.txt (766.1 KB)
+  Loaded node-exporter: sample-node-exporter-payload.txt (569.9 KB)
+  Loaded oci_lens_node_metrics: payload-oci-lens-node.txt (24.9 KB)
+  Loaded oci_lens_drhpc_metrics: payload-oci-lens-drhpc.txt (14.6 KB)
+  Loaded oci_lens_pod_metrics: payload-oci-lens-pod.txt (20.2 KB)
+
+Starting test: 20 cycles × 4001 pushes = 80020 total pushes
+======================================================================
+
+  Cycle    1 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=    4.4ms max=  481.3ms | cycle_time=20.0s | FAIL(4001)
+         /metrics probe: 0 KB in 2ms
+  Cycle    2 |  4001 pushes | 108 ok / 3893 err | p50=69846.0ms p95=87897.2ms max=105569.8ms | cycle_time=113.3s | FAIL(3893)
+  Cycle    3 |  4001 pushes | 150 ok / 3851 err | p50=    2.7ms p95=87666.3ms max=110066.8ms | cycle_time=130.0s | FAIL(3851)
+  Cycle    4 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.4ms max=  359.2ms | cycle_time=20.0s | FAIL(4001)
+  Cycle    5 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.2ms max=  332.8ms | cycle_time=20.0s | FAIL(4001)
+         /metrics probe: 0 KB in 3ms
+  Cycle    6 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=  874.5ms max= 1770.9ms | cycle_time=20.0s | FAIL(4001)
+  Cycle    7 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=    3.7ms max=  309.9ms | cycle_time=20.1s | FAIL(4001)
+  Cycle    8 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.7ms max=  780.1ms | cycle_time=20.0s | FAIL(4001)
+  Cycle    9 |  4001 pushes | 18 ok / 3983 err | p50=    1.9ms p95=  319.8ms max= 1202.2ms | cycle_time=20.5s | FAIL(3983)
+  Cycle   10 |  4001 pushes | 159 ok / 3842 err | p50=75912.3ms p95=87771.1ms max=111527.3ms | cycle_time=119.9s | FAIL(3842)
+         /metrics probe: 0 KB in 3ms
+  Cycle   11 |  4001 pushes | 122 ok / 3879 err | p50=    4.6ms p95=87737.1ms max=111652.4ms | cycle_time=130.0s | FAIL(3879)
+  Cycle   12 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=    3.6ms max=  309.3ms | cycle_time=20.1s | FAIL(4001)
+  Cycle   13 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.4ms max=  331.6ms | cycle_time=20.0s | FAIL(4001)
+  Cycle   14 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=  258.3ms max= 1245.5ms | cycle_time=20.1s | FAIL(4001)
+  Cycle   15 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=   65.2ms max=  968.3ms | cycle_time=20.1s | FAIL(4001)
+         /metrics probe: 0 KB in 3ms
+  Cycle   16 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=  182.3ms max= 1116.8ms | cycle_time=20.1s | FAIL(4001)
+  Cycle   17 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=    3.8ms max=  301.7ms | cycle_time=20.0s | FAIL(4001)
+  Cycle   18 |  4001 pushes | 205 ok / 3796 err | p50=75693.5ms p95=87926.0ms max=111255.4ms | cycle_time=119.9s | FAIL(3796)
+  Cycle   19 |  4001 pushes | 115 ok / 3886 err | p50=    3.6ms p95=87734.5ms max=111229.5ms | cycle_time=130.0s | FAIL(3886)
+  Cycle   20 |  4001 pushes | 0 ok / 4001 err | p50=    1.7ms p95=    3.1ms max=  385.7ms | cycle_time=20.1s | FAIL(4001)
+         /metrics probe: 0 KB in 3ms
+
+==========================================================================================
+FINAL REPORT — Scenario I5
+==========================================================================================
+Endpoint:       https://pushgateway.150.230.181.224.nip.io
+Nodes:          1000
+Total duration: 1543.4s (25.7 min)
+Total pushes:   80020
+
+--- Per-Job Summary ---
+Job                              Total      OK    Fail    Rate    p50ms    p95ms    p99ms    MaxMs
+--------------------------------------------------------------------------------------------------------------
+amd-gpu-exporter                 20000      71   19929    0.4%      2.6  80881.9  87950.7 111628.6
+node-exporter                    20000     178   19822    0.9%      2.3  80933.0  88079.5 111505.1
+oci_lens_drhpc_metrics           20000     321   19679    1.6%      1.5  80792.3  88028.9 110898.6
+oci_lens_node_metrics            20000     307   19693    1.5%      1.5  80876.0  88036.2 111652.4
+oci_lens_pod_metrics                20       0      20    0.0%      1.5  88232.2  98551.2 101130.9
+--------------------------------------------------------------------------------------------------------------
+TOTAL                            80020     877   79143    1.1%      2.1  80883.7  88028.2 111652.4
+
+--- HTTP Status Codes ---
+  200: 877
+  502: 608
+  503: 69610
+  ERR:timeout: 8925
+
+--- /metrics Endpoint Probe ---
+ Cycle        Bytes    Time_ms   Status
+     1      0.00 MB        1.9      503
+     5      0.00 MB        3.1      503
+    10      0.00 MB        3.2      503
+    15      0.00 MB        2.5      503
+    20      0.00 MB        2.8      503
+
+  /metrics size growth: 0 KB → 0 KB (1.00x)
+
+==========================================================================================
+
+Results written to: /opt/stress-test/results/I5/
+  I5_pushes.csv  — per-push detail
+  I5_probes.csv  — /metrics endpoint probes
+  I5_summary.txt — this summary
+[2026-02-06 09:03:50] COMPLETED scenario I5 in 25m (exit 0)
+[2026-02-06 09:03:50] 
+[2026-02-06 09:03:55] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 09:03:55] STARTING scenario I6
+[2026-02-06 09:03:55]   Params: --endpoint https://pushgateway.150.230.181.224.nip.io --nodes 1000 --jitter 20 --interval 60 --duration 7200 --jobs node+cluster
+[2026-02-06 09:03:55] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 09:03:55] Cleaning Pushgateway (deleting all metric groups)...
+  Warning: cleanup failed: <urlopen error [Errno 111] Connection refused>
+
+======================================================================
+Pushgateway Stress Test — Scenario I6
+======================================================================
+Endpoint:        https://pushgateway.150.230.181.224.nip.io
+Nodes:           1000
+Interval:        60s
+Duration:        7200s (120 min)
+Jitter:          20.0s (ON)
+Max in-flight:   500
+Jobs filter:     node+cluster
+Pod multiplier:  1x
+
+Jobs per cycle:
+  [node-level]    amd-gpu-exporter × 1000 nodes = 1000 pushes
+  [node-level]    node-exporter × 1000 nodes = 1000 pushes
+  [node-level]    oci_lens_node_metrics × 1000 nodes = 1000 pushes
+  [node-level]    oci_lens_drhpc_metrics × 1000 nodes = 1000 pushes
+  [cluster-level] oci_lens_pod_metrics × 1 = 1 push
+  Total: 4001 pushes/cycle
+
+Loading payloads...
+  Loaded amd-gpu-exporter: sample-amd-gpu-payload.txt (766.1 KB)
+  Loaded node-exporter: sample-node-exporter-payload.txt (569.9 KB)
+  Loaded oci_lens_node_metrics: payload-oci-lens-node.txt (24.9 KB)
+  Loaded oci_lens_drhpc_metrics: payload-oci-lens-drhpc.txt (14.6 KB)
+  Loaded oci_lens_pod_metrics: payload-oci-lens-pod.txt (20.2 KB)
+
+Starting test: 120 cycles × 4001 pushes = 480120 total pushes
+======================================================================
+
+  Cycle    1 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=    3.3ms max=   22.7ms | cycle_time=20.0s | FAIL(4001)
+         /metrics probe: 0 KB in 2ms
+  Cycle    2 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.3ms max=   19.8ms | cycle_time=20.0s | FAIL(4001)
+  Cycle    3 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=    3.2ms max=  507.5ms | cycle_time=20.0s | FAIL(4001)
+  Cycle    4 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=  197.8ms max= 1340.7ms | cycle_time=20.0s | FAIL(4001)
+  Cycle    5 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.3ms max=   54.6ms | cycle_time=20.0s | FAIL(4001)
+         /metrics probe: 0 KB in 2ms
+  Cycle    6 |  4001 pushes | 158 ok / 3843 err | p50=69223.1ms p95=87772.9ms max=105147.1ms | cycle_time=113.3s | FAIL(3843)
+  Cycle    7 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=    3.4ms max=   16.8ms | cycle_time=20.1s | FAIL(4001)
+  Cycle    8 |  4001 pushes | 112 ok / 3889 err | p50=75872.2ms p95=87825.0ms max=111443.6ms | cycle_time=119.6s | FAIL(3889)
+  Cycle    9 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=    3.4ms max=  257.7ms | cycle_time=20.1s | FAIL(4001)
+  Cycle   10 |  4001 pushes | 0 ok / 4001 err | p50=    2.0ms p95=  507.3ms max= 1560.4ms | cycle_time=20.0s | FAIL(4001)
+         /metrics probe: 0 KB in 2ms
+  Cycle   11 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=    4.3ms max=  838.6ms | cycle_time=20.0s | FAIL(4001)
+  Cycle   12 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=    3.4ms max=  260.4ms | cycle_time=20.1s | FAIL(4001)
+  Cycle   13 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=    3.4ms max=  329.5ms | cycle_time=20.0s | FAIL(4001)
+  Cycle   14 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=  103.5ms max= 1162.3ms | cycle_time=20.0s | FAIL(4001)
+  Cycle   15 |  4001 pushes | 191 ok / 3810 err | p50=75691.9ms p95=87858.9ms max=111458.2ms | cycle_time=119.9s | FAIL(3810)
+         /metrics probe: 0 KB in 3ms
+  Cycle   16 |  4001 pushes | 122 ok / 3879 err | p50=    2.7ms p95=87686.3ms max=110155.1ms | cycle_time=130.0s | FAIL(3879)
+  Cycle   17 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.2ms max=   15.1ms | cycle_time=20.1s | FAIL(4001)
+  Cycle   18 |  4001 pushes | 0 ok / 4001 err | p50=    1.7ms p95=    3.1ms max=   13.4ms | cycle_time=20.0s | FAIL(4001)
+  Cycle   19 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=    3.5ms max=  828.2ms | cycle_time=20.1s | FAIL(4001)
+  Cycle   20 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=  182.1ms max= 1221.4ms | cycle_time=20.1s | FAIL(4001)
+         /metrics probe: 0 KB in 2ms
+  Cycle   21 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=   14.4ms max=  949.8ms | cycle_time=20.1s | FAIL(4001)
+  Cycle   22 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.1ms max=  109.9ms | cycle_time=20.0s | FAIL(4001)
+  Cycle   23 |  4001 pushes | 116 ok / 3885 err | p50=76072.0ms p95=87734.2ms max=111824.2ms | cycle_time=119.9s | FAIL(3885)
+  Cycle   24 |  4001 pushes | 129 ok / 3872 err | p50=    3.0ms p95=87931.6ms max=109278.1ms | cycle_time=129.3s | FAIL(3872)
+  Cycle   25 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=    4.7ms max=  853.1ms | cycle_time=20.3s | FAIL(4001)
+         /metrics probe: 0 KB in 3ms
+  Cycle   26 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.2ms max=   29.1ms | cycle_time=20.1s | FAIL(4001)
+  Cycle   27 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.4ms max=   11.2ms | cycle_time=20.0s | FAIL(4001)
+  Cycle   28 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=    3.5ms max=  794.5ms | cycle_time=20.1s | FAIL(4001)
+  Cycle   29 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.1ms max=  524.1ms | cycle_time=20.1s | FAIL(4001)
+  Cycle   30 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.0ms max=  457.6ms | cycle_time=20.0s | FAIL(4001)
+         /metrics probe: 0 KB in 3ms
+  Cycle   31 |  4001 pushes | 123 ok / 3878 err | p50=76949.1ms p95=87876.4ms max=112436.6ms | cycle_time=120.5s | FAIL(3878)
+  Cycle   32 |  4001 pushes | 126 ok / 3875 err | p50=    3.2ms p95=87918.1ms max=111492.2ms | cycle_time=130.0s | FAIL(3875)
+  Cycle   33 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.3ms max=  467.2ms | cycle_time=20.0s | FAIL(4001)
+  Cycle   34 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.3ms max=  341.3ms | cycle_time=20.1s | FAIL(4001)
+  Cycle   35 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.4ms max=  633.0ms | cycle_time=20.0s | FAIL(4001)
+         /metrics probe: 0 KB in 3ms
+  Cycle   36 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.4ms max=  251.5ms | cycle_time=20.1s | FAIL(4001)
+  Cycle   37 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=  157.9ms max= 1128.7ms | cycle_time=20.1s | FAIL(4001)
+  Cycle   38 |  4001 pushes | 12 ok / 3989 err | p50=    1.8ms p95=    3.2ms max=  206.2ms | cycle_time=20.2s | FAIL(3989)
+  Cycle   39 |  4001 pushes | 135 ok / 3866 err | p50=75836.3ms p95=87889.3ms max=111641.1ms | cycle_time=119.9s | FAIL(3866)
+  Cycle   40 |  4001 pushes | 120 ok / 3881 err | p50=    3.6ms p95=87857.2ms max=111552.2ms | cycle_time=130.0s | FAIL(3881)
+         /metrics probe: 0 KB in 3ms
+  Cycle   41 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.1ms max=  720.1ms | cycle_time=20.1s | FAIL(4001)
+  Cycle   42 |  4001 pushes | 0 ok / 4001 err | p50=    2.0ms p95=  161.7ms max= 1122.5ms | cycle_time=20.1s | FAIL(4001)
+  Cycle   43 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.2ms max=   79.0ms | cycle_time=20.0s | FAIL(4001)
+  Cycle   44 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=    3.5ms max=  547.3ms | cycle_time=20.1s | FAIL(4001)
+  Cycle   45 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=  124.0ms max= 1078.4ms | cycle_time=20.1s | FAIL(4001)
+         /metrics probe: 0 KB in 3ms
+  Cycle   46 |  4001 pushes | 139 ok / 3862 err | p50= 2889.8ms p95=87965.2ms max=111824.7ms | cycle_time=129.9s | FAIL(3862)
+  Cycle   47 |  4001 pushes | 123 ok / 3878 err | p50=    3.2ms p95=87626.4ms max=111116.9ms | cycle_time=130.0s | FAIL(3878)
+  Cycle   48 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.1ms max=  307.8ms | cycle_time=20.0s | FAIL(4001)
+  Cycle   49 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.3ms max=   59.8ms | cycle_time=20.1s | FAIL(4001)
+  Cycle   50 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=   38.2ms max= 1035.7ms | cycle_time=20.1s | FAIL(4001)
+         /metrics probe: 0 KB in 3ms
+  Cycle   51 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=   56.8ms max=  944.5ms | cycle_time=20.0s | FAIL(4001)
+  Cycle   52 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.3ms max=  342.0ms | cycle_time=20.0s | FAIL(4001)
+  Cycle   53 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.2ms max=  680.7ms | cycle_time=20.1s | FAIL(4001)
+  Cycle   54 |  4001 pushes | 167 ok / 3834 err | p50=75767.9ms p95=87930.2ms max=111610.6ms | cycle_time=119.9s | FAIL(3834)
+  Cycle   55 |  4001 pushes | 124 ok / 3877 err | p50=    2.6ms p95=87438.9ms max=95305.3ms | cycle_time=115.3s | FAIL(3877)
+         /metrics probe: 0 KB in 396ms
+  Cycle   56 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.4ms max=  333.9ms | cycle_time=20.0s | FAIL(4001)
+  Cycle   57 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.1ms max=  669.5ms | cycle_time=20.1s | FAIL(4001)
+  Cycle   58 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=  169.2ms max= 1134.1ms | cycle_time=20.1s | FAIL(4001)
+  Cycle   59 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.4ms max=  258.2ms | cycle_time=20.2s | FAIL(4001)
+  Cycle   60 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.1ms max=  278.8ms | cycle_time=20.0s | FAIL(4001)
+         /metrics probe: 0 KB in 3ms
+  Cycle   61 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.2ms max=  562.9ms | cycle_time=20.1s | FAIL(4001)
+  Cycle   62 |  4001 pushes | 121 ok / 3880 err | p50=70785.1ms p95=87744.2ms max=106058.7ms | cycle_time=114.1s | FAIL(3880)
+  Cycle   63 |  4001 pushes | 115 ok / 3886 err | p50=    3.8ms p95=87890.6ms max=111491.6ms | cycle_time=130.0s | FAIL(3886)
+  Cycle   64 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=    3.6ms max=  258.1ms | cycle_time=20.2s | FAIL(4001)
+  Cycle   65 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=    3.4ms max=  307.8ms | cycle_time=20.0s | FAIL(4001)
+         /metrics probe: 0 KB in 3ms
+  Cycle   66 |  4001 pushes | 0 ok / 4001 err | p50=    2.0ms p95=  142.9ms max= 1054.8ms | cycle_time=20.2s | FAIL(4001)
+  Cycle   67 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=   41.5ms max=  818.0ms | cycle_time=20.1s | FAIL(4001)
+  Cycle   68 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.1ms max=  304.2ms | cycle_time=20.0s | FAIL(4001)
+  Cycle   69 |  4001 pushes | 0 ok / 4001 err | p50=    1.7ms p95=    3.1ms max=  341.1ms | cycle_time=20.2s | FAIL(4001)
+  Cycle   70 |  4001 pushes | 112 ok / 3889 err | p50=76098.3ms p95=87664.0ms max=111850.3ms | cycle_time=119.9s | FAIL(3889)
+         /metrics probe: 0 KB in 3ms
+  Cycle   71 |  4001 pushes | 111 ok / 3890 err | p50=    2.6ms p95=87879.6ms max=110116.1ms | cycle_time=130.0s | FAIL(3890)
+  Cycle   72 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.3ms max=  328.9ms | cycle_time=20.2s | FAIL(4001)
+  Cycle   73 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.7ms max=  580.4ms | cycle_time=20.0s | FAIL(4001)
+  Cycle   74 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.2ms max=  913.8ms | cycle_time=20.2s | FAIL(4001)
+  Cycle   75 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.2ms max=  261.0ms | cycle_time=20.1s | FAIL(4001)
+         /metrics probe: 0 KB in 3ms
+  Cycle   76 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.2ms max=  294.3ms | cycle_time=20.2s | FAIL(4001)
+  Cycle   77 |  4001 pushes | 115 ok / 3886 err | p50=    4.2ms p95=87395.5ms max=110242.9ms | cycle_time=129.9s | FAIL(3886)
+  Cycle   78 |  4001 pushes | 131 ok / 3870 err | p50=    3.7ms p95=87736.3ms max=111293.4ms | cycle_time=130.0s | FAIL(3870)
+  Cycle   79 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=    3.5ms max=   33.4ms | cycle_time=20.2s | FAIL(4001)
+  Cycle   80 |  4001 pushes | 0 ok / 4001 err | p50=    1.7ms p95=    3.2ms max=   18.3ms | cycle_time=20.0s | FAIL(4001)
+         /metrics probe: 0 KB in 3ms
+  Cycle   81 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=    3.2ms max=  499.6ms | cycle_time=20.2s | FAIL(4001)
+  Cycle   82 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.2ms max=  659.5ms | cycle_time=20.1s | FAIL(4001)
+  Cycle   83 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.2ms max=   45.6ms | cycle_time=20.0s | FAIL(4001)
+  Cycle   84 |  4001 pushes | 19 ok / 3982 err | p50=    1.7ms p95=    3.2ms max=  266.5ms | cycle_time=20.4s | FAIL(3982)
+  Cycle   85 |  4001 pushes | 95 ok / 3906 err | p50=76232.8ms p95=87684.6ms max=111817.7ms | cycle_time=119.9s | FAIL(3906)
+         /metrics probe: 0 KB in 3ms
+  Cycle   86 |  4001 pushes | 124 ok / 3877 err | p50=    3.1ms p95=87685.9ms max=111204.7ms | cycle_time=130.0s | FAIL(3877)
+  Cycle   87 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.3ms max=  666.0ms | cycle_time=20.2s | FAIL(4001)
+  Cycle   88 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=   59.3ms max= 1095.0ms | cycle_time=20.1s | FAIL(4001)
+  Cycle   89 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.2ms max=  224.7ms | cycle_time=20.2s | FAIL(4001)
+  Cycle   90 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=    3.6ms max=  324.1ms | cycle_time=20.0s | FAIL(4001)
+         /metrics probe: 0 KB in 2ms
+  Cycle   91 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.7ms max=  778.2ms | cycle_time=20.2s | FAIL(4001)
+  Cycle   92 |  4001 pushes | 162 ok / 3839 err | p50=    3.3ms p95=87560.2ms max=111055.0ms | cycle_time=129.9s | FAIL(3839)
+  Cycle   93 |  4001 pushes | 143 ok / 3858 err | p50=    3.5ms p95=87520.4ms max=111095.8ms | cycle_time=130.0s | FAIL(3858)
+  Cycle   94 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=    4.1ms max=   51.4ms | cycle_time=20.2s | FAIL(4001)
+  Cycle   95 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=    3.8ms max=   40.8ms | cycle_time=20.0s | FAIL(4001)
+         /metrics probe: 0 KB in 3ms
+  Cycle   96 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.2ms max=  256.9ms | cycle_time=20.2s | FAIL(4001)
+  Cycle   97 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=  211.6ms max= 1501.0ms | cycle_time=20.0s | FAIL(4001)
+  Cycle   98 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=   48.0ms max=  934.9ms | cycle_time=20.0s | FAIL(4001)
+  Cycle   99 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=    3.5ms max=  258.7ms | cycle_time=20.2s | FAIL(4001)
+  Cycle  100 |  4001 pushes | 171 ok / 3830 err | p50=75739.3ms p95=87788.9ms max=111384.1ms | cycle_time=119.9s | FAIL(3830)
+         /metrics probe: 0 KB in 3ms
+  Cycle  101 |  4001 pushes | 146 ok / 3855 err | p50=    2.6ms p95=87776.7ms max=110042.2ms | cycle_time=130.0s | FAIL(3855)
+  Cycle  102 |  4001 pushes | 0 ok / 4001 err | p50=    1.7ms p95=    3.0ms max=  267.4ms | cycle_time=20.0s | FAIL(4001)
+  Cycle  103 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=  314.0ms max= 1103.7ms | cycle_time=20.2s | FAIL(4001)
+  Cycle  104 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=  967.2ms max= 1927.4ms | cycle_time=20.0s | FAIL(4001)
+  Cycle  105 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=   46.8ms max=  786.0ms | cycle_time=20.0s | FAIL(4001)
+         /metrics probe: 0 KB in 3ms
+  Cycle  106 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.1ms max=  270.0ms | cycle_time=20.2s | FAIL(4001)
+  Cycle  107 |  4001 pushes | 10 ok / 3991 err | p50=    1.8ms p95=   33.8ms max=  923.6ms | cycle_time=20.1s | FAIL(3991)
+  Cycle  108 |  4001 pushes | 109 ok / 3892 err | p50=76032.4ms p95=87551.8ms max=111594.2ms | cycle_time=119.9s | FAIL(3892)
+  Cycle  109 |  4001 pushes | 113 ok / 3888 err | p50=    2.7ms p95=87688.5ms max=109832.6ms | cycle_time=130.0s | FAIL(3888)
+  Cycle  110 |  4001 pushes | 0 ok / 4001 err | p50=    1.7ms p95=    3.2ms max=  472.1ms | cycle_time=20.2s | FAIL(4001)
+         /metrics probe: 0 KB in 3ms
+  Cycle  111 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    7.9ms max=  823.0ms | cycle_time=20.0s | FAIL(4001)
+  Cycle  112 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=    3.7ms max=  201.8ms | cycle_time=20.3s | FAIL(4001)
+  Cycle  113 |  4001 pushes | 0 ok / 4001 err | p50=    1.7ms p95=    3.0ms max=  247.3ms | cycle_time=20.0s | FAIL(4001)
+  Cycle  114 |  4001 pushes | 0 ok / 4001 err | p50=    1.9ms p95=    3.5ms max=   92.0ms | cycle_time=20.2s | FAIL(4001)
+  Cycle  115 |  4001 pushes | 18 ok / 3983 err | p50=    1.8ms p95=   33.6ms max=  755.5ms | cycle_time=20.4s | FAIL(3983)
+         /metrics probe: 0 KB in 3ms
+  Cycle  116 |  4001 pushes | 107 ok / 3894 err | p50=76487.0ms p95=87661.2ms max=111916.6ms | cycle_time=119.9s | FAIL(3894)
+  Cycle  117 |  4001 pushes | 131 ok / 3870 err | p50=    3.1ms p95=87588.5ms max=111117.1ms | cycle_time=130.0s | FAIL(3870)
+  Cycle  118 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=    3.3ms max=  896.8ms | cycle_time=20.3s | FAIL(4001)
+  Cycle  119 |  4001 pushes | 0 ok / 4001 err | p50=    1.7ms p95=    3.2ms max=  243.7ms | cycle_time=20.0s | FAIL(4001)
+  Cycle  120 |  4001 pushes | 0 ok / 4001 err | p50=    1.8ms p95=   85.4ms max= 1282.8ms | cycle_time=20.0s | FAIL(4001)
+         /metrics probe: 0 KB in 3ms
+
+==========================================================================================
+FINAL REPORT — Scenario I6
+==========================================================================================
+Endpoint:       https://pushgateway.150.230.181.224.nip.io
+Nodes:          1000
+Total duration: 9103.1s (151.7 min)
+Total pushes:   480120
+
+--- Per-Job Summary ---
+Job                              Total      OK    Fail    Rate    p50ms    p95ms    p99ms    MaxMs
+--------------------------------------------------------------------------------------------------------------
+amd-gpu-exporter                120000     529  119471    0.4%      2.4  79898.6  87844.1 111802.9
+node-exporter                   120000     872  119128    0.7%      2.2  79980.6  87874.2 112406.9
+oci_lens_drhpc_metrics          120000    1270  118730    1.1%      1.4  80133.1  87869.1 111850.3
+oci_lens_node_metrics           120000    1278  118722    1.1%      1.5  80118.4  87874.3 112436.6
+oci_lens_pod_metrics               120       1     119    0.8%      1.5  81048.1  87702.1  95371.0
+--------------------------------------------------------------------------------------------------------------
+TOTAL                           480120    3950  476170    0.8%      2.0  80030.1  87865.3 112436.6
+
+--- HTTP Status Codes ---
+  200: 3950
+  502: 4048
+  503: 427474
+  ERR:timeout: 44648
+
+--- /metrics Endpoint Probe ---
+ Cycle        Bytes    Time_ms   Status
+     1      0.00 MB        1.8      503
+     5      0.00 MB        2.3      503
+    10      0.00 MB        2.4      503
+    15      0.00 MB        2.9      503
+    20      0.00 MB        2.5      503
+    25      0.00 MB        2.5      503
+    30      0.00 MB        2.6      503
+    35      0.00 MB        3.0      503
+    40      0.00 MB        2.8      503
+    45      0.00 MB        2.9      503
+    50      0.00 MB        3.0      503
+    55      0.00 MB      395.5      503
+    60      0.00 MB        2.7      503
+    65      0.00 MB        2.5      503
+    70      0.00 MB        3.4      503
+    75      0.00 MB        2.7      503
+    80      0.00 MB        2.8      503
+    85      0.00 MB        2.9      503
+    90      0.00 MB        2.5      503
+    95      0.00 MB        2.5      503
+   100      0.00 MB        3.1      503
+   105      0.00 MB        3.1      503
+   110      0.00 MB        2.8      503
+   115      0.00 MB        2.7      503
+   120      0.00 MB        2.6      503
+
+  /metrics size growth: 0 KB → 0 KB (1.00x)
+
+==========================================================================================
+
+Results written to: /opt/stress-test/results/I6/
+  I6_pushes.csv  — per-push detail
+  I6_probes.csv  — /metrics endpoint probes
+  I6_summary.txt — this summary
+[2026-02-06 11:35:43] COMPLETED scenario I6 in 151m (exit 0)
+[2026-02-06 11:35:43] 
+[2026-02-06 11:35:48] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 11:35:48] STARTING scenario I7
+[2026-02-06 11:35:48]   Params: --endpoint https://pushgateway.150.230.181.224.nip.io --nodes 1000 --jitter 0 --interval 60 --duration 1200 --jobs node+cluster
+[2026-02-06 11:35:48] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 11:35:48] Cleaning Pushgateway (deleting all metric groups)...
+  Warning: cleanup failed: <urlopen error [Errno 111] Connection refused>
+
+======================================================================
+Pushgateway Stress Test — Scenario I7
+======================================================================
+Endpoint:        https://pushgateway.150.230.181.224.nip.io
+Nodes:           1000
+Interval:        60s
+Duration:        1200s (20 min)
+Jitter:          0.0s (OFF)
+Max in-flight:   500
+Jobs filter:     node+cluster
+Pod multiplier:  1x
+
+Jobs per cycle:
+  [node-level]    amd-gpu-exporter × 1000 nodes = 1000 pushes
+  [node-level]    node-exporter × 1000 nodes = 1000 pushes
+  [node-level]    oci_lens_node_metrics × 1000 nodes = 1000 pushes
+  [node-level]    oci_lens_drhpc_metrics × 1000 nodes = 1000 pushes
+  [cluster-level] oci_lens_pod_metrics × 1 = 1 push
+  Total: 4001 pushes/cycle
+
+Loading payloads...
+  Loaded amd-gpu-exporter: sample-amd-gpu-payload.txt (766.1 KB)
+  Loaded node-exporter: sample-node-exporter-payload.txt (569.9 KB)
+  Loaded oci_lens_node_metrics: payload-oci-lens-node.txt (24.9 KB)
+  Loaded oci_lens_drhpc_metrics: payload-oci-lens-drhpc.txt (14.6 KB)
+  Loaded oci_lens_pod_metrics: payload-oci-lens-pod.txt (20.2 KB)
+
+Starting test: 20 cycles × 4001 pushes = 80020 total pushes
+======================================================================
+
+  Cycle    1 |  4001 pushes | 0 ok / 4001 err | p50= 2637.8ms p95= 3638.4ms max= 3712.4ms | cycle_time=3.8s | FAIL(4001)
+         /metrics probe: 0 KB in 2ms
+  Cycle    2 |  4001 pushes | 0 ok / 4001 err | p50= 2930.2ms p95= 3988.1ms max= 4030.2ms | cycle_time=4.2s | FAIL(4001)
+  Cycle    3 |  4001 pushes | 0 ok / 4001 err | p50= 2736.9ms p95= 3775.1ms max= 3786.6ms | cycle_time=3.9s | FAIL(4001)
+  Cycle    4 |  4001 pushes | 188 ok / 3813 err | p50=91422.8ms p95=93284.8ms max=119774.8ms | cycle_time=119.9s | FAIL(3813)
+  Cycle    5 |  4001 pushes | 0 ok / 4001 err | p50= 1889.5ms p95= 3044.4ms max= 3054.9ms | cycle_time=3.2s | FAIL(4001)
+         /metrics probe: 0 KB in 2ms
+  Cycle    6 |  4001 pushes | 204 ok / 3797 err | p50=91023.0ms p95=92595.2ms max=119855.6ms | cycle_time=120.0s | FAIL(3797)
+  Cycle    7 |  4001 pushes | 0 ok / 4001 err | p50= 2112.3ms p95= 3258.3ms max= 3506.4ms | cycle_time=3.6s | FAIL(4001)
+  Cycle    8 |  4001 pushes | 0 ok / 4001 err | p50= 2610.1ms p95= 3688.8ms max= 3725.4ms | cycle_time=3.9s | FAIL(4001)
+  Cycle    9 |  4001 pushes | 0 ok / 4001 err | p50= 2857.4ms p95= 3881.9ms max= 3936.1ms | cycle_time=4.1s | FAIL(4001)
+  Cycle   10 |  4001 pushes | 0 ok / 4001 err | p50= 2631.1ms p95= 3734.6ms max= 3753.6ms | cycle_time=3.9s | FAIL(4001)
+         /metrics probe: 0 KB in 3ms
+  Cycle   11 |  4001 pushes | 0 ok / 4001 err | p50= 2944.9ms p95= 4048.7ms max= 4292.5ms | cycle_time=4.4s | FAIL(4001)
+  Cycle   12 |  4001 pushes | 0 ok / 4001 err | p50= 2615.4ms p95= 3772.9ms max= 4078.2ms | cycle_time=4.2s | FAIL(4001)
+  Cycle   13 |  4001 pushes | 214 ok / 3787 err | p50=90865.5ms p95=94148.8ms max=119805.3ms | cycle_time=119.9s | FAIL(3787)
+  Cycle   14 |  4001 pushes | 0 ok / 4001 err | p50= 1803.2ms p95= 3129.1ms max= 3147.1ms | cycle_time=3.3s | FAIL(4001)
+  Cycle   15 |  4001 pushes | 213 ok / 3788 err | p50=90870.8ms p95=92205.6ms max=119822.9ms | cycle_time=120.0s | FAIL(3788)
+         /metrics probe: 0 KB in 3ms
+  Cycle   16 |  4001 pushes | 0 ok / 4001 err | p50= 2271.2ms p95= 3534.3ms max= 3590.5ms | cycle_time=3.7s | FAIL(4001)
+  Cycle   17 |  4001 pushes | 0 ok / 4001 err | p50= 2546.1ms p95= 3629.8ms max= 3720.4ms | cycle_time=3.9s | FAIL(4001)
+  Cycle   18 |  4001 pushes | 0 ok / 4001 err | p50= 2349.7ms p95= 3407.8ms max= 3442.2ms | cycle_time=3.6s | FAIL(4001)
+  Cycle   19 |  4001 pushes | 0 ok / 4001 err | p50= 3157.5ms p95= 4115.4ms max= 4151.6ms | cycle_time=4.4s | FAIL(4001)
+  Cycle   20 |  4001 pushes | 0 ok / 4001 err | p50= 3244.5ms p95= 4285.1ms max= 4312.7ms | cycle_time=4.5s | FAIL(4001)
+         /metrics probe: 0 KB in 3ms
+
+==========================================================================================
+FINAL REPORT — Scenario I7
+==========================================================================================
+Endpoint:       https://pushgateway.150.230.181.224.nip.io
+Nodes:          1000
+Total duration: 1384.6s (23.1 min)
+Total pushes:   80020
+
+--- Per-Job Summary ---
+Job                              Total      OK    Fail    Rate    p50ms    p95ms    p99ms    MaxMs
+--------------------------------------------------------------------------------------------------------------
+amd-gpu-exporter                 20000      24   19976    0.1%   2892.3  91927.8  93282.9 119804.3
+node-exporter                    20000     105   19895    0.5%   2892.0  91928.4  93282.9 119833.9
+oci_lens_drhpc_metrics           20000     347   19653    1.7%   2889.4  91928.3  93283.1 119855.6
+oci_lens_node_metrics            20000     343   19657    1.7%   2891.2  91926.9  93283.0 119834.1
+oci_lens_pod_metrics                20       0      20    0.0%   3784.2  92628.4  93154.1  93285.5
+--------------------------------------------------------------------------------------------------------------
+TOTAL                            80020     819   79201    1.0%   2891.5  91928.3  93283.0 119855.6
+
+--- HTTP Status Codes ---
+  200: 819
+  502: 151
+  503: 73082
+  ERR:timeout: 5968
+
+--- /metrics Endpoint Probe ---
+ Cycle        Bytes    Time_ms   Status
+     1      0.00 MB        1.9      503
+     5      0.00 MB        2.5      503
+    10      0.00 MB        2.8      503
+    15      0.00 MB        3.0      503
+    20      0.00 MB        3.0      503
+
+  /metrics size growth: 0 KB → 0 KB (1.00x)
+
+==========================================================================================
+
+Results written to: /opt/stress-test/results/I7/
+  I7_pushes.csv  — per-push detail
+  I7_probes.csv  — /metrics endpoint probes
+  I7_summary.txt — this summary
+[2026-02-06 11:58:54] COMPLETED scenario I7 in 23m (exit 0)
+[2026-02-06 11:58:54] 
+[2026-02-06 11:58:59] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 11:58:59] STARTING scenario N1
+[2026-02-06 11:58:59]   Params: --endpoint http://10.96.230.201:9091 --nodes 1000 --jitter 20 --interval 60 --duration 1200 --jobs node
+[2026-02-06 11:58:59] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 11:58:59] Cleaning Pushgateway (deleting all metric groups)...
+  Warning: cleanup failed: <urlopen error [Errno 111] Connection refused>
+
+======================================================================
+Pushgateway Stress Test — Scenario N1
+======================================================================
+Endpoint:        http://10.96.230.201:9091
+Nodes:           1000
+Interval:        60s
+Duration:        1200s (20 min)
+Jitter:          20.0s (ON)
+Max in-flight:   500
+Jobs filter:     node
+Pod multiplier:  1x
+
+Jobs per cycle:
+  [node-level]    amd-gpu-exporter × 1000 nodes = 1000 pushes
+  [node-level]    node-exporter × 1000 nodes = 1000 pushes
+  [node-level]    oci_lens_node_metrics × 1000 nodes = 1000 pushes
+  [node-level]    oci_lens_drhpc_metrics × 1000 nodes = 1000 pushes
+  Total: 4000 pushes/cycle
+
+Loading payloads...
+  Loaded amd-gpu-exporter: sample-amd-gpu-payload.txt (766.1 KB)
+  Loaded node-exporter: sample-node-exporter-payload.txt (569.9 KB)
+  Loaded oci_lens_node_metrics: payload-oci-lens-node.txt (24.9 KB)
+  Loaded oci_lens_drhpc_metrics: payload-oci-lens-drhpc.txt (14.6 KB)
+
+Starting test: 20 cycles × 4000 pushes = 80000 total pushes
+======================================================================
+
+  Cycle    1 |  4000 pushes | 174 ok / 3826 err | p50=36334.7ms p95=89329.7ms max=90204.3ms | cycle_time=109.8s | FAIL(3826)
+         /metrics probe: 54051 KB in 1771ms
+  Cycle    2 |  4000 pushes | 192 ok / 3808 err | p50=76626.8ms p95=168657.7ms max=169476.6ms | cycle_time=189.2s | FAIL(3808)
+  Cycle    3 |  4000 pushes | 0 ok / 4000 err | p50=36383.2ms p95=69847.0ms max=70281.6ms | cycle_time=90.0s | FAIL(4000)
+  Cycle    4 |  4000 pushes | 0 ok / 4000 err | p50=36445.4ms p95=69753.1ms max=70284.0ms | cycle_time=90.0s | FAIL(4000)
+  Cycle    5 |  4000 pushes | 0 ok / 4000 err | p50=36230.8ms p95=69819.0ms max=70252.8ms | cycle_time=90.0s | FAIL(4000)
+  Cycle    6 |  4000 pushes | 236 ok / 3764 err | p50=36222.1ms p95=88027.6ms max=90136.6ms | cycle_time=110.0s | FAIL(3764)
+  Cycle    7 |  4000 pushes | 156 ok / 3844 err | p50=76130.6ms p95=169068.2ms max=169712.1ms | cycle_time=189.0s | FAIL(3844)
+  Cycle    8 |  4000 pushes | 0 ok / 4000 err | p50=36417.2ms p95=69918.7ms max=70335.7ms | cycle_time=90.0s | FAIL(4000)
+  Cycle    9 |  4000 pushes | 0 ok / 4000 err | p50=36122.4ms p95=69628.2ms max=70089.9ms | cycle_time=90.0s | FAIL(4000)
+  Cycle   10 |  4000 pushes | 0 ok / 4000 err | p50=36213.9ms p95=69860.3ms max=70256.7ms | cycle_time=90.0s | FAIL(4000)
+  Cycle   11 |  4000 pushes | 202 ok / 3798 err | p50=36295.2ms p95=108904.0ms max=109722.8ms | cycle_time=129.0s | FAIL(3798)
+  Cycle   12 |  4000 pushes | 148 ok / 3852 err | p50=56478.1ms p95=149916.7ms max=161306.9ms | cycle_time=179.6s | FAIL(3852)
+  Cycle   13 |  4000 pushes | 0 ok / 4000 err | p50=36318.4ms p95=69609.2ms max=70173.4ms | cycle_time=89.3s | FAIL(4000)
+  Cycle   14 |  4000 pushes | 0 ok / 4000 err | p50=36335.3ms p95=69812.8ms max=70303.4ms | cycle_time=90.0s | FAIL(4000)
+  Cycle   15 |  4000 pushes | 0 ok / 4000 err | p50=36403.1ms p95=69727.1ms max=70250.0ms | cycle_time=90.0s | FAIL(4000)
+  Cycle   16 |  4000 pushes | 160 ok / 3840 err | p50=36222.1ms p95=129486.8ms max=142081.6ms | cycle_time=160.6s | FAIL(3840)
+  Cycle   17 |  4000 pushes | 124 ok / 3876 err | p50=96300.8ms p95=129831.4ms max=130359.0ms | cycle_time=149.3s | FAIL(3876)
+  Cycle   18 |  4000 pushes | 0 ok / 4000 err | p50=36327.1ms p95=69774.6ms max=70207.4ms | cycle_time=90.0s | FAIL(4000)
+  Cycle   19 |  4000 pushes | 0 ok / 4000 err | p50=36256.6ms p95=69771.7ms max=70164.9ms | cycle_time=90.0s | FAIL(4000)
+  Cycle   20 |  4000 pushes | 0 ok / 4000 err | p50=36021.5ms p95=69570.0ms max=70147.9ms | cycle_time=90.0s | FAIL(4000)
+
+==========================================================================================
+FINAL REPORT — Scenario N1
+==========================================================================================
+Endpoint:       http://10.96.230.201:9091
+Nodes:          1000
+Total duration: 2297.9s (38.3 min)
+Total pushes:   80000
+
+--- Per-Job Summary ---
+Job                              Total      OK    Fail    Rate    p50ms    p95ms    p99ms    MaxMs
+--------------------------------------------------------------------------------------------------------------
+amd-gpu-exporter                 20000      98   19902    0.5%  44383.1 121333.0 150059.7 169677.9
+node-exporter                    20000     257   19743    1.3%  44346.1 121038.9 149981.5 169711.0
+oci_lens_drhpc_metrics           20000     521   19479    2.6%  44409.9 121182.8 150098.1 169688.5
+oci_lens_node_metrics            20000     516   19484    2.6%  44421.5 121105.7 151789.8 169712.1
+--------------------------------------------------------------------------------------------------------------
+TOTAL                            80000    1392   78608    1.7%  44390.7 121176.3 150099.1 169712.1
+
+--- HTTP Status Codes ---
+  200: 1392
+  ERR:Cannot connect to host 10.96.2: 1613
+  ERR:Server disconnected: 7
+  ERR:timeout: 76988
+
+--- /metrics Endpoint Probe ---
+ Cycle        Bytes    Time_ms   Status
+     1     52.78 MB     1771.2      200
+     5        ERROR        2.7        0
+    10        ERROR        3.0        0
+    15        ERROR        3.0        0
+    20        ERROR        2.9        0
+
+==========================================================================================
+
+Results written to: /opt/stress-test/results/N1/
+  N1_pushes.csv  — per-push detail
+  N1_probes.csv  — /metrics endpoint probes
+  N1_summary.txt — this summary
+[2026-02-06 12:37:19] COMPLETED scenario N1 in 38m (exit 0)
+[2026-02-06 12:37:19] 
+[2026-02-06 12:37:24] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 12:37:24] STARTING scenario N2
+[2026-02-06 12:37:24]   Params: --endpoint https://pushgateway.150.230.181.224.nip.io --nodes 1000 --jitter 20 --interval 60 --duration 1200 --jobs node
+[2026-02-06 12:37:24] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 12:37:24] Cleaning Pushgateway (deleting all metric groups)...
+  Warning: cleanup failed: <urlopen error [Errno 111] Connection refused>
+
+======================================================================
+Pushgateway Stress Test — Scenario N2
+======================================================================
+Endpoint:        https://pushgateway.150.230.181.224.nip.io
+Nodes:           1000
+Interval:        60s
+Duration:        1200s (20 min)
+Jitter:          20.0s (ON)
+Max in-flight:   500
+Jobs filter:     node
+Pod multiplier:  1x
+
+Jobs per cycle:
+  [node-level]    amd-gpu-exporter × 1000 nodes = 1000 pushes
+  [node-level]    node-exporter × 1000 nodes = 1000 pushes
+  [node-level]    oci_lens_node_metrics × 1000 nodes = 1000 pushes
+  [node-level]    oci_lens_drhpc_metrics × 1000 nodes = 1000 pushes
+  Total: 4000 pushes/cycle
+
+Loading payloads...
+  Loaded amd-gpu-exporter: sample-amd-gpu-payload.txt (766.1 KB)
+  Loaded node-exporter: sample-node-exporter-payload.txt (569.9 KB)
+  Loaded oci_lens_node_metrics: payload-oci-lens-node.txt (24.9 KB)
+  Loaded oci_lens_drhpc_metrics: payload-oci-lens-drhpc.txt (14.6 KB)
+
+Starting test: 20 cycles × 4000 pushes = 80000 total pushes
+======================================================================
+
+  Cycle    1 |  4000 pushes | 0 ok / 4000 err | p50=    1.9ms p95=   30.6ms max=  870.5ms | cycle_time=20.0s | FAIL(4000)
+         /metrics probe: 0 KB in 2ms
+  Cycle    2 |  4000 pushes | 123 ok / 3877 err | p50=70052.7ms p95=87509.3ms max=105472.5ms | cycle_time=113.7s | FAIL(3877)
+  Cycle    3 |  4000 pushes | 120 ok / 3880 err | p50=    3.3ms p95=87728.3ms max=111311.4ms | cycle_time=130.0s | FAIL(3880)
+  Cycle    4 |  4000 pushes | 0 ok / 4000 err | p50=    1.8ms p95=    3.0ms max=  386.9ms | cycle_time=20.1s | FAIL(4000)
+  Cycle    5 |  4000 pushes | 0 ok / 4000 err | p50=    1.8ms p95=    4.1ms max=  782.7ms | cycle_time=20.0s | FAIL(4000)
+         /metrics probe: 0 KB in 3ms
+  Cycle    6 |  4000 pushes | 0 ok / 4000 err | p50=    1.9ms p95=    9.8ms max=  701.1ms | cycle_time=20.1s | FAIL(4000)
+  Cycle    7 |  4000 pushes | 0 ok / 4000 err | p50=    1.8ms p95=    3.3ms max=  341.7ms | cycle_time=20.1s | FAIL(4000)
+  Cycle    8 |  4000 pushes | 0 ok / 4000 err | p50=    1.8ms p95=    3.2ms max=  333.9ms | cycle_time=20.0s | FAIL(4000)
+  Cycle    9 |  4000 pushes | 18 ok / 3982 err | p50=    1.9ms p95=    3.6ms max=  669.8ms | cycle_time=20.7s | FAIL(3982)
+  Cycle   10 |  4000 pushes | 98 ok / 3902 err | p50=76449.3ms p95=87789.6ms max=111867.6ms | cycle_time=119.9s | FAIL(3902)
+         /metrics probe: 0 KB in 3ms
+  Cycle   11 |  4000 pushes | 124 ok / 3876 err | p50=    3.5ms p95=87917.6ms max=111553.6ms | cycle_time=130.0s | FAIL(3876)
+  Cycle   12 |  4000 pushes | 0 ok / 4000 err | p50=    1.8ms p95=    3.3ms max= 1147.6ms | cycle_time=20.0s | FAIL(4000)
+  Cycle   13 |  4000 pushes | 0 ok / 4000 err | p50=    1.8ms p95=  158.2ms max= 1191.3ms | cycle_time=20.1s | FAIL(4000)
+  Cycle   14 |  4000 pushes | 0 ok / 4000 err | p50=    1.8ms p95=    3.1ms max=  291.4ms | cycle_time=20.1s | FAIL(4000)
+  Cycle   15 |  4000 pushes | 0 ok / 4000 err | p50=    1.8ms p95=    3.1ms max=   25.0ms | cycle_time=20.0s | FAIL(4000)
+         /metrics probe: 0 KB in 3ms
+  Cycle   16 |  4000 pushes | 0 ok / 4000 err | p50=    1.9ms p95=  328.5ms max= 1218.6ms | cycle_time=20.1s | FAIL(4000)
+  Cycle   17 |  4000 pushes | 0 ok / 4000 err | p50=    1.9ms p95=    3.3ms max=  599.6ms | cycle_time=20.1s | FAIL(4000)
+  Cycle   18 |  4000 pushes | 126 ok / 3874 err | p50=76343.3ms p95=87802.2ms max=111763.6ms | cycle_time=119.9s | FAIL(3874)
+  Cycle   19 |  4000 pushes | 124 ok / 3876 err | p50=    4.5ms p95=87859.1ms max=111436.8ms | cycle_time=130.0s | FAIL(3876)
+  Cycle   20 |  4000 pushes | 0 ok / 4000 err | p50=    1.8ms p95=    3.4ms max=  339.6ms | cycle_time=20.1s | FAIL(4000)
+         /metrics probe: 0 KB in 3ms
+
+==========================================================================================
+FINAL REPORT — Scenario N2
+==========================================================================================
+Endpoint:       https://pushgateway.150.230.181.224.nip.io
+Nodes:          1000
+Total duration: 1543.9s (25.7 min)
+Total pushes:   80000
+
+--- Per-Job Summary ---
+Job                              Total      OK    Fail    Rate    p50ms    p95ms    p99ms    MaxMs
+--------------------------------------------------------------------------------------------------------------
+amd-gpu-exporter                 20000     127   19873    0.6%      2.5  81232.6  87982.2 111867.6
+node-exporter                    20000     163   19837    0.8%      2.3  81211.6  87944.6 111833.7
+oci_lens_drhpc_metrics           20000     230   19770    1.1%      1.5  81201.2  87996.0 111763.6
+oci_lens_node_metrics            20000     213   19787    1.1%      1.5  81236.9  87943.1 111436.8
+--------------------------------------------------------------------------------------------------------------
+TOTAL                            80000     733   79267    0.9%      2.0  81220.8  87964.5 111867.6
+
+--- HTTP Status Codes ---
+  200: 733
+  502: 3007
+  503: 67325
+  ERR:timeout: 8935
+
+--- /metrics Endpoint Probe ---
+ Cycle        Bytes    Time_ms   Status
+     1      0.00 MB        1.9      503
+     5      0.00 MB        2.8      503
+    10      0.00 MB        3.2      503
+    15      0.00 MB        2.8      503
+    20      0.00 MB        3.0      503
+
+  /metrics size growth: 0 KB → 0 KB (1.00x)
+
+==========================================================================================
+
+Results written to: /opt/stress-test/results/N2/
+  N2_pushes.csv  — per-push detail
+  N2_probes.csv  — /metrics endpoint probes
+  N2_summary.txt — this summary
+[2026-02-06 13:03:10] COMPLETED scenario N2 in 25m (exit 0)
+[2026-02-06 13:03:10] 
+[2026-02-06 13:03:15] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 13:03:15] STARTING scenario P1
+[2026-02-06 13:03:15]   Params: --endpoint http://10.96.230.201:9091 --nodes 0 --jitter 5 --interval 60 --duration 1800 --jobs cluster --pod-multiplier 1
+[2026-02-06 13:03:15] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 13:03:15] Cleaning Pushgateway (deleting all metric groups)...
+  Warning: cleanup failed: <urlopen error [Errno 111] Connection refused>
+
+======================================================================
+Pushgateway Stress Test — Scenario P1
+======================================================================
+Endpoint:        http://10.96.230.201:9091
+Nodes:           0
+Interval:        60s
+Duration:        1800s (30 min)
+Jitter:          5.0s (ON)
+Max in-flight:   500
+Jobs filter:     cluster
+Pod multiplier:  1x
+
+Jobs per cycle:
+  [cluster-level] oci_lens_pod_metrics × 1 = 1 push
+  Total: 1 pushes/cycle
+
+Loading payloads...
+  Loaded oci_lens_pod_metrics: payload-oci-lens-pod.txt (20.2 KB)
+
+Starting test: 30 cycles × 1 pushes = 30 total pushes
+======================================================================
+
+  Cycle    1 |     1 pushes | 0 ok / 1 err | p50=    0.8ms p95=    0.8ms max=    0.8ms | cycle_time=1.6s | FAIL(1)
+  Cycle    2 |     1 pushes | 0 ok / 1 err | p50=    0.9ms p95=    0.9ms max=    0.9ms | cycle_time=4.1s | FAIL(1)
+  Cycle    3 |     1 pushes | 0 ok / 1 err | p50=    1.0ms p95=    1.0ms max=    1.0ms | cycle_time=1.8s | FAIL(1)
+  Cycle    4 |     1 pushes | 0 ok / 1 err | p50=    1.0ms p95=    1.0ms max=    1.0ms | cycle_time=1.6s | FAIL(1)
+  Cycle    5 |     1 pushes | 0 ok / 1 err | p50=    0.8ms p95=    0.8ms max=    0.8ms | cycle_time=4.1s | FAIL(1)
+  Cycle    6 |     1 pushes | 1 ok / 0 err | p50=    5.3ms p95=    5.3ms max=    5.3ms | cycle_time=0.7s | OK
+  Cycle    7 |     1 pushes | 1 ok / 0 err | p50=    6.0ms p95=    6.0ms max=    6.0ms | cycle_time=0.4s | OK
+  Cycle    8 |     1 pushes | 1 ok / 0 err | p50=    5.4ms p95=    5.4ms max=    5.4ms | cycle_time=4.7s | OK
+  Cycle    9 |     1 pushes | 1 ok / 0 err | p50=    5.1ms p95=    5.1ms max=    5.1ms | cycle_time=4.5s | OK
+  Cycle   10 |     1 pushes | 1 ok / 0 err | p50=    4.9ms p95=    4.9ms max=    4.9ms | cycle_time=1.8s | OK
+         /metrics probe: 34 KB in 3ms
+  Cycle   11 |     1 pushes | 1 ok / 0 err | p50=    5.2ms p95=    5.2ms max=    5.2ms | cycle_time=2.9s | OK
+  Cycle   12 |     1 pushes | 1 ok / 0 err | p50=    5.0ms p95=    5.0ms max=    5.0ms | cycle_time=1.1s | OK
+  Cycle   13 |     1 pushes | 1 ok / 0 err | p50=    5.1ms p95=    5.1ms max=    5.1ms | cycle_time=4.4s | OK
+  Cycle   14 |     1 pushes | 1 ok / 0 err | p50=    5.1ms p95=    5.1ms max=    5.1ms | cycle_time=4.5s | OK
+  Cycle   15 |     1 pushes | 1 ok / 0 err | p50=    5.0ms p95=    5.0ms max=    5.0ms | cycle_time=0.3s | OK
+         /metrics probe: 34 KB in 3ms
+  Cycle   16 |     1 pushes | 1 ok / 0 err | p50=    5.1ms p95=    5.1ms max=    5.1ms | cycle_time=2.6s | OK
+  Cycle   17 |     1 pushes | 1 ok / 0 err | p50=    5.1ms p95=    5.1ms max=    5.1ms | cycle_time=4.7s | OK
+  Cycle   18 |     1 pushes | 1 ok / 0 err | p50=    6.0ms p95=    6.0ms max=    6.0ms | cycle_time=2.5s | OK
+  Cycle   19 |     1 pushes | 1 ok / 0 err | p50=    6.0ms p95=    6.0ms max=    6.0ms | cycle_time=1.6s | OK
+  Cycle   20 |     1 pushes | 1 ok / 0 err | p50=    6.0ms p95=    6.0ms max=    6.0ms | cycle_time=2.8s | OK
+         /metrics probe: 34 KB in 3ms
+  Cycle   21 |     1 pushes | 1 ok / 0 err | p50=    5.9ms p95=    5.9ms max=    5.9ms | cycle_time=0.3s | OK
+  Cycle   22 |     1 pushes | 1 ok / 0 err | p50=    4.8ms p95=    4.8ms max=    4.8ms | cycle_time=2.5s | OK
+  Cycle   23 |     1 pushes | 1 ok / 0 err | p50=    5.1ms p95=    5.1ms max=    5.1ms | cycle_time=1.0s | OK
+  Cycle   24 |     1 pushes | 1 ok / 0 err | p50=    5.4ms p95=    5.4ms max=    5.4ms | cycle_time=1.9s | OK
+  Cycle   25 |     1 pushes | 1 ok / 0 err | p50=    5.8ms p95=    5.8ms max=    5.8ms | cycle_time=0.9s | OK
+         /metrics probe: 34 KB in 3ms
+  Cycle   26 |     1 pushes | 1 ok / 0 err | p50=    5.2ms p95=    5.2ms max=    5.2ms | cycle_time=3.9s | OK
+  Cycle   27 |     1 pushes | 1 ok / 0 err | p50=    5.3ms p95=    5.3ms max=    5.3ms | cycle_time=4.7s | OK
+  Cycle   28 |     1 pushes | 1 ok / 0 err | p50=    5.3ms p95=    5.3ms max=    5.3ms | cycle_time=1.2s | OK
+  Cycle   29 |     1 pushes | 1 ok / 0 err | p50=    5.6ms p95=    5.6ms max=    5.6ms | cycle_time=1.8s | OK
+  Cycle   30 |     1 pushes | 1 ok / 0 err | p50=    5.1ms p95=    5.1ms max=    5.1ms | cycle_time=1.4s | OK
+         /metrics probe: 34 KB in 3ms
+
+==========================================================================================
+FINAL REPORT — Scenario P1
+==========================================================================================
+Endpoint:       http://10.96.230.201:9091
+Nodes:          0
+Total duration: 1741.4s (29.0 min)
+Total pushes:   30
+
+--- Per-Job Summary ---
+Job                              Total      OK    Fail    Rate    p50ms    p95ms    p99ms    MaxMs
+--------------------------------------------------------------------------------------------------------------
+oci_lens_pod_metrics                30      25       5   83.3%      5.1      6.0      6.0      6.0
+--------------------------------------------------------------------------------------------------------------
+TOTAL                               30      25       5   83.3%      5.1      6.0      6.0      6.0
+
+--- HTTP Status Codes ---
+  200: 25
+  ERR:Cannot connect to host 10.96.2: 5
+
+--- /metrics Endpoint Probe ---
+ Cycle        Bytes    Time_ms   Status
+     1        ERROR        0.3        0
+     5        ERROR        0.3        0
+    10      0.03 MB        3.0      200
+    15      0.03 MB        3.0      200
+    20      0.03 MB        2.7      200
+    25      0.03 MB        3.0      200
+    30      0.03 MB        3.3      200
+
+==========================================================================================
+
+Results written to: /opt/stress-test/results/P1/
+  P1_pushes.csv  — per-push detail
+  P1_probes.csv  — /metrics endpoint probes
+  P1_summary.txt — this summary
+[2026-02-06 13:32:17] COMPLETED scenario P1 in 29m (exit 0)
+[2026-02-06 13:32:17] 
+[2026-02-06 13:32:22] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 13:32:22] STARTING scenario P2
+[2026-02-06 13:32:22]   Params: --endpoint http://10.96.230.201:9091 --nodes 0 --jitter 5 --interval 60 --duration 1800 --jobs cluster --pod-multiplier 10
+[2026-02-06 13:32:22] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 13:32:22] Cleaning Pushgateway (deleting all metric groups)...
+  Deleted 1 groups
+
+======================================================================
+Pushgateway Stress Test — Scenario P2
+======================================================================
+Endpoint:        http://10.96.230.201:9091
+Nodes:           0
+Interval:        60s
+Duration:        1800s (30 min)
+Jitter:          5.0s (ON)
+Max in-flight:   500
+Jobs filter:     cluster
+Pod multiplier:  10x
+
+Jobs per cycle:
+  [cluster-level] oci_lens_pod_metrics × 1 (inflated 10x) = 1 push
+  Total: 1 pushes/cycle
+
+Loading payloads...
+  Loaded oci_lens_pod_metrics: payload-oci-lens-pod.txt (20.2 KB)
+  Inflated oci_lens_pod_metrics: 20.2 KB → 207.6 KB (10x)
+
+Starting test: 30 cycles × 1 pushes = 30 total pushes
+======================================================================
+
+  Cycle    1 |     1 pushes | 0 ok / 1 err | p50=    9.6ms p95=    9.6ms max=    9.6ms | cycle_time=2.8s | FAIL(1)
+         /metrics probe: 10 KB in 3ms
+  Cycle    2 |     1 pushes | 0 ok / 1 err | p50=   12.0ms p95=   12.0ms max=   12.0ms | cycle_time=2.7s | FAIL(1)
+  Cycle    3 |     1 pushes | 0 ok / 1 err | p50=   12.6ms p95=   12.6ms max=   12.6ms | cycle_time=2.9s | FAIL(1)
+  Cycle    4 |     1 pushes | 0 ok / 1 err | p50=   10.0ms p95=   10.0ms max=   10.0ms | cycle_time=4.8s | FAIL(1)
+  Cycle    5 |     1 pushes | 0 ok / 1 err | p50=   12.4ms p95=   12.4ms max=   12.4ms | cycle_time=0.5s | FAIL(1)
+         /metrics probe: 10 KB in 4ms
+  Cycle    6 |     1 pushes | 0 ok / 1 err | p50=   10.6ms p95=   10.6ms max=   10.6ms | cycle_time=4.8s | FAIL(1)
+  Cycle    7 |     1 pushes | 0 ok / 1 err | p50=   10.1ms p95=   10.1ms max=   10.1ms | cycle_time=0.6s | FAIL(1)
+  Cycle    8 |     1 pushes | 0 ok / 1 err | p50=   15.2ms p95=   15.2ms max=   15.2ms | cycle_time=3.3s | FAIL(1)
+  Cycle    9 |     1 pushes | 0 ok / 1 err | p50=   11.7ms p95=   11.7ms max=   11.7ms | cycle_time=2.5s | FAIL(1)
+  Cycle   10 |     1 pushes | 0 ok / 1 err | p50=   10.4ms p95=   10.4ms max=   10.4ms | cycle_time=0.0s | FAIL(1)
+         /metrics probe: 10 KB in 3ms
+  Cycle   11 |     1 pushes | 0 ok / 1 err | p50=   10.1ms p95=   10.1ms max=   10.1ms | cycle_time=3.6s | FAIL(1)
+  Cycle   12 |     1 pushes | 0 ok / 1 err | p50=   10.8ms p95=   10.8ms max=   10.8ms | cycle_time=1.6s | FAIL(1)
+  Cycle   13 |     1 pushes | 0 ok / 1 err | p50=    9.9ms p95=    9.9ms max=    9.9ms | cycle_time=1.7s | FAIL(1)
+  Cycle   14 |     1 pushes | 0 ok / 1 err | p50=    9.8ms p95=    9.8ms max=    9.8ms | cycle_time=2.9s | FAIL(1)
+  Cycle   15 |     1 pushes | 0 ok / 1 err | p50=    9.3ms p95=    9.3ms max=    9.3ms | cycle_time=4.1s | FAIL(1)
+         /metrics probe: 10 KB in 4ms
+  Cycle   16 |     1 pushes | 0 ok / 1 err | p50=    9.5ms p95=    9.5ms max=    9.5ms | cycle_time=2.2s | FAIL(1)
+  Cycle   17 |     1 pushes | 0 ok / 1 err | p50=    9.2ms p95=    9.2ms max=    9.2ms | cycle_time=4.5s | FAIL(1)
+  Cycle   18 |     1 pushes | 0 ok / 1 err | p50=   10.7ms p95=   10.7ms max=   10.7ms | cycle_time=1.0s | FAIL(1)
+  Cycle   19 |     1 pushes | 0 ok / 1 err | p50=    9.9ms p95=    9.9ms max=    9.9ms | cycle_time=0.8s | FAIL(1)
+  Cycle   20 |     1 pushes | 0 ok / 1 err | p50=   12.2ms p95=   12.2ms max=   12.2ms | cycle_time=3.3s | FAIL(1)
+         /metrics probe: 10 KB in 3ms
+  Cycle   21 |     1 pushes | 0 ok / 1 err | p50=    9.2ms p95=    9.2ms max=    9.2ms | cycle_time=2.6s | FAIL(1)
+  Cycle   22 |     1 pushes | 0 ok / 1 err | p50=   15.0ms p95=   15.0ms max=   15.0ms | cycle_time=3.4s | FAIL(1)
+  Cycle   23 |     1 pushes | 0 ok / 1 err | p50=   12.3ms p95=   12.3ms max=   12.3ms | cycle_time=1.8s | FAIL(1)
+  Cycle   24 |     1 pushes | 0 ok / 1 err | p50=    8.9ms p95=    8.9ms max=    8.9ms | cycle_time=2.9s | FAIL(1)
+  Cycle   25 |     1 pushes | 0 ok / 1 err | p50=   11.3ms p95=   11.3ms max=   11.3ms | cycle_time=0.2s | FAIL(1)
+         /metrics probe: 10 KB in 3ms
+  Cycle   26 |     1 pushes | 0 ok / 1 err | p50=    9.5ms p95=    9.5ms max=    9.5ms | cycle_time=4.8s | FAIL(1)
+  Cycle   27 |     1 pushes | 0 ok / 1 err | p50=   10.3ms p95=   10.3ms max=   10.3ms | cycle_time=1.0s | FAIL(1)
+  Cycle   28 |     1 pushes | 0 ok / 1 err | p50=   11.4ms p95=   11.4ms max=   11.4ms | cycle_time=2.6s | FAIL(1)
+  Cycle   29 |     1 pushes | 0 ok / 1 err | p50=   12.8ms p95=   12.8ms max=   12.8ms | cycle_time=2.5s | FAIL(1)
+  Cycle   30 |     1 pushes | 0 ok / 1 err | p50=   12.2ms p95=   12.2ms max=   12.2ms | cycle_time=4.2s | FAIL(1)
+         /metrics probe: 10 KB in 3ms
+
+==========================================================================================
+FINAL REPORT — Scenario P2
+==========================================================================================
+Endpoint:       http://10.96.230.201:9091
+Nodes:          0
+Total duration: 1744.3s (29.1 min)
+Total pushes:   30
+
+--- Per-Job Summary ---
+Job                              Total      OK    Fail    Rate    p50ms    p95ms    p99ms    MaxMs
+--------------------------------------------------------------------------------------------------------------
+oci_lens_pod_metrics                30       0      30    0.0%     10.5     14.0     15.2     15.2
+--------------------------------------------------------------------------------------------------------------
+TOTAL                               30       0      30    0.0%     10.5     14.0     15.2     15.2
+
+--- HTTP Status Codes ---
+  400: 30
+
+--- /metrics Endpoint Probe ---
+ Cycle        Bytes    Time_ms   Status
+     1      0.01 MB        2.7      200
+     5      0.01 MB        3.8      200
+    10      0.01 MB        2.8      200
+    15      0.01 MB        4.4      200
+    20      0.01 MB        2.6      200
+    25      0.01 MB        2.8      200
+    30      0.01 MB        3.0      200
+
+  /metrics size growth: 10 KB → 10 KB (1.00x)
+
+==========================================================================================
+
+Results written to: /opt/stress-test/results/P2/
+  P2_pushes.csv  — per-push detail
+  P2_probes.csv  — /metrics endpoint probes
+  P2_summary.txt — this summary
+[2026-02-06 14:01:27] COMPLETED scenario P2 in 29m (exit 0)
+[2026-02-06 14:01:27] 
+[2026-02-06 14:01:32] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 14:01:32] STARTING scenario P3
+[2026-02-06 14:01:32]   Params: --endpoint http://10.96.230.201:9091 --nodes 0 --jitter 5 --interval 60 --duration 1800 --jobs cluster --pod-multiplier 50
+[2026-02-06 14:01:32] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 14:01:32] Cleaning Pushgateway (deleting all metric groups)...
+  Deleted 0 groups
+
+======================================================================
+Pushgateway Stress Test — Scenario P3
+======================================================================
+Endpoint:        http://10.96.230.201:9091
+Nodes:           0
+Interval:        60s
+Duration:        1800s (30 min)
+Jitter:          5.0s (ON)
+Max in-flight:   500
+Jobs filter:     cluster
+Pod multiplier:  50x
+
+Jobs per cycle:
+  [cluster-level] oci_lens_pod_metrics × 1 (inflated 50x) = 1 push
+  Total: 1 pushes/cycle
+
+Loading payloads...
+  Loaded oci_lens_pod_metrics: payload-oci-lens-pod.txt (20.2 KB)
+  Inflated oci_lens_pod_metrics: 20.2 KB → 1037.9 KB (50x)
+
+Starting test: 30 cycles × 1 pushes = 30 total pushes
+======================================================================
+
+  Cycle    1 |     1 pushes | 0 ok / 1 err | p50=   35.0ms p95=   35.0ms max=   35.0ms | cycle_time=0.9s | FAIL(1)
+         /metrics probe: 10 KB in 3ms
+  Cycle    2 |     1 pushes | 0 ok / 1 err | p50=   40.4ms p95=   40.4ms max=   40.4ms | cycle_time=4.7s | FAIL(1)
+  Cycle    3 |     1 pushes | 0 ok / 1 err | p50=   35.6ms p95=   35.6ms max=   35.6ms | cycle_time=0.3s | FAIL(1)
+  Cycle    4 |     1 pushes | 0 ok / 1 err | p50=   39.2ms p95=   39.2ms max=   39.2ms | cycle_time=3.0s | FAIL(1)
+  Cycle    5 |     1 pushes | 0 ok / 1 err | p50=   36.2ms p95=   36.2ms max=   36.2ms | cycle_time=2.1s | FAIL(1)
+         /metrics probe: 10 KB in 3ms
+  Cycle    6 |     1 pushes | 0 ok / 1 err | p50=   36.5ms p95=   36.5ms max=   36.5ms | cycle_time=2.3s | FAIL(1)
+  Cycle    7 |     1 pushes | 0 ok / 1 err | p50=   39.0ms p95=   39.0ms max=   39.0ms | cycle_time=0.5s | FAIL(1)
+  Cycle    8 |     1 pushes | 0 ok / 1 err | p50=   34.3ms p95=   34.3ms max=   34.3ms | cycle_time=2.9s | FAIL(1)
+  Cycle    9 |     1 pushes | 0 ok / 1 err | p50=   32.2ms p95=   32.2ms max=   32.2ms | cycle_time=3.3s | FAIL(1)
+  Cycle   10 |     1 pushes | 0 ok / 1 err | p50=   34.0ms p95=   34.0ms max=   34.0ms | cycle_time=1.8s | FAIL(1)
+         /metrics probe: 10 KB in 4ms
+  Cycle   11 |     1 pushes | 0 ok / 1 err | p50=   37.0ms p95=   37.0ms max=   37.0ms | cycle_time=0.4s | FAIL(1)
+  Cycle   12 |     1 pushes | 0 ok / 1 err | p50=   34.4ms p95=   34.4ms max=   34.4ms | cycle_time=0.3s | FAIL(1)
+  Cycle   13 |     1 pushes | 0 ok / 1 err | p50=   32.2ms p95=   32.2ms max=   32.2ms | cycle_time=4.1s | FAIL(1)
+  Cycle   14 |     1 pushes | 0 ok / 1 err | p50=   40.0ms p95=   40.0ms max=   40.0ms | cycle_time=0.5s | FAIL(1)
+  Cycle   15 |     1 pushes | 0 ok / 1 err | p50=   34.9ms p95=   34.9ms max=   34.9ms | cycle_time=0.2s | FAIL(1)
+         /metrics probe: 10 KB in 3ms
+  Cycle   16 |     1 pushes | 0 ok / 1 err | p50=   39.3ms p95=   39.3ms max=   39.3ms | cycle_time=2.4s | FAIL(1)
+  Cycle   17 |     1 pushes | 0 ok / 1 err | p50=   35.0ms p95=   35.0ms max=   35.0ms | cycle_time=3.4s | FAIL(1)
+  Cycle   18 |     1 pushes | 0 ok / 1 err | p50=   35.3ms p95=   35.3ms max=   35.3ms | cycle_time=2.9s | FAIL(1)
+  Cycle   19 |     1 pushes | 0 ok / 1 err | p50=   33.7ms p95=   33.7ms max=   33.7ms | cycle_time=1.3s | FAIL(1)
+  Cycle   20 |     1 pushes | 0 ok / 1 err | p50=   34.9ms p95=   34.9ms max=   34.9ms | cycle_time=3.4s | FAIL(1)
+         /metrics probe: 10 KB in 4ms
+  Cycle   21 |     1 pushes | 0 ok / 1 err | p50=   35.5ms p95=   35.5ms max=   35.5ms | cycle_time=2.8s | FAIL(1)
+  Cycle   22 |     1 pushes | 0 ok / 1 err | p50=   34.0ms p95=   34.0ms max=   34.0ms | cycle_time=0.7s | FAIL(1)
+  Cycle   23 |     1 pushes | 0 ok / 1 err | p50=   33.5ms p95=   33.5ms max=   33.5ms | cycle_time=0.4s | FAIL(1)
+  Cycle   24 |     1 pushes | 0 ok / 1 err | p50=   33.8ms p95=   33.8ms max=   33.8ms | cycle_time=3.1s | FAIL(1)
+  Cycle   25 |     1 pushes | 0 ok / 1 err | p50=   36.7ms p95=   36.7ms max=   36.7ms | cycle_time=2.6s | FAIL(1)
+         /metrics probe: 10 KB in 3ms
+  Cycle   26 |     1 pushes | 0 ok / 1 err | p50=   34.4ms p95=   34.4ms max=   34.4ms | cycle_time=4.2s | FAIL(1)
+  Cycle   27 |     1 pushes | 0 ok / 1 err | p50=   36.1ms p95=   36.1ms max=   36.1ms | cycle_time=2.7s | FAIL(1)
+  Cycle   28 |     1 pushes | 0 ok / 1 err | p50=   32.1ms p95=   32.1ms max=   32.1ms | cycle_time=2.2s | FAIL(1)
+  Cycle   29 |     1 pushes | 0 ok / 1 err | p50=   42.6ms p95=   42.6ms max=   42.6ms | cycle_time=2.1s | FAIL(1)
+  Cycle   30 |     1 pushes | 0 ok / 1 err | p50=   46.3ms p95=   46.3ms max=   46.3ms | cycle_time=1.0s | FAIL(1)
+         /metrics probe: 10 KB in 4ms
+
+==========================================================================================
+FINAL REPORT — Scenario P3
+==========================================================================================
+Endpoint:       http://10.96.230.201:9091
+Nodes:          0
+Total duration: 1741.1s (29.0 min)
+Total pushes:   30
+
+--- Per-Job Summary ---
+Job                              Total      OK    Fail    Rate    p50ms    p95ms    p99ms    MaxMs
+--------------------------------------------------------------------------------------------------------------
+oci_lens_pod_metrics                30       0      30    0.0%     35.2     41.6     45.2     46.3
+--------------------------------------------------------------------------------------------------------------
+TOTAL                               30       0      30    0.0%     35.2     41.6     45.2     46.3
+
+--- HTTP Status Codes ---
+  400: 30
+
+--- /metrics Endpoint Probe ---
+ Cycle        Bytes    Time_ms   Status
+     1      0.01 MB        3.2      200
+     5      0.01 MB        3.0      200
+    10      0.01 MB        3.6      200
+    15      0.01 MB        2.8      200
+    20      0.01 MB        4.0      200
+    25      0.01 MB        2.9      200
+    30      0.01 MB        3.9      200
+
+  /metrics size growth: 10 KB → 10 KB (1.01x)
+
+==========================================================================================
+
+Results written to: /opt/stress-test/results/P3/
+  P3_pushes.csv  — per-push detail
+  P3_probes.csv  — /metrics endpoint probes
+  P3_summary.txt — this summary
+[2026-02-06 14:30:33] COMPLETED scenario P3 in 29m (exit 0)
+[2026-02-06 14:30:33] 
+[2026-02-06 14:30:38] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 14:30:38] STARTING scenario P4
+[2026-02-06 14:30:38]   Params: --endpoint http://10.96.230.201:9091 --nodes 0 --jitter 5 --interval 60 --duration 1800 --jobs cluster --pod-multiplier 100
+[2026-02-06 14:30:38] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 14:30:38] Cleaning Pushgateway (deleting all metric groups)...
+  Deleted 0 groups
+
+======================================================================
+Pushgateway Stress Test — Scenario P4
+======================================================================
+Endpoint:        http://10.96.230.201:9091
+Nodes:           0
+Interval:        60s
+Duration:        1800s (30 min)
+Jitter:          5.0s (ON)
+Max in-flight:   500
+Jobs filter:     cluster
+Pod multiplier:  100x
+
+Jobs per cycle:
+  [cluster-level] oci_lens_pod_metrics × 1 (inflated 100x) = 1 push
+  Total: 1 pushes/cycle
+
+Loading payloads...
+  Loaded oci_lens_pod_metrics: payload-oci-lens-pod.txt (20.2 KB)
+  Inflated oci_lens_pod_metrics: 20.2 KB → 2075.9 KB (100x)
+
+Starting test: 30 cycles × 1 pushes = 30 total pushes
+======================================================================
+
+  Cycle    1 |     1 pushes | 0 ok / 1 err | p50=   67.2ms p95=   67.2ms max=   67.2ms | cycle_time=0.8s | FAIL(1)
+         /metrics probe: 10 KB in 4ms
+  Cycle    2 |     1 pushes | 0 ok / 1 err | p50=   67.8ms p95=   67.8ms max=   67.8ms | cycle_time=3.3s | FAIL(1)
+  Cycle    3 |     1 pushes | 0 ok / 1 err | p50=   70.0ms p95=   70.0ms max=   70.0ms | cycle_time=3.9s | FAIL(1)
+  Cycle    4 |     1 pushes | 0 ok / 1 err | p50=   66.2ms p95=   66.2ms max=   66.2ms | cycle_time=2.5s | FAIL(1)
+  Cycle    5 |     1 pushes | 0 ok / 1 err | p50=   68.3ms p95=   68.3ms max=   68.3ms | cycle_time=4.4s | FAIL(1)
+         /metrics probe: 10 KB in 3ms
+  Cycle    6 |     1 pushes | 0 ok / 1 err | p50=   65.5ms p95=   65.5ms max=   65.5ms | cycle_time=0.7s | FAIL(1)
+  Cycle    7 |     1 pushes | 0 ok / 1 err | p50=   71.9ms p95=   71.9ms max=   71.9ms | cycle_time=0.7s | FAIL(1)
+  Cycle    8 |     1 pushes | 0 ok / 1 err | p50=   66.0ms p95=   66.0ms max=   66.0ms | cycle_time=2.0s | FAIL(1)
+  Cycle    9 |     1 pushes | 0 ok / 1 err | p50=   68.7ms p95=   68.7ms max=   68.7ms | cycle_time=1.8s | FAIL(1)
+  Cycle   10 |     1 pushes | 0 ok / 1 err | p50=   65.3ms p95=   65.3ms max=   65.3ms | cycle_time=2.6s | FAIL(1)
+         /metrics probe: 10 KB in 3ms
+  Cycle   11 |     1 pushes | 0 ok / 1 err | p50=   65.2ms p95=   65.2ms max=   65.2ms | cycle_time=0.4s | FAIL(1)
+  Cycle   12 |     1 pushes | 0 ok / 1 err | p50=   63.8ms p95=   63.8ms max=   63.8ms | cycle_time=0.6s | FAIL(1)
+  Cycle   13 |     1 pushes | 0 ok / 1 err | p50=   66.9ms p95=   66.9ms max=   66.9ms | cycle_time=2.8s | FAIL(1)
+  Cycle   14 |     1 pushes | 0 ok / 1 err | p50=   66.0ms p95=   66.0ms max=   66.0ms | cycle_time=4.8s | FAIL(1)
+  Cycle   15 |     1 pushes | 0 ok / 1 err | p50=   66.5ms p95=   66.5ms max=   66.5ms | cycle_time=4.9s | FAIL(1)
+         /metrics probe: 10 KB in 3ms
+  Cycle   16 |     1 pushes | 0 ok / 1 err | p50=   65.2ms p95=   65.2ms max=   65.2ms | cycle_time=4.2s | FAIL(1)
+  Cycle   17 |     1 pushes | 0 ok / 1 err | p50=   65.7ms p95=   65.7ms max=   65.7ms | cycle_time=4.0s | FAIL(1)
+  Cycle   18 |     1 pushes | 0 ok / 1 err | p50=   63.8ms p95=   63.8ms max=   63.8ms | cycle_time=3.2s | FAIL(1)
+  Cycle   19 |     1 pushes | 0 ok / 1 err | p50=   67.0ms p95=   67.0ms max=   67.0ms | cycle_time=0.3s | FAIL(1)
+  Cycle   20 |     1 pushes | 0 ok / 1 err | p50=   65.2ms p95=   65.2ms max=   65.2ms | cycle_time=3.0s | FAIL(1)
+         /metrics probe: 10 KB in 4ms
+  Cycle   21 |     1 pushes | 0 ok / 1 err | p50=   67.3ms p95=   67.3ms max=   67.3ms | cycle_time=1.5s | FAIL(1)
+  Cycle   22 |     1 pushes | 0 ok / 1 err | p50=   66.8ms p95=   66.8ms max=   66.8ms | cycle_time=0.1s | FAIL(1)
+  Cycle   23 |     1 pushes | 0 ok / 1 err | p50=   65.4ms p95=   65.4ms max=   65.4ms | cycle_time=4.5s | FAIL(1)
+  Cycle   24 |     1 pushes | 0 ok / 1 err | p50=   65.0ms p95=   65.0ms max=   65.0ms | cycle_time=2.5s | FAIL(1)
+  Cycle   25 |     1 pushes | 0 ok / 1 err | p50=   66.5ms p95=   66.5ms max=   66.5ms | cycle_time=3.5s | FAIL(1)
+         /metrics probe: 10 KB in 3ms
+  Cycle   26 |     1 pushes | 0 ok / 1 err | p50=   67.4ms p95=   67.4ms max=   67.4ms | cycle_time=4.9s | FAIL(1)
+  Cycle   27 |     1 pushes | 0 ok / 1 err | p50=   66.9ms p95=   66.9ms max=   66.9ms | cycle_time=3.8s | FAIL(1)
+  Cycle   28 |     1 pushes | 0 ok / 1 err | p50=   67.8ms p95=   67.8ms max=   67.8ms | cycle_time=3.8s | FAIL(1)
+  Cycle   29 |     1 pushes | 0 ok / 1 err | p50=   70.1ms p95=   70.1ms max=   70.1ms | cycle_time=1.0s | FAIL(1)
+  Cycle   30 |     1 pushes | 0 ok / 1 err | p50=   68.6ms p95=   68.6ms max=   68.6ms | cycle_time=3.3s | FAIL(1)
+         /metrics probe: 10 KB in 4ms
+
+==========================================================================================
+FINAL REPORT — Scenario P4
+==========================================================================================
+Endpoint:       http://10.96.230.201:9091
+Nodes:          0
+Total duration: 1743.4s (29.1 min)
+Total pushes:   30
+
+--- Per-Job Summary ---
+Job                              Total      OK    Fail    Rate    p50ms    p95ms    p99ms    MaxMs
+--------------------------------------------------------------------------------------------------------------
+oci_lens_pod_metrics                30       0      30    0.0%     66.7     70.1     71.4     71.9
+--------------------------------------------------------------------------------------------------------------
+TOTAL                               30       0      30    0.0%     66.7     70.1     71.4     71.9
+
+--- HTTP Status Codes ---
+  400: 30
+
+--- /metrics Endpoint Probe ---
+ Cycle        Bytes    Time_ms   Status
+     1      0.01 MB        3.7      200
+     5      0.01 MB        3.2      200
+    10      0.01 MB        3.1      200
+    15      0.01 MB        2.9      200
+    20      0.01 MB        4.1      200
+    25      0.01 MB        3.0      200
+    30      0.01 MB        4.0      200
+
+  /metrics size growth: 10 KB → 10 KB (1.00x)
+
+==========================================================================================
+
+Results written to: /opt/stress-test/results/P4/
+  P4_pushes.csv  — per-push detail
+  P4_probes.csv  — /metrics endpoint probes
+  P4_summary.txt — this summary
+[2026-02-06 14:59:42] COMPLETED scenario P4 in 29m (exit 0)
+[2026-02-06 14:59:42] 
+[2026-02-06 14:59:47] 
+[2026-02-06 14:59:47] ╔══════════════════════════════════════════════════════════════╗
+[2026-02-06 14:59:47] ║          FULL STRESS TEST SUITE — COMPLETE                  ║
+[2026-02-06 14:59:47] ║          Total time: 13h 29m                                  ║
+[2026-02-06 14:59:47] ║          2026-02-06 14:59:47                               ║
+[2026-02-06 14:59:47] ╚══════════════════════════════════════════════════════════════╝

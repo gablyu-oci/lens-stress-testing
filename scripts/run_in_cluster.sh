@@ -8,7 +8,9 @@
 # Usage:
 #   ./run_in_cluster.sh <SCENARIO_ID>            # attached (live output)
 #   ./run_in_cluster.sh <SCENARIO_ID> --detach   # detached (safe to disconnect)
-#   ./run_in_cluster.sh --logs [SCENARIO_ID]     # tail live logs from detached run
+#   ./run_in_cluster.sh --all                    # run ALL scenarios detached (~10h)
+#   ./run_in_cluster.sh --all --skip-soak        # run all except C6/I6 (~6h)
+#   ./run_in_cluster.sh --logs [SCENARIO_ID|ALL] # tail live logs
 #   ./run_in_cluster.sh --status                 # check if a test is running
 #   ./run_in_cluster.sh --results [SCENARIO_ID]  # copy results back
 #   ./run_in_cluster.sh --list                   # show all scenarios
@@ -35,10 +37,142 @@ ok()   { echo -e "${GREEN}[cluster]${NC} $*"; }
 warn() { echo -e "${YELLOW}[cluster]${NC} $*"; }
 err()  { echo -e "${RED}[cluster]${NC} $*"; }
 
+# ─── Functions (defined early so flag handlers can use them) ─────────────────
+
+pod_status() {
+    kubectl get pod "$POD_NAME" -n "$NAMESPACE" -o jsonpath='{.status.phase}' 2>/dev/null || echo "NotFound"
+}
+
+ensure_pod() {
+    local status
+    status=$(pod_status)
+
+    if [[ "$status" == "Running" ]]; then
+        ok "Pod already running"
+        return
+    fi
+
+    if [[ "$status" != "NotFound" ]]; then
+        warn "Pod in state '$status', deleting and recreating..."
+        kubectl delete pod "$POD_NAME" -n "$NAMESPACE" --wait=true 2>/dev/null || true
+    fi
+
+    log "Creating stress test pod..."
+    kubectl apply -f "${SCRIPT_DIR}/stress-test-pod.yaml"
+
+    log "Waiting for pod to be ready..."
+    kubectl wait --for=condition=Ready pod/"$POD_NAME" -n "$NAMESPACE" --timeout=120s
+    ok "Pod is ready"
+}
+
+sync_files() {
+    log "Setting up remote directory..."
+    kubectl exec "$POD_NAME" -n "$NAMESPACE" -- \
+        bash -c "mkdir -p ${REMOTE_DIR}/{payloads,scripts,results} && pip install -q aiohttp 2>&1 | tail -1"
+
+    log "Copying payloads..."
+    for f in "${PROJECT_DIR}"/payloads/*.txt "${PROJECT_DIR}"/payloads/pushgateway-payload; do
+        [[ -f "$f" ]] && kubectl cp "$f" "${NAMESPACE}/${POD_NAME}:${REMOTE_DIR}/payloads/$(basename "$f")"
+    done
+
+    log "Copying scripts..."
+    for f in generator.py monitor.sh run_scenario.sh run_all.sh requirements.txt; do
+        [[ -f "${SCRIPT_DIR}/${f}" ]] && kubectl cp "${SCRIPT_DIR}/${f}" "${NAMESPACE}/${POD_NAME}:${REMOTE_DIR}/scripts/${f}"
+    done
+
+    kubectl exec "$POD_NAME" -n "$NAMESPACE" -- \
+        bash -c "chmod +x ${REMOTE_DIR}/scripts/*.sh ${REMOTE_DIR}/scripts/*.py 2>/dev/null || true"
+
+    ok "Files synced"
+}
+
 # ─── Handle special flags ───────────────────────────────────────────────────
 
 if [[ "${1:-}" == "--list" || "${1:-}" == "-l" ]]; then
     bash "${SCRIPT_DIR}/run_scenario.sh" --list
+    exit 0
+fi
+
+if [[ "${1:-}" == "--all" ]]; then
+    SKIP_SOAK_FLAG=""
+    if [[ "${2:-}" == "--skip-soak" ]]; then
+        SKIP_SOAK_FLAG="--skip-soak"
+    fi
+
+    echo ""
+    echo -e "${GREEN}═══════════════════════════════════════════════════════════════${NC}"
+    echo -e "${GREEN}  Running ALL Scenarios (DETACHED)${NC}"
+    if [[ -n "$SKIP_SOAK_FLAG" ]]; then
+        echo -e "${YELLOW}  Skipping soak tests (C6, I6) — ~6 hours total${NC}"
+    else
+        echo -e "${YELLOW}  Including soak tests (C6, I6) — ~10 hours total${NC}"
+    fi
+    echo -e "${GREEN}═══════════════════════════════════════════════════════════════${NC}"
+    echo ""
+
+    ensure_pod
+    sync_files
+
+    log "Launching full test suite in DETACHED mode..."
+    log "The tests run inside the pod — safe to close your terminal."
+    echo ""
+
+    kubectl exec "$POD_NAME" -n "$NAMESPACE" -- \
+        bash -c "
+            echo 'ALL' > ${REMOTE_DIR}/results/RUNNING
+            echo \"\$(date -Iseconds)\" > ${REMOTE_DIR}/results/RUNNING_STARTED
+            nohup bash -c '
+                bash ${REMOTE_DIR}/scripts/run_all.sh ${SKIP_SOAK_FLAG}
+                rm -f ${REMOTE_DIR}/results/RUNNING ${REMOTE_DIR}/results/RUNNING_PID ${REMOTE_DIR}/results/RUNNING_STARTED
+            ' > ${REMOTE_DIR}/results/run_all_output.log 2>&1 &
+            PID=\$!
+            echo \$PID > ${REMOTE_DIR}/results/RUNNING_PID
+            echo \"Master runner started with PID \$PID\"
+        "
+
+    echo ""
+    ok "All scenarios are queued and running sequentially inside the pod."
+    echo ""
+    echo "  Check status:      $0 --status"
+    echo "  Follow master log: $0 --logs ALL"
+    echo "  Follow a scenario: $0 --logs C3"
+    echo "  Copy all results:  $0 --results"
+    echo "  Shell into pod:    $0 --shell"
+    echo ""
+    echo "  You can now safely close this terminal."
+    echo ""
+
+    # Auto-copy: local watcher that copies ALL results when suite finishes
+    local_results="${PROJECT_DIR}/results"
+    mkdir -p "$local_results"
+    nohup bash -c "
+        while true; do
+            sleep 120
+            all_done=\$(kubectl exec ${POD_NAME} -n ${NAMESPACE} -- \
+                cat ${REMOTE_DIR}/results/ALL_DONE 2>/dev/null) || true
+            if [[ -n \"\$all_done\" ]]; then
+                echo '[auto-copy] Full suite finished, copying all results...' >> '${local_results}/auto_copy.log'
+                # Copy each scenario folder
+                scenarios=\$(kubectl exec ${POD_NAME} -n ${NAMESPACE} -- \
+                    bash -c \"ls -d ${REMOTE_DIR}/results/*/ 2>/dev/null | xargs -I{} basename {}\" 2>/dev/null) || true
+                for s in \$scenarios; do
+                    mkdir -p '${local_results}/'\$s
+                    kubectl exec ${POD_NAME} -n ${NAMESPACE} -- \
+                        tar cf - -C ${REMOTE_DIR}/results/\$s . 2>/dev/null | \
+                        tar xf - -C '${local_results}/'\$s 2>/dev/null
+                done
+                # Copy master logs
+                kubectl exec ${POD_NAME} -n ${NAMESPACE} -- \
+                    cat ${REMOTE_DIR}/results/run_all.log > '${local_results}/run_all.log' 2>/dev/null || true
+                kubectl exec ${POD_NAME} -n ${NAMESPACE} -- \
+                    cat ${REMOTE_DIR}/results/run_all_output.log > '${local_results}/run_all_output.log' 2>/dev/null || true
+                echo '[auto-copy] All results copied to ${local_results}/' >> '${local_results}/auto_copy.log'
+                exit 0
+            fi
+        done
+    " >> "${local_results}/auto_copy.log" 2>&1 &
+    log "Auto-copy watcher started (PID $!) — all results will be copied when suite finishes."
+
     exit 0
 fi
 
@@ -129,12 +263,18 @@ if [[ "${1:-}" == "--logs" ]]; then
             exit 1
         fi
     fi
-    log "Tailing logs for scenario ${SCENARIO_FOR_LOGS}..."
+    log "Tailing logs for ${SCENARIO_FOR_LOGS}..."
     log "(Ctrl+C to stop following — the test keeps running)"
     echo ""
-    kubectl exec "$POD_NAME" -n "$NAMESPACE" -- \
-        tail -f ${REMOTE_DIR}/results/${SCENARIO_FOR_LOGS}/run.log 2>/dev/null || \
-        warn "Log file not found yet. Test may still be starting."
+    if [[ "$SCENARIO_FOR_LOGS" == "ALL" ]]; then
+        kubectl exec "$POD_NAME" -n "$NAMESPACE" -- \
+            tail -f ${REMOTE_DIR}/results/run_all.log 2>/dev/null || \
+            warn "Master log not found yet. Suite may still be starting."
+    else
+        kubectl exec "$POD_NAME" -n "$NAMESPACE" -- \
+            tail -f ${REMOTE_DIR}/results/${SCENARIO_FOR_LOGS}/run.log 2>/dev/null || \
+            warn "Log file not found yet. Test may still be starting."
+    fi
     exit 0
 fi
 
@@ -179,57 +319,6 @@ DETACH=false
 if [[ "${2:-}" == "--detach" ]]; then
     DETACH=true
 fi
-
-# ─── Ensure pod is running ──────────────────────────────────────────────────
-
-pod_status() {
-    kubectl get pod "$POD_NAME" -n "$NAMESPACE" -o jsonpath='{.status.phase}' 2>/dev/null || echo "NotFound"
-}
-
-ensure_pod() {
-    local status
-    status=$(pod_status)
-
-    if [[ "$status" == "Running" ]]; then
-        ok "Pod already running"
-        return
-    fi
-
-    if [[ "$status" != "NotFound" ]]; then
-        warn "Pod in state '$status', deleting and recreating..."
-        kubectl delete pod "$POD_NAME" -n "$NAMESPACE" --wait=true 2>/dev/null || true
-    fi
-
-    log "Creating stress test pod..."
-    kubectl apply -f "${SCRIPT_DIR}/stress-test-pod.yaml"
-
-    log "Waiting for pod to be ready..."
-    kubectl wait --for=condition=Ready pod/"$POD_NAME" -n "$NAMESPACE" --timeout=120s
-    ok "Pod is ready"
-}
-
-# ─── Sync files to pod ──────────────────────────────────────────────────────
-
-sync_files() {
-    log "Setting up remote directory..."
-    kubectl exec "$POD_NAME" -n "$NAMESPACE" -- \
-        bash -c "mkdir -p ${REMOTE_DIR}/{payloads,scripts,results} && pip install -q aiohttp 2>&1 | tail -1"
-
-    log "Copying payloads..."
-    for f in "${PROJECT_DIR}"/payloads/*.txt "${PROJECT_DIR}"/payloads/pushgateway-payload; do
-        [[ -f "$f" ]] && kubectl cp "$f" "${NAMESPACE}/${POD_NAME}:${REMOTE_DIR}/payloads/$(basename "$f")"
-    done
-
-    log "Copying scripts..."
-    for f in generator.py monitor.sh run_scenario.sh requirements.txt; do
-        kubectl cp "${SCRIPT_DIR}/${f}" "${NAMESPACE}/${POD_NAME}:${REMOTE_DIR}/scripts/${f}"
-    done
-
-    kubectl exec "$POD_NAME" -n "$NAMESPACE" -- \
-        chmod +x ${REMOTE_DIR}/scripts/generator.py ${REMOTE_DIR}/scripts/monitor.sh ${REMOTE_DIR}/scripts/run_scenario.sh
-
-    ok "Files synced"
-}
 
 # ─── Parse scenario parameters ──────────────────────────────────────────────
 
