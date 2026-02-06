@@ -1,0 +1,92 @@
+================================================================================
+PUSHGATEWAY STRESS TEST - PAYLOAD MAPPING
+================================================================================
+
+This directory contains split payload files that represent what gets pushed
+to the pushgateway in one 60-second cycle from a real cluster.
+
+================================================================================
+REGULAR PUSHES (Every 60 seconds)
+================================================================================
+
+1. AMD GPU EXPORTER
+   File: sample-amd-gpu-payload.txt (1,525 lines, 767 KB)
+   Pushed by: metrics-push-daemon pod
+   Job name: amd-gpu-exporter
+   Instance: 10.0.75.176
+   Content: GPU clock speeds, temperatures, utilization, memory, power, etc.
+
+2. NODE EXPORTER
+   File: sample-node-exporter-payload.txt (9,538 lines, 570 KB)
+   Pushed by: metrics-push-daemon pod
+   Job name: node-exporter
+   Instance: 10.0.75.176
+   Content: CPU, memory, disk, network, filesystem metrics
+
+3. OCI LENS DRHPC METRICS
+   File: payload-oci-lens-drhpc.txt (138 lines, 17 KB)
+   Pushed by: oci-lens-dr-hpc-amd pod
+   Job name: oci_lens_drhpc_metrics
+   Instance: inst-bumrp-mi300x-test-pool2
+   Content: HPC health checks (PCIe, RDMA, GPU driver, link errors, etc.)
+
+4. OCI LENS NODE METRICS
+   File: payload-oci-lens-node.txt (267 lines, 26 KB)
+   Pushed by: oci-lens-plugin pod
+   Job name: oci_lens_node_metrics
+   Instance: inst-bumrp-mi300x-test-pool2
+   Content: InfiniBand/RDMA counters, host metadata, link states
+
+5. OCI LENS POD METRICS
+   File: payload-oci-lens-pod.txt (58 lines, 21 KB)
+   Pushed by: pod-node-mapper pod
+   Job name: oci_lens_pod_metrics
+   Instance: pod-node-mapper-7cc8b9f77d-2pxkl
+   Content: Pod-to-node mappings, workload information
+
+================================================================================
+OCCASIONAL PUSHES (Job-based, not every 60s)
+================================================================================
+
+6. OCI LENS HEALTHCHECKS
+   File: payload-oci-lens-healthcheck.txt (105 lines, 37 KB)
+   Pushed by: amd-gpu-healthcheck-all-nodes Job
+   Job name: oci_lens_healthchecks
+   Instance: inst-bumrp-mi300x-test-pool2
+   Content: GPU health check results (memory, compute, power tests)
+
+================================================================================
+PUSH PATTERN IN ONE 60-SECOND CYCLE
+================================================================================
+
+Total pushes per cycle: 5-6 separate HTTP POST requests
+
+Typical timing within a cycle:
+  t+0s:  amd-gpu-exporter pushes
+  t+3s:  node-exporter pushes
+  t+7s:  oci_lens_drhpc_metrics pushes
+  t+8s:  oci_lens_node_metrics pushes
+  t+17s: oci_lens_pod_metrics pushes
+
+Healthcheck: Only runs when Kubernetes Job executes (not every cycle)
+
+================================================================================
+STRESS TESTING RECOMMENDATIONS
+================================================================================
+
+To accurately simulate real load:
+
+1. REALISTIC TEST: Push all 5 payloads sequentially with 1-5 second delays
+   between them, repeat every 60 seconds
+
+2. HEAVY LOAD TEST: Push all 5 payloads concurrently, repeat at faster
+   intervals (e.g., every 10-30 seconds)
+
+3. SPIKE TEST: Push all 5 payloads from multiple simulated nodes
+   simultaneously to test concurrent load
+
+4. SUSTAINED LOAD: Run test #1 or #2 for extended periods (hours/days)
+
+Total payload size per cycle: ~1.4 MB (sum of all 5 regular pushes)
+
+================================================================================

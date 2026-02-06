@@ -1,0 +1,118 @@
+================================================================================
+PUSHGATEWAY SCALING MODEL
+================================================================================
+
+Current cluster: 5 nodes (1 GPU node visible in metrics)
+Total pushes per 60-second cycle: ~5 pushes per node + 1 centralized
+
+================================================================================
+SCALING BY NODE COUNT (DaemonSets)
+================================================================================
+
+These scale linearly with the number of nodes (N):
+
+┌─────────────────────────────┬────────────────┬─────────────────────────────┐
+│ Job                         │ Pushes per 60s │ Deployed As                 │
+├─────────────────────────────┼────────────────┼─────────────────────────────┤
+│ amd-gpu-exporter            │ N              │ DaemonSet (GPU nodes only)  │
+│ node-exporter               │ N              │ DaemonSet (all nodes)       │
+│ oci_lens_node_metrics       │ N              │ DaemonSet (all nodes)       │
+│ oci_lens_drhpc_metrics      │ N (worst case) │ DaemonSet (GPU nodes only)  │
+└─────────────────────────────┴────────────────┴─────────────────────────────┘
+
+Each node pushes independently to pushgateway:
+  - URL: /metrics/job/{job_name}/instance/{node_name}
+  - Payload size: ~1.4 MB per node per cycle
+
+================================================================================
+CENTRALIZED PUSH (Does NOT scale with nodes)
+================================================================================
+
+This runs once regardless of cluster size:
+
+┌─────────────────────────────┬────────────────┬─────────────────────────────┐
+│ Job                         │ Pushes per 60s │ Deployed As                 │
+├─────────────────────────────┼────────────────┼─────────────────────────────┤
+│ oci_lens_pod_metrics        │ 1              │ Deployment (1 replica)      │
+└─────────────────────────────┴────────────────┴─────────────────────────────┘
+
+  - Collects data from ALL pods in the cluster
+  - Payload grows with pod count, but only 1 push
+  - URL: /metrics/job/oci_lens_pod_metrics/instance/{pod_name}
+
+================================================================================
+STRESS TESTING CALCULATIONS
+================================================================================
+
+For a cluster with N nodes:
+
+Total pushes per 60s cycle:
+  = (4 × N) + 1
+  = 4N + 1
+
+Example scaling:
+  - 10 nodes  → 41 pushes/min  (~0.68 pushes/sec)
+  - 50 nodes  → 201 pushes/min (~3.35 pushes/sec)
+  - 100 nodes → 401 pushes/min (~6.68 pushes/sec)
+  - 500 nodes → 2001 pushes/min (~33.3 pushes/sec)
+
+Total data pushed per 60s cycle:
+  = N × 1.4 MB + 21 KB
+  ≈ N × 1.4 MB (pod metrics is negligible)
+
+Example data rates:
+  - 10 nodes  → 14 MB/min   (~233 KB/sec)
+  - 50 nodes  → 70 MB/min   (~1.17 MB/sec)
+  - 100 nodes → 140 MB/min  (~2.33 MB/sec)
+  - 500 nodes → 700 MB/min  (~11.7 MB/sec)
+
+================================================================================
+STRESS TEST SCENARIOS
+================================================================================
+
+SCENARIO 1: SINGLE NODE SIMULATION
+  Files needed: All 6 payload files
+  Pushes: 5 per cycle (4 node-based + 1 centralized)
+  Frequency: Every 60s
+  Data rate: ~1.4 MB per cycle
+
+SCENARIO 2: 10-NODE SIMULATION
+  Simulate: 10 nodes pushing concurrently
+  Pushes: 41 per cycle
+  Frequency: Every 60s
+  Data rate: ~14 MB per cycle
+  Implementation: Run 10 parallel instances with different instance names
+
+SCENARIO 3: 100-NODE SIMULATION
+  Simulate: 100 nodes pushing concurrently
+  Pushes: 401 per cycle
+  Frequency: Every 60s
+  Data rate: ~140 MB per cycle
+  Peak load: ~6.68 pushes/second
+
+SCENARIO 4: BURST TEST
+  Simulate: All nodes push at the exact same time
+  Test pushgateway's ability to handle concurrent writes
+  Monitor: Response times, queue depth, error rates
+
+SCENARIO 5: SUSTAINED LOAD
+  Run any scenario above for 24-48 hours
+  Monitor: Memory usage, disk I/O, database size growth
+
+================================================================================
+PAYLOAD FILES BY SCALING TYPE
+================================================================================
+
+NODE-SCALED (multiply by N):
+  ✓ sample-amd-gpu-payload.txt (767 KB)
+  ✓ sample-node-exporter-payload.txt (570 KB)
+  ✓ payload-oci-lens-node.txt (26 KB)
+  ✓ payload-oci-lens-drhpc.txt (17 KB)
+
+CENTRALIZED (constant, 1 push):
+  ✓ payload-oci-lens-pod.txt (21 KB)
+
+OCCASIONAL (job-based):
+  ✓ payload-oci-lens-healthcheck.txt (37 KB)
+
+================================================================================
