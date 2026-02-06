@@ -154,16 +154,21 @@ The I0 pattern illustrates this clearly:
 
 At higher node counts (I2+), the Pushgateway is perpetually saturated, so nginx almost never establishes a connection within 5 seconds — driving the 503 rate to 87–91%. The 502 errors (1–8% of failures) represent cases where nginx did connect but the Pushgateway dropped the connection mid-request under load.
 
-**Relevant nginx configuration (from the Ingress controller pod):**
+**Relevant nginx configuration (from `lens-ingress-nginx-controller` pod, `/etc/nginx/nginx.conf`):**
+
+The Pushgateway location block (`pushgateway.150.230.181.224.nip.io`, upstream `lens-lens-prometheus-pushgateway-9091`) uses these settings:
+
 ```
+# Lines 2484, 2518–2520 in /etc/nginx/nginx.conf
+client_max_body_size     1m;     # ← tight for large metric payloads
 proxy_connect_timeout    5s;     # ← too short for a serialized backend
 proxy_send_timeout       60s;
 proxy_read_timeout       60s;
-client_max_body_size     1m;     # ← tight for large metric payloads
 proxy_next_upstream      error timeout;
 proxy_next_upstream_tries 3;     # retries hit the same single-pod backend
-keepalive                320;
 ```
+
+These are the nginx defaults — no Ingress annotations override them. Every other location block in the config uses the same values (confirmed by grep showing identical settings at lines 246/280, 346/380, 482/516, ... through 2484/2518). The only exceptions are two blocks (lines 1350/1384 and 2139/2173) that have `client_max_body_size 0` and `proxy_send/read_timeout 600s` — those serve different services, not the Pushgateway.
 
 If Ingress must be used, the minimum config changes would be:
 - `proxy_connect_timeout` → `30s` or `60s`
