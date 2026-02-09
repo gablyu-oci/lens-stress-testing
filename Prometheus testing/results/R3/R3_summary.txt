@@ -1,0 +1,32 @@
+Scenario R3 Summary
+==========================
+Nodes:               200
+Targets:             800
+Actual duration:     2728s (45m)
+Data points:         83
+
+Scrape Success:
+  Mean:              100.0%
+  Min:               100.0%
+
+Scrape Duration:
+  p50 (mean):        0.0058s
+  p95 (mean):        0.0493s
+  max (peak):        8.7916s
+
+Ingestion:
+  samples/sec (last):36716
+
+Head Series:
+  Start:             1696980
+  End:               2193916
+  Peak:              2218374
+
+Memory:
+  Start:             8.76 GB
+  End:               8.24 GB
+  Peak:              8.93 GB
+
+CPU:
+  Mean:              0.110 cores
+  Peak:              0.175 cores

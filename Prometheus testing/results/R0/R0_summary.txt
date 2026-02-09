@@ -1,0 +1,32 @@
+Scenario R0 Summary
+==========================
+Nodes:               10
+Targets:             40
+Actual duration:     928s (15m)
+Data points:         28
+
+Scrape Success:
+  Mean:              100.0%
+  Min:               100.0%
+
+Scrape Duration:
+  p50 (mean):        0.0045s
+  p95 (mean):        0.0088s
+  max (peak):        0.0219s
+
+Ingestion:
+  samples/sec (last):3086
+
+Head Series:
+  Start:             200574
+  End:               200574
+  Peak:              200574
+
+Memory:
+  Start:             7.43 GB
+  End:               7.47 GB
+  Peak:              7.47 GB
+
+CPU:
+  Mean:              0.012 cores
+  Peak:              0.014 cores

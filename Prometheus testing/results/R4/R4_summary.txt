@@ -1,0 +1,32 @@
+Scenario R4 Summary
+==========================
+Nodes:               250
+Targets:             1000
+Actual duration:     2732s (45m)
+Data points:         83
+
+Scrape Success:
+  Mean:              100.0%
+  Min:               100.0%
+
+Scrape Duration:
+  p50 (mean):        0.0055s
+  p95 (mean):        0.1016s
+  max (peak):        12.6731s
+
+Ingestion:
+  samples/sec (last):45566
+
+Head Series:
+  Start:             2512138
+  End:               2724916
+  Peak:              2724916
+
+Memory:
+  Start:             9.01 GB
+  End:               8.67 GB
+  Peak:              9.16 GB
+
+CPU:
+  Mean:              0.125 cores
+  Peak:              0.166 cores

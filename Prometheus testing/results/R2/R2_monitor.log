@@ -1,0 +1,119 @@
+========================================
+Monitor started: 2026-02-07T00:11:10+00:00
+Scenario:        R2
+Poll interval:   30s
+Prometheus pod:  lens-prometheus-server-6b44bdc9b7-vm7lx
+========================================
+2026-02-07T00:11:10+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:11:10+00:00 cpu=12m mem=9546Mi restarts=1
+2026-02-07T00:11:44+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:11:44+00:00 cpu=79m mem=9562Mi restarts=1
+2026-02-07T00:12:18+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:12:18+00:00 cpu=112m mem=9950Mi restarts=1
+2026-02-07T00:12:53+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:12:53+00:00 cpu=141m mem=9973Mi restarts=1
+2026-02-07T00:13:27+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:13:27+00:00 cpu=34m mem=9974Mi restarts=1
+2026-02-07T00:14:01+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:14:01+00:00 cpu=30m mem=9974Mi restarts=1
+2026-02-07T00:14:36+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:14:36+00:00 cpu=28m mem=9974Mi restarts=1
+2026-02-07T00:15:10+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:15:10+00:00 cpu=34m mem=9970Mi restarts=1
+2026-02-07T00:15:44+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:15:44+00:00 cpu=30m mem=9970Mi restarts=1
+2026-02-07T00:16:18+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:16:18+00:00 cpu=33m mem=9970Mi restarts=1
+2026-02-07T00:16:53+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:16:53+00:00 cpu=45m mem=9970Mi restarts=1
+2026-02-07T00:17:27+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:17:27+00:00 cpu=34m mem=9885Mi restarts=1
+2026-02-07T00:18:01+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:18:01+00:00 cpu=37m mem=9885Mi restarts=1
+2026-02-07T00:18:36+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:18:36+00:00 cpu=30m mem=9885Mi restarts=1
+2026-02-07T00:19:10+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:19:10+00:00 cpu=134m mem=9885Mi restarts=1
+2026-02-07T00:19:44+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:19:44+00:00 cpu=32m mem=9885Mi restarts=1
+2026-02-07T00:20:18+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:20:18+00:00 cpu=34m mem=9885Mi restarts=1
+2026-02-07T00:20:53+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:20:53+00:00 cpu=48m mem=9885Mi restarts=1
+2026-02-07T00:21:27+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:21:27+00:00 cpu=34m mem=9885Mi restarts=1
+2026-02-07T00:22:01+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:22:01+00:00 cpu=32m mem=9885Mi restarts=1
+2026-02-07T00:22:35+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:22:35+00:00 cpu=31m mem=9885Mi restarts=1
+2026-02-07T00:23:10+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:23:10+00:00 cpu=44m mem=9886Mi restarts=1
+2026-02-07T00:23:45+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:23:45+00:00 cpu=44m mem=9886Mi restarts=1
+2026-02-07T00:24:19+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:24:19+00:00 cpu=30m mem=9886Mi restarts=1
+2026-02-07T00:24:53+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:24:53+00:00 cpu=35m mem=9886Mi restarts=1
+2026-02-07T00:25:27+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:25:27+00:00 cpu=27m mem=9886Mi restarts=1
+2026-02-07T00:26:02+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:26:02+00:00 cpu=39m mem=9886Mi restarts=1
+2026-02-07T00:26:36+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:26:36+00:00 cpu=32m mem=9886Mi restarts=1
+2026-02-07T00:27:10+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:27:10+00:00 cpu=28m mem=9886Mi restarts=1
+2026-02-07T00:27:44+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:27:44+00:00 cpu=42m mem=9886Mi restarts=1
+2026-02-07T00:28:18+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:28:18+00:00 cpu=33m mem=9886Mi restarts=1
+2026-02-07T00:28:53+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:28:53+00:00 cpu=39m mem=9887Mi restarts=1
+2026-02-07T00:29:27+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:29:27+00:00 cpu=226m mem=9887Mi restarts=1
+2026-02-07T00:30:01+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:30:01+00:00 cpu=36m mem=9887Mi restarts=1
+2026-02-07T00:30:35+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:30:35+00:00 cpu=28m mem=9887Mi restarts=1
+2026-02-07T00:31:09+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:31:09+00:00 cpu=34m mem=9887Mi restarts=1
+2026-02-07T00:31:43+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:31:43+00:00 cpu=73m mem=9887Mi restarts=1
+2026-02-07T00:32:17+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:32:17+00:00 cpu=39m mem=9887Mi restarts=1
+2026-02-07T00:32:52+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:32:52+00:00 cpu=42m mem=9887Mi restarts=1
+2026-02-07T00:33:26+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:33:26+00:00 cpu=35m mem=9887Mi restarts=1
+2026-02-07T00:34:00+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:34:00+00:00 cpu=35m mem=9887Mi restarts=1
+2026-02-07T00:34:34+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:34:34+00:00 cpu=30m mem=9887Mi restarts=1
+2026-02-07T00:35:08+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:35:08+00:00 cpu=34m mem=9887Mi restarts=1
+2026-02-07T00:35:42+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:35:42+00:00 cpu=122m mem=9887Mi restarts=1
+2026-02-07T00:36:17+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:36:17+00:00 cpu=32m mem=9887Mi restarts=1
+2026-02-07T00:36:51+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:36:51+00:00 cpu=30m mem=9887Mi restarts=1
+2026-02-07T00:37:25+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:37:25+00:00 cpu=31m mem=9887Mi restarts=1
+2026-02-07T00:37:59+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:37:59+00:00 cpu=202m mem=9887Mi restarts=1
+2026-02-07T00:38:34+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:38:34+00:00 cpu=28m mem=9887Mi restarts=1
+2026-02-07T00:39:08+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:39:08+00:00 cpu=31m mem=9887Mi restarts=1
+2026-02-07T00:39:42+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:39:42+00:00 cpu=29m mem=9887Mi restarts=1
+2026-02-07T00:40:16+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:40:16+00:00 cpu=32m mem=9887Mi restarts=1
+2026-02-07T00:40:50+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:40:50+00:00 cpu=41m mem=9887Mi restarts=1
+2026-02-07T00:41:24+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:41:24+00:00 cpu=34m mem=9887Mi restarts=1
+2026-02-07T00:41:58+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:41:58+00:00 cpu=190m mem=9887Mi restarts=1
+2026-02-07T00:42:33+00:00 *** OOMKill detected on lens-prometheus-server-6b44bdc9b7-vm7lx ***
+2026-02-07T00:42:33+00:00 cpu=28m mem=9887Mi restarts=1
+2026-02-07T00:42:53+00:00 Monitor stopped

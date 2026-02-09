@@ -51,3 +51,1085 @@ Prometheus will discover them within ~15–60 seconds (file_sd refresh + kubelet
 [runner] WARNING: Prometheus has 1 restarts — possible OOM.
 [2026-02-06T23:30:52+00:00] targets=40/40 up=40 (100%) | dur_p50=0.004s p95=0.009s | series=200574 mem=7.4GB cpu=0.013750000000000758
 [runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:31:25+00:00] targets=40/40 up=40 (100%) | dur_p50=0.004s p95=0.009s | series=200574 mem=7.4GB cpu=0.013750000000000758
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:31:58+00:00] targets=40/40 up=40 (100%) | dur_p50=0.004s p95=0.009s | series=200574 mem=7.4GB cpu=0.012749999999997878
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:32:32+00:00] targets=40/40 up=40 (100%) | dur_p50=0.004s p95=0.009s | series=200574 mem=7.4GB cpu=0.012749999999997878
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:33:06+00:00] targets=40/40 up=40 (100%) | dur_p50=0.005s p95=0.009s | series=200574 mem=7.4GB cpu=0.012416666666668637
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:33:39+00:00] targets=40/40 up=40 (100%) | dur_p50=0.005s p95=0.009s | series=200574 mem=7.4GB cpu=0.012416666666668637
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:34:12+00:00] targets=40/40 up=40 (100%) | dur_p50=0.005s p95=0.009s | series=200574 mem=7.4GB cpu=0.012416666666668637
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:34:45+00:00] targets=40/40 up=40 (100%) | dur_p50=0.004s p95=0.010s | series=200574 mem=7.4GB cpu=0.012416666666668637
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:35:18+00:00] targets=40/40 up=40 (100%) | dur_p50=0.004s p95=0.009s | series=200574 mem=7.4GB cpu=0.010872644260408881
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:35:53+00:00] targets=40/40 up=40 (100%) | dur_p50=0.005s p95=0.009s | series=200574 mem=7.4GB cpu=0.0125
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:36:26+00:00] targets=40/40 up=40 (100%) | dur_p50=0.005s p95=0.009s | series=200574 mem=7.4GB cpu=0.0125
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:36:59+00:00] targets=40/40 up=40 (100%) | dur_p50=0.004s p95=0.009s | series=200574 mem=7.4GB cpu=0.01058333333333318
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:37:32+00:00] targets=40/40 up=40 (100%) | dur_p50=0.004s p95=0.009s | series=200574 mem=7.4GB cpu=0.01058333333333318
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:38:05+00:00] targets=40/40 up=40 (100%) | dur_p50=0.005s p95=0.009s | series=200574 mem=7.5GB cpu=0.012541666666667575
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:38:39+00:00] targets=40/40 up=40 (100%) | dur_p50=0.005s p95=0.009s | series=200574 mem=7.5GB cpu=0.012541666666667575
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:39:12+00:00] targets=40/40 up=40 (100%) | dur_p50=0.005s p95=0.009s | series=200574 mem=7.5GB cpu=0.012044276259857666
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:39:45+00:00] targets=40/40 up=40 (100%) | dur_p50=0.004s p95=0.009s | series=200574 mem=7.5GB cpu=0.012044276259857666
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:40:18+00:00] targets=40/40 up=40 (100%) | dur_p50=0.004s p95=0.009s | series=200574 mem=7.5GB cpu=0.012333333333333484
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:40:51+00:00] targets=40/40 up=40 (100%) | dur_p50=0.004s p95=0.009s | series=200574 mem=7.5GB cpu=0.01216666666666697
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:41:24+00:00] targets=40/40 up=40 (100%) | dur_p50=0.007s p95=0.009s | series=200574 mem=7.5GB cpu=0.01216666666666697
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:41:57+00:00] targets=40/40 up=40 (100%) | dur_p50=0.005s p95=0.009s | series=200574 mem=7.5GB cpu=0.01216666666666697
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:42:30+00:00] targets=40/40 up=40 (100%) | dur_p50=0.005s p95=0.009s | series=200574 mem=7.5GB cpu=0.01216666666666697
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:43:03+00:00] targets=40/40 up=40 (100%) | dur_p50=0.004s p95=0.009s | series=200574 mem=7.5GB cpu=0.012291666666665908
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:43:35+00:00] targets=40/40 up=40 (100%) | dur_p50=0.004s p95=0.009s | series=200574 mem=7.5GB cpu=0.012291666666665908
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:44:08+00:00] targets=40/40 up=40 (100%) | dur_p50=0.004s p95=0.009s | series=200574 mem=7.5GB cpu=0.012291666666669698
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+
+[runner] Duration reached (928s / 900s). Stopping.
+
+[runner] Writing summary...
+Scenario R0 Summary
+==========================
+Nodes:               10
+Targets:             40
+Actual duration:     928s (15m)
+Data points:         28
+
+Scrape Success:
+  Mean:              100.0%
+  Min:               100.0%
+
+Scrape Duration:
+  p50 (mean):        0.0045s
+  p95 (mean):        0.0088s
+  max (peak):        0.0219s
+
+Ingestion:
+  samples/sec (last):3086
+
+Head Series:
+  Start:             200574
+  End:               200574
+  Peak:              200574
+
+Memory:
+  Start:             7.43 GB
+  End:               7.47 GB
+  Peak:              7.47 GB
+
+CPU:
+  Mean:              0.012 cores
+  Peak:              0.014 cores
+
+
+Results in: /home/ubuntu/oci-ai-incubations/lens-stress-testing/Prometheus testing/results/R0/
+total 28K
+-rw-rw-r-- 1 ubuntu ubuntu   26 Feb  6 23:44 DONE
+-rw-rw-r-- 1 ubuntu ubuntu 1017 Feb  6 23:44 R0_health.csv
+-rw-rw-r-- 1 ubuntu ubuntu 3.9K Feb  6 23:44 R0_metrics.csv
+-rw-rw-r-- 1 ubuntu ubuntu 4.2K Feb  6 23:44 R0_monitor.log
+-rw-rw-r-- 1 ubuntu ubuntu    8 Feb  6 23:29 R0_monitor.pid
+-rw-rw-r-- 1 ubuntu ubuntu  633 Feb  6 23:44 R0_summary.txt
+
+Scenario R0 complete.
+
+[runner] Cleaning up...
+[2026-02-06 23:45:05] COMPLETED R0 in 16m
+[2026-02-06 23:45:05] Clearing targets (N=0)...
+Generating targets for N=0 nodes (0 total targets)...
+  targets-node-exporter.json: 1 lines
+  targets-amd-gpu.json: 1 lines
+  targets-lens-node.json: 1 lines
+  targets-drhpc.json: 1 lines
+Patching ConfigMap lens-prometheus-server with new target files...
+DEBUG:oci_cli.cli_util:Check if Propagation Enabled: None
+DEBUG:oci_cli.cli_util:Is Propagation Enabled: None
+configmap/lens-prometheus-server configured
+
+Targets cleared. Prometheus will drop targets on next file_sd refresh.
+[2026-02-06 23:45:08] Waiting 90s for targets to drain and Prometheus to stabilize...
+[2026-02-06 23:46:38] 
+[2026-02-06 23:46:38] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-06 23:46:38] STARTING R1
+[2026-02-06 23:46:38] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+═══════════════════════════════════════════════════════════════
+  Scenario R1: Early scaling
+═══════════════════════════════════════════════════════════════
+
+  Nodes:            50
+  Targets:          200
+  Duration:         1200s (20m)
+  Poll interval:    30s
+  Results dir:      /home/ubuntu/oci-ai-incubations/lens-stress-testing/Prometheus testing/results/R1
+
+[runner] Starting port-forward to Prometheus...
+[runner] Port-forward active (PID 1604975)
+[runner] Starting health monitor...
+[runner] Monitor PID: 1605008
+
+[runner] Setting targets to N=50...
+Generating targets for N=50 nodes (200 total targets)...
+  targets-node-exporter.json: 402 lines
+  targets-amd-gpu.json: 402 lines
+  targets-lens-node.json: 402 lines
+  targets-drhpc.json: 402 lines
+Patching ConfigMap lens-prometheus-server with new target files...
+DEBUG:oci_cli.cli_util:Check if Propagation Enabled: None
+DEBUG:oci_cli.cli_util:Is Propagation Enabled: None
+[monitor] Started for R1 (PID 1605008), pod=lens-prometheus-server-6b44bdc9b7-vm7lx
+configmap/lens-prometheus-server configured
+
+Targets set to N=50 (200 total).
+Prometheus will discover them within ~15–60 seconds (file_sd refresh + kubelet sync).
+
+[runner] Waiting for Prometheus to discover 200 targets...
+[runner] Discovered 28/200 — waiting... (10/180s)
+[runner] Discovered 19/200 — waiting... (20/180s)
+[runner] Discovered 9/200 — waiting... (30/180s)
+[runner] Discovered 4/200 — waiting... (40/180s)
+[runner] Discovered 0/200 — waiting... (50/180s)
+[runner] Discovered 0/200 — waiting... (60/180s)
+[runner] Discovered 18/200 — waiting... (70/180s)
+[runner] Discovered 58/200 — waiting... (80/180s)
+[runner] Discovered 99/200 — waiting... (90/180s)
+[runner] Discovered 129/200 — waiting... (100/180s)
+[runner] Discovered 158/200 — waiting... (110/180s)
+[runner] Discovered 191/200 — waiting... (120/180s)
+[runner] All 200 targets discovered.
+
+[runner] Starting metric collection for 1200s...
+
+[2026-02-06T23:48:48+00:00] targets=200/200 up=200 (100%) | dur_p50=0.005s p95=0.045s | series=625374 mem=8.4GB cpu=0.024249999999998786
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:49:21+00:00] targets=200/200 up=200 (100%) | dur_p50=0.004s p95=0.043s | series=625374 mem=8.4GB cpu=0.024249999999998786
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:49:54+00:00] targets=200/200 up=200 (100%) | dur_p50=0.003s p95=0.012s | series=625374 mem=8.4GB cpu=0.031541666666665455
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:50:27+00:00] targets=200/200 up=200 (100%) | dur_p50=0.004s p95=0.011s | series=625374 mem=8.4GB cpu=0.031541666666665455
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:50:59+00:00] targets=200/200 up=200 (100%) | dur_p50=0.004s p95=0.011s | series=625374 mem=8.4GB cpu=0.034874999999999545
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:51:32+00:00] targets=200/200 up=200 (100%) | dur_p50=0.003s p95=0.011s | series=625374 mem=8.4GB cpu=0.034874999999999545
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:52:05+00:00] targets=200/200 up=200 (100%) | dur_p50=0.004s p95=0.011s | series=625374 mem=8.2GB cpu=0.04029166666666697
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:52:38+00:00] targets=200/200 up=200 (100%) | dur_p50=0.004s p95=0.011s | series=625374 mem=8.2GB cpu=0.04029166666666697
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:53:11+00:00] targets=200/200 up=200 (100%) | dur_p50=0.004s p95=0.011s | series=625374 mem=8.2GB cpu=0.031416666666666516
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:53:44+00:00] targets=200/200 up=200 (100%) | dur_p50=0.004s p95=0.011s | series=625374 mem=8.2GB cpu=0.031416666666666516
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:54:17+00:00] targets=200/200 up=200 (100%) | dur_p50=0.003s p95=0.011s | series=625374 mem=8.1GB cpu=0.031000000000002123
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:54:49+00:00] targets=200/200 up=200 (100%) | dur_p50=0.004s p95=0.011s | series=625374 mem=8.1GB cpu=0.031000000000002123
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:55:22+00:00] targets=200/200 up=200 (100%) | dur_p50=0.004s p95=0.011s | series=625374 mem=8.1GB cpu=0.031000000000002123
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:55:55+00:00] targets=200/200 up=200 (100%) | dur_p50=0.004s p95=0.010s | series=625374 mem=8.1GB cpu=0.030583333333333938
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:56:28+00:00] targets=200/200 up=200 (100%) | dur_p50=0.004s p95=0.008s | series=625374 mem=8.1GB cpu=0.030583333333333938
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:57:01+00:00] targets=200/200 up=200 (100%) | dur_p50=0.004s p95=0.009s | series=625374 mem=8.1GB cpu=0.0306666666666653
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:57:34+00:00] targets=200/200 up=200 (100%) | dur_p50=0.004s p95=0.009s | series=625374 mem=8.1GB cpu=0.0306666666666653
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:58:07+00:00] targets=200/200 up=200 (100%) | dur_p50=0.004s p95=0.009s | series=625374 mem=8.1GB cpu=0.030750000000000454
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:58:40+00:00] targets=200/200 up=200 (100%) | dur_p50=0.004s p95=0.008s | series=625374 mem=8.1GB cpu=0.030750000000000454
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:59:12+00:00] targets=200/200 up=200 (100%) | dur_p50=0.004s p95=0.009s | series=625374 mem=8.1GB cpu=0.030624999999997727
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-06T23:59:45+00:00] targets=200/200 up=200 (100%) | dur_p50=0.004s p95=0.009s | series=625374 mem=8.1GB cpu=0.030624999999997727
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:00:18+00:00] targets=200/200 up=200 (100%) | dur_p50=0.004s p95=0.009s | series=625374 mem=8.1GB cpu=0.030958333333334545
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:00:51+00:00] targets=200/200 up=200 (100%) | dur_p50=0.004s p95=0.009s | series=625374 mem=8.1GB cpu=0.032083333333332575
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:01:24+00:00] targets=200/200 up=200 (100%) | dur_p50=0.004s p95=0.009s | series=625374 mem=8.1GB cpu=0.032083333333332575
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:01:57+00:00] targets=200/200 up=200 (100%) | dur_p50=0.004s p95=0.009s | series=625374 mem=8.1GB cpu=0.035166666666665
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:02:29+00:00] targets=200/200 up=200 (100%) | dur_p50=0.004s p95=0.009s | series=625374 mem=8.1GB cpu=0.035166666666665
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:03:02+00:00] targets=200/200 up=200 (100%) | dur_p50=0.004s p95=0.009s | series=625374 mem=8.1GB cpu=0.035375000000002876
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:03:35+00:00] targets=200/200 up=200 (100%) | dur_p50=0.004s p95=0.009s | series=625374 mem=8.1GB cpu=0.035375000000002876
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:04:08+00:00] targets=200/200 up=200 (100%) | dur_p50=0.004s p95=0.009s | series=625374 mem=8.1GB cpu=0.0357499999999997
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:04:41+00:00] targets=200/200 up=200 (100%) | dur_p50=0.003s p95=0.009s | series=625374 mem=8.1GB cpu=0.0357499999999997
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:05:14+00:00] targets=200/200 up=200 (100%) | dur_p50=0.003s p95=0.009s | series=625374 mem=8.1GB cpu=0.034666666666669246
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:05:47+00:00] targets=200/200 up=200 (100%) | dur_p50=0.004s p95=0.009s | series=625374 mem=8.1GB cpu=0.034666666666669246
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:06:19+00:00] targets=200/200 up=200 (100%) | dur_p50=0.004s p95=0.008s | series=625374 mem=8.1GB cpu=0.032000000000001215
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:06:52+00:00] targets=200/200 up=200 (100%) | dur_p50=0.004s p95=0.008s | series=625374 mem=8.1GB cpu=0.03195833333333364
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:07:25+00:00] targets=200/200 up=200 (100%) | dur_p50=0.004s p95=0.009s | series=625374 mem=8.1GB cpu=0.03195833333333364
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:07:58+00:00] targets=200/200 up=200 (100%) | dur_p50=0.004s p95=0.009s | series=625374 mem=8.1GB cpu=0.031416666666666516
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:08:30+00:00] targets=200/200 up=200 (100%) | dur_p50=0.004s p95=0.009s | series=625374 mem=8.1GB cpu=0.031416666666666516
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+
+[runner] Duration reached (1215s / 1200s). Stopping.
+
+[runner] Writing summary...
+Scenario R1 Summary
+==========================
+Nodes:               50
+Targets:             200
+Actual duration:     1215s (20m)
+Data points:         37
+
+Scrape Success:
+  Mean:              100.0%
+  Min:               100.0%
+
+Scrape Duration:
+  p50 (mean):        0.0040s
+  p95 (mean):        0.0114s
+  max (peak):        0.4258s
+
+Ingestion:
+  samples/sec (last):10166
+
+Head Series:
+  Start:             625374
+  End:               625374
+  Peak:              625374
+
+Memory:
+  Start:             8.39 GB
+  End:               8.13 GB
+  Peak:              8.40 GB
+
+CPU:
+  Mean:              0.032 cores
+  Peak:              0.040 cores
+
+
+Results in: /home/ubuntu/oci-ai-incubations/lens-stress-testing/Prometheus testing/results/R1/
+total 32K
+-rw-rw-r-- 1 ubuntu ubuntu   26 Feb  7 00:09 DONE
+-rw-rw-r-- 1 ubuntu ubuntu 1.5K Feb  7 00:09 R1_health.csv
+-rw-rw-r-- 1 ubuntu ubuntu 5.1K Feb  7 00:08 R1_metrics.csv
+-rw-rw-r-- 1 ubuntu ubuntu 6.1K Feb  7 00:09 R1_monitor.log
+-rw-rw-r-- 1 ubuntu ubuntu    8 Feb  6 23:46 R1_monitor.pid
+-rw-rw-r-- 1 ubuntu ubuntu  636 Feb  7 00:09 R1_summary.txt
+
+Scenario R1 complete.
+
+[runner] Cleaning up...
+[2026-02-07 00:09:32] COMPLETED R1 in 22m
+[2026-02-07 00:09:32] Clearing targets (N=0)...
+Generating targets for N=0 nodes (0 total targets)...
+  targets-node-exporter.json: 1 lines
+  targets-amd-gpu.json: 1 lines
+  targets-lens-node.json: 1 lines
+  targets-drhpc.json: 1 lines
+Patching ConfigMap lens-prometheus-server with new target files...
+DEBUG:oci_cli.cli_util:Check if Propagation Enabled: None
+DEBUG:oci_cli.cli_util:Is Propagation Enabled: None
+configmap/lens-prometheus-server configured
+
+Targets cleared. Prometheus will drop targets on next file_sd refresh.
+[2026-02-07 00:09:35] Waiting 90s for targets to drain and Prometheus to stabilize...
+[2026-02-07 00:11:05] 
+[2026-02-07 00:11:05] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-07 00:11:05] STARTING R2
+[2026-02-07 00:11:05] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+═══════════════════════════════════════════════════════════════
+  Scenario R2: Mid-scale pressure
+═══════════════════════════════════════════════════════════════
+
+  Nodes:            100
+  Targets:          400
+  Duration:         1800s (30m)
+  Poll interval:    30s
+  Results dir:      /home/ubuntu/oci-ai-incubations/lens-stress-testing/Prometheus testing/results/R2
+
+[runner] Starting port-forward to Prometheus...
+[runner] Port-forward active (PID 1615356)
+[runner] Starting health monitor...
+[runner] Monitor PID: 1615395
+
+[runner] Setting targets to N=100...
+Generating targets for N=100 nodes (400 total targets)...
+  targets-node-exporter.json: 802 lines
+  targets-amd-gpu.json: 802 lines
+  targets-lens-node.json: 802 lines
+  targets-drhpc.json: 802 lines
+Patching ConfigMap lens-prometheus-server with new target files...
+DEBUG:oci_cli.cli_util:Check if Propagation Enabled: None
+DEBUG:oci_cli.cli_util:Is Propagation Enabled: None
+[monitor] Started for R2 (PID 1615395), pod=lens-prometheus-server-6b44bdc9b7-vm7lx
+configmap/lens-prometheus-server configured
+
+Targets set to N=100 (400 total).
+Prometheus will discover them within ~15–60 seconds (file_sd refresh + kubelet sync).
+
+[runner] Waiting for Prometheus to discover 400 targets...
+[runner] Discovered 200/400 — waiting... (10/180s)
+[runner] Discovered 200/400 — waiting... (20/180s)
+[runner] Discovered 171/400 — waiting... (30/180s)
+[runner] Discovered 162/400 — waiting... (40/180s)
+[runner] Discovered 193/400 — waiting... (50/180s)
+[runner] Discovered 227/400 — waiting... (60/180s)
+[runner] Discovered 257/400 — waiting... (70/180s)
+[runner] Discovered 320/400 — waiting... (80/180s)
+[runner] Discovered 386/400 — waiting... (90/180s)
+[runner] All 400 targets discovered.
+
+[runner] Starting metric collection for 1800s...
+
+[2026-02-07T00:12:45+00:00] targets=400/400 up=400 (100%) | dur_p50=0.010s p95=0.073s | series=726450 mem=8.2GB cpu=0.03291666666666515
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:13:18+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.039s | series=1156374 mem=8.6GB cpu=0.05575000000000045
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:13:51+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.012s | series=1156374 mem=8.6GB cpu=0.05345833333333304
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:14:24+00:00] targets=400/400 up=400 (100%) | dur_p50=0.005s p95=0.012s | series=1156374 mem=8.6GB cpu=0.05345833333333303
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:14:57+00:00] targets=400/400 up=400 (100%) | dur_p50=0.005s p95=0.012s | series=1156374 mem=8.6GB cpu=0.07024999999999863
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:15:30+00:00] targets=400/400 up=400 (100%) | dur_p50=0.005s p95=0.012s | series=1156374 mem=8.6GB cpu=0.07024999999999863
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:16:02+00:00] targets=400/400 up=400 (100%) | dur_p50=0.005s p95=0.012s | series=1156374 mem=8.6GB cpu=0.06595833333333304
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:16:35+00:00] targets=400/400 up=400 (100%) | dur_p50=0.005s p95=0.012s | series=1156374 mem=8.6GB cpu=0.06595833333333304
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:17:08+00:00] targets=400/400 up=400 (100%) | dur_p50=0.005s p95=0.012s | series=1156374 mem=8.2GB cpu=0.058291666666665756
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:17:41+00:00] targets=400/400 up=400 (100%) | dur_p50=0.003s p95=0.012s | series=1156374 mem=8.2GB cpu=0.058291666666665756
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:18:14+00:00] targets=400/400 up=400 (100%) | dur_p50=0.003s p95=0.012s | series=1156374 mem=8.2GB cpu=0.05854166666666742
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:18:47+00:00] targets=400/400 up=400 (100%) | dur_p50=0.005s p95=0.013s | series=1156374 mem=8.2GB cpu=0.05854166666666742
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:19:20+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.013s | series=1156374 mem=8.2GB cpu=0.058750000000001516
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:19:53+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.012s | series=1156374 mem=8.2GB cpu=0.05825000000000197
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:20:25+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.012s | series=1156374 mem=8.2GB cpu=0.05825000000000197
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:20:58+00:00] targets=400/400 up=400 (100%) | dur_p50=0.005s p95=0.012s | series=1156374 mem=8.2GB cpu=0.056524473805882824
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:21:31+00:00] targets=400/400 up=400 (100%) | dur_p50=0.005s p95=0.012s | series=1156374 mem=8.2GB cpu=0.056524473805882824
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:22:04+00:00] targets=400/400 up=400 (100%) | dur_p50=0.005s p95=0.012s | series=1156374 mem=8.2GB cpu=0.0576249999999997
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:22:37+00:00] targets=400/400 up=400 (100%) | dur_p50=0.003s p95=0.011s | series=1156374 mem=8.2GB cpu=0.0576249999999997
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:23:10+00:00] targets=400/400 up=400 (100%) | dur_p50=0.005s p95=0.012s | series=1156374 mem=8.2GB cpu=0.04583333333333333
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:23:43+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.013s | series=1156374 mem=8.2GB cpu=0.04583333333333333
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:24:16+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.012s | series=1156374 mem=8.2GB cpu=0.05733333333333424
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:24:49+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.012s | series=1156374 mem=8.2GB cpu=0.04709765887124077
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:25:22+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.012s | series=1156374 mem=8.2GB cpu=0.04709765887124077
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:25:55+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.012s | series=1156374 mem=8.2GB cpu=0.05708333333333258
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:26:28+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.012s | series=1156374 mem=8.2GB cpu=0.05708333333333258
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:27:01+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.011s | series=1156374 mem=8.2GB cpu=0.05700000000000121
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:27:34+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.012s | series=1156374 mem=8.2GB cpu=0.05700000000000121
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:28:07+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.012s | series=1156374 mem=8.2GB cpu=0.05662499999999682
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:28:39+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.012s | series=1156374 mem=8.2GB cpu=0.05662499999999682
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:29:12+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.012s | series=1156374 mem=8.2GB cpu=0.056749999999999544
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:29:45+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.012s | series=1156374 mem=8.2GB cpu=0.056749999999999544
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:30:18+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.012s | series=1156374 mem=8.2GB cpu=0.05708333333333258
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:30:51+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.011s | series=1156374 mem=8.2GB cpu=0.05708333333333258
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:31:24+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.012s | series=1156374 mem=8.2GB cpu=0.05708333333333258
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:31:57+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.012s | series=1156374 mem=8.2GB cpu=0.0576249999999997
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:32:29+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.012s | series=1156374 mem=8.2GB cpu=0.0576249999999997
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:33:02+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.012s | series=1156374 mem=8.2GB cpu=0.057666666666667275
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:33:35+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.014s | series=1156374 mem=8.2GB cpu=0.057666666666667275
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:34:08+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.014s | series=1156374 mem=8.2GB cpu=0.05737500000000182
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:34:41+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.012s | series=1156374 mem=8.2GB cpu=0.05737500000000182
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:35:14+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.012s | series=1156374 mem=8.2GB cpu=0.05737499999999803
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:35:47+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.012s | series=1156374 mem=8.2GB cpu=0.05737499999999803
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:36:19+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.012s | series=1156374 mem=8.2GB cpu=0.05691666666666985
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:36:52+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.012s | series=1156374 mem=8.2GB cpu=0.05687499999999848
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:37:25+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.012s | series=1156374 mem=8.2GB cpu=0.05687499999999848
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:37:58+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.013s | series=1156374 mem=8.2GB cpu=0.05633333333333136
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:38:31+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.013s | series=1156374 mem=8.2GB cpu=0.05633333333333136
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:39:04+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.012s | series=1156374 mem=8.2GB cpu=0.05633333333333515
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:39:36+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.012s | series=1156374 mem=8.2GB cpu=0.05633333333333515
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:40:09+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.012s | series=1156374 mem=8.2GB cpu=0.05012499999999894
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:40:42+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.012s | series=1156374 mem=8.2GB cpu=0.05012499999999894
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:41:15+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.012s | series=1156374 mem=8.2GB cpu=0.05029166666666924
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:41:48+00:00] targets=400/400 up=400 (100%) | dur_p50=0.004s p95=0.013s | series=1156374 mem=8.2GB cpu=0.050791666666668796
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:42:21+00:00] targets=400/400 up=400 (100%) | dur_p50=0.006s p95=0.012s | series=1156374 mem=8.2GB cpu=0.05079166666666879
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+
+[runner] Duration reached (1808s / 1800s). Stopping.
+
+[runner] Writing summary...
+Scenario R2 Summary
+==========================
+Nodes:               100
+Targets:             400
+Actual duration:     1808s (30m)
+Data points:         55
+
+Scrape Success:
+  Mean:              100.0%
+  Min:               100.0%
+
+Scrape Duration:
+  p50 (mean):        0.0044s
+  p95 (mean):        0.0137s
+  max (peak):        1.0950s
+
+Ingestion:
+  samples/sec (last):19016
+
+Head Series:
+  Start:             726450
+  End:               1156374
+  Peak:              1156374
+
+Memory:
+  Start:             8.24 GB
+  End:               8.21 GB
+  Peak:              8.64 GB
+
+CPU:
+  Mean:              0.056 cores
+  Peak:              0.070 cores
+
+
+Results in: /home/ubuntu/oci-ai-incubations/lens-stress-testing/Prometheus testing/results/R2/
+total 36K
+-rw-rw-r-- 1 ubuntu ubuntu   26 Feb  7 00:42 DONE
+-rw-rw-r-- 1 ubuntu ubuntu 2.1K Feb  7 00:42 R2_health.csv
+-rw-rw-r-- 1 ubuntu ubuntu 7.8K Feb  7 00:42 R2_metrics.csv
+-rw-rw-r-- 1 ubuntu ubuntu 8.5K Feb  7 00:42 R2_monitor.log
+-rw-rw-r-- 1 ubuntu ubuntu    8 Feb  7 00:11 R2_monitor.pid
+-rw-rw-r-- 1 ubuntu ubuntu  639 Feb  7 00:42 R2_summary.txt
+
+Scenario R2 complete.
+
+[runner] Cleaning up...
+[2026-02-07 00:43:07] COMPLETED R2 in 32m
+[2026-02-07 00:43:07] Clearing targets (N=0)...
+Generating targets for N=0 nodes (0 total targets)...
+  targets-node-exporter.json: 1 lines
+  targets-amd-gpu.json: 1 lines
+  targets-lens-node.json: 1 lines
+  targets-drhpc.json: 1 lines
+Patching ConfigMap lens-prometheus-server with new target files...
+DEBUG:oci_cli.cli_util:Check if Propagation Enabled: None
+DEBUG:oci_cli.cli_util:Is Propagation Enabled: None
+configmap/lens-prometheus-server configured
+
+Targets cleared. Prometheus will drop targets on next file_sd refresh.
+[2026-02-07 00:43:10] Waiting 90s for targets to drain and Prometheus to stabilize...
+[2026-02-07 00:44:40] 
+[2026-02-07 00:44:40] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-07 00:44:40] STARTING R3
+[2026-02-07 00:44:40] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+═══════════════════════════════════════════════════════════════
+  Scenario R3: Near target scale
+═══════════════════════════════════════════════════════════════
+
+  Nodes:            200
+  Targets:          800
+  Duration:         2700s (45m)
+  Poll interval:    30s
+  Results dir:      /home/ubuntu/oci-ai-incubations/lens-stress-testing/Prometheus testing/results/R3
+
+[runner] Starting port-forward to Prometheus...
+[runner] Port-forward active (PID 1630255)
+[runner] Starting health monitor...
+[runner] Monitor PID: 1630294
+
+[runner] Setting targets to N=200...
+Generating targets for N=200 nodes (800 total targets)...
+  targets-node-exporter.json: 1602 lines
+  targets-amd-gpu.json: 1602 lines
+  targets-lens-node.json: 1602 lines
+  targets-drhpc.json: 1602 lines
+Patching ConfigMap lens-prometheus-server with new target files...
+DEBUG:oci_cli.cli_util:Check if Propagation Enabled: None
+DEBUG:oci_cli.cli_util:Is Propagation Enabled: None
+[monitor] Started for R3 (PID 1630294), pod=lens-prometheus-server-6b44bdc9b7-vm7lx
+configmap/lens-prometheus-server configured
+
+Targets set to N=200 (800 total).
+Prometheus will discover them within ~15–60 seconds (file_sd refresh + kubelet sync).
+
+[runner] Waiting for Prometheus to discover 800 targets...
+[runner] Discovered 400/800 — waiting... (10/180s)
+[runner] Discovered 323/800 — waiting... (20/180s)
+[runner] Discovered 257/800 — waiting... (30/180s)
+[runner] Discovered 186/800 — waiting... (40/180s)
+[runner] Discovered 123/800 — waiting... (50/180s)
+[runner] Discovered 55/800 — waiting... (60/180s)
+[runner] Discovered 0/800 — waiting... (70/180s)
+[runner] Discovered 0/800 — waiting... (80/180s)
+[runner] Discovered 0/800 — waiting... (90/180s)
+[runner] Discovered 34/800 — waiting... (100/180s)
+[runner] Discovered 164/800 — waiting... (110/180s)
+[runner] Discovered 305/800 — waiting... (120/180s)
+[runner] Discovered 420/800 — waiting... (130/180s)
+[runner] Discovered 608/800 — waiting... (140/180s)
+[runner] Discovered 744/800 — waiting... (150/180s)
+[runner] All 800 targets discovered.
+
+[runner] Starting metric collection for 2700s...
+
+[2026-02-07T00:47:23+00:00] targets=800/800 up=800 (100%) | dur_p50=0.021s p95=2.376s | series=1696980 mem=8.8GB cpu=0.0837983032917829
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:47:56+00:00] targets=800/800 up=800 (100%) | dur_p50=0.008s p95=0.134s | series=2218374 mem=8.9GB cpu=0.12261143178645138
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:48:29+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.015s | series=2218374 mem=8.9GB cpu=0.12261143178645138
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:49:02+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.013s | series=2218374 mem=8.9GB cpu=0.1322083333333315
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:49:34+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.017s | series=2218374 mem=8.9GB cpu=0.1322083333333315
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:50:07+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.021s | series=2218374 mem=8.5GB cpu=0.16124999999999923
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:50:40+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.013s | series=2218374 mem=8.5GB cpu=0.16124999999999923
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:51:13+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.012s | series=2218374 mem=8.5GB cpu=0.12333382159073991
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:51:46+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.022s | series=2218374 mem=8.5GB cpu=0.12333382159073991
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:52:19+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.025s | series=2218374 mem=8.4GB cpu=0.10133333333333212
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:52:52+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.013s | series=2218374 mem=8.4GB cpu=0.1017500000000003
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:53:25+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.013s | series=2218374 mem=8.4GB cpu=0.1017500000000003
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:53:58+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.018s | series=2218374 mem=8.4GB cpu=0.08357079771367794
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:54:31+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.018s | series=2218374 mem=8.4GB cpu=0.08357079771367794
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:55:04+00:00] targets=800/800 up=800 (100%) | dur_p50=0.005s p95=0.013s | series=2218374 mem=8.4GB cpu=0.10391666666666878
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:55:37+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.014s | series=2218374 mem=8.4GB cpu=0.10391666666666878
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:56:10+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.020s | series=2218374 mem=8.4GB cpu=0.0877083333333341
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:56:43+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.023s | series=2218374 mem=8.4GB cpu=0.0877083333333341
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:57:16+00:00] targets=800/800 up=800 (100%) | dur_p50=0.005s p95=0.012s | series=2218374 mem=8.4GB cpu=0.10920833333333348
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:57:49+00:00] targets=800/800 up=800 (100%) | dur_p50=0.005s p95=0.011s | series=2218374 mem=8.4GB cpu=0.10475785683926052
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:58:22+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.021s | series=2218374 mem=8.4GB cpu=0.10475785683926052
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:58:55+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.023s | series=2218374 mem=8.4GB cpu=0.10687499999999849
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T00:59:28+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.012s | series=2218374 mem=8.4GB cpu=0.10687499999999849
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:00:00+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.011s | series=2218374 mem=8.4GB cpu=0.10687499999999849
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:00:33+00:00] targets=800/800 up=800 (100%) | dur_p50=0.010s p95=0.091s | series=2218374 mem=8.4GB cpu=0.10687499999999849
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:01:06+00:00] targets=800/800 up=800 (100%) | dur_p50=0.024s p95=0.122s | series=2193916 mem=8.9GB cpu=0.16689163292173007
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:01:39+00:00] targets=800/800 up=800 (100%) | dur_p50=0.007s p95=0.100s | series=2193916 mem=8.9GB cpu=0.16689163292173007
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:02:12+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.011s | series=2193916 mem=8.9GB cpu=0.17517980515205292
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:02:45+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.012s | series=2193916 mem=8.9GB cpu=0.17517980515205292
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:03:18+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.016s | series=2193916 mem=8.9GB cpu=0.15279166666666696
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:03:50+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.017s | series=2193916 mem=8.3GB cpu=0.16416666666666893
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:04:23+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.012s | series=2193916 mem=8.3GB cpu=0.16416666666666893
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:04:56+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.011s | series=2193916 mem=8.3GB cpu=0.08255404977413067
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:05:29+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.023s | series=2193916 mem=8.3GB cpu=0.08255404977413067
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:06:02+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.022s | series=2193916 mem=8.2GB cpu=0.09787499999999909
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:06:34+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.013s | series=2193916 mem=8.2GB cpu=0.09787499999999909
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:07:07+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.012s | series=2193916 mem=8.2GB cpu=0.09800000000000182
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:07:40+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.021s | series=2193916 mem=8.2GB cpu=0.09800000000000182
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:08:13+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.021s | series=2193916 mem=8.2GB cpu=0.10954166666666651
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:08:45+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.014s | series=2193916 mem=8.2GB cpu=0.10954166666666651
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:09:18+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.014s | series=2193916 mem=8.2GB cpu=0.10950000000000272
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:09:51+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.021s | series=2193916 mem=8.2GB cpu=0.109375
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:10:24+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.018s | series=2193916 mem=8.2GB cpu=0.109375
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:10:57+00:00] targets=800/800 up=800 (100%) | dur_p50=0.005s p95=0.012s | series=2193916 mem=8.2GB cpu=0.10929166666666484
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:11:30+00:00] targets=800/800 up=800 (100%) | dur_p50=0.005s p95=0.011s | series=2193916 mem=8.2GB cpu=0.10929166666666484
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:12:03+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.024s | series=2193916 mem=8.2GB cpu=0.10883333333333288
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:12:36+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.022s | series=2193916 mem=8.2GB cpu=0.10883333333333288
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:13:09+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.015s | series=2193916 mem=8.2GB cpu=0.10908333333333073
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:13:42+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.015s | series=2193916 mem=8.2GB cpu=0.10908333333333076
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:14:14+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.019s | series=2193916 mem=8.2GB cpu=0.08893795171939915
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:14:47+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.019s | series=2193916 mem=8.2GB cpu=0.08893795171939915
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:15:20+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.013s | series=2193916 mem=8.2GB cpu=0.10958333333333409
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:15:53+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.014s | series=2193916 mem=8.2GB cpu=0.08679166666666636
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:16:26+00:00] targets=800/800 up=800 (100%) | dur_p50=0.004s p95=0.021s | series=2193916 mem=8.2GB cpu=0.08679166666666636
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:16:58+00:00] targets=800/800 up=800 (100%) | dur_p50=0.004s p95=0.021s | series=2193916 mem=8.2GB cpu=0.10141666666666727
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:17:31+00:00] targets=800/800 up=800 (100%) | dur_p50=0.004s p95=0.013s | series=2193916 mem=8.2GB cpu=0.10141666666666727
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:18:04+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.014s | series=2193916 mem=8.2GB cpu=0.09960615974494004
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:18:37+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.020s | series=2193916 mem=8.2GB cpu=0.09960615974494004
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:19:10+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.020s | series=2193916 mem=8.2GB cpu=0.10129166666666455
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:19:43+00:00] targets=800/800 up=800 (100%) | dur_p50=0.005s p95=0.012s | series=2193916 mem=8.2GB cpu=0.10129166666666455
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:20:15+00:00] targets=800/800 up=800 (100%) | dur_p50=0.004s p95=0.012s | series=2193916 mem=8.2GB cpu=0.10166666666666895
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:20:48+00:00] targets=800/800 up=800 (100%) | dur_p50=0.004s p95=0.019s | series=2193916 mem=8.2GB cpu=0.10916666666666591
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:21:21+00:00] targets=800/800 up=800 (100%) | dur_p50=0.005s p95=0.015s | series=2193916 mem=8.2GB cpu=0.10916666666666591
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:21:54+00:00] targets=800/800 up=800 (100%) | dur_p50=0.004s p95=0.012s | series=2193916 mem=8.2GB cpu=0.10875000000000151
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:22:27+00:00] targets=800/800 up=800 (100%) | dur_p50=0.004s p95=0.012s | series=2193916 mem=8.2GB cpu=0.10875000000000151
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:23:00+00:00] targets=800/800 up=800 (100%) | dur_p50=0.004s p95=0.016s | series=2193916 mem=8.2GB cpu=0.10820833333333439
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:23:33+00:00] targets=800/800 up=800 (100%) | dur_p50=0.005s p95=0.015s | series=2193916 mem=8.2GB cpu=0.10820833333333439
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:24:06+00:00] targets=800/800 up=800 (100%) | dur_p50=0.005s p95=0.012s | series=2193916 mem=8.2GB cpu=0.10833333333333334
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:24:39+00:00] targets=800/800 up=800 (100%) | dur_p50=0.004s p95=0.012s | series=2193916 mem=8.2GB cpu=0.10833333333333334
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:25:11+00:00] targets=800/800 up=800 (100%) | dur_p50=0.005s p95=0.017s | series=2193916 mem=8.2GB cpu=0.09439700062486919
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:25:44+00:00] targets=800/800 up=800 (100%) | dur_p50=0.005s p95=0.017s | series=2193916 mem=8.2GB cpu=0.09439700062486919
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:26:17+00:00] targets=800/800 up=800 (100%) | dur_p50=0.004s p95=0.013s | series=2193916 mem=8.2GB cpu=0.10841666666666848
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:26:50+00:00] targets=800/800 up=800 (100%) | dur_p50=0.005s p95=0.012s | series=2193916 mem=8.2GB cpu=0.08645833333333333
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:27:23+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.020s | series=2193916 mem=8.2GB cpu=0.08645833333333333
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:27:56+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.024s | series=2193916 mem=8.2GB cpu=0.1076249999999997
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:28:28+00:00] targets=800/800 up=800 (100%) | dur_p50=0.004s p95=0.015s | series=2193916 mem=8.2GB cpu=0.1076249999999997
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:29:01+00:00] targets=800/800 up=800 (100%) | dur_p50=0.004s p95=0.012s | series=2193916 mem=8.2GB cpu=0.09918733069389532
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:29:34+00:00] targets=800/800 up=800 (100%) | dur_p50=0.004s p95=0.030s | series=2193916 mem=8.2GB cpu=0.09918733069389532
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:30:07+00:00] targets=800/800 up=800 (100%) | dur_p50=0.005s p95=0.031s | series=2193916 mem=8.2GB cpu=0.10329166666666652
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:30:40+00:00] targets=800/800 up=800 (100%) | dur_p50=0.006s p95=0.013s | series=2193916 mem=8.2GB cpu=0.10329166666666652
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:31:12+00:00] targets=800/800 up=800 (100%) | dur_p50=0.004s p95=0.012s | series=2193916 mem=8.2GB cpu=0.1035000000000006
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:31:45+00:00] targets=800/800 up=800 (100%) | dur_p50=0.004s p95=0.017s | series=2193916 mem=8.2GB cpu=0.1035000000000006
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:32:18+00:00] targets=800/800 up=800 (100%) | dur_p50=0.004s p95=0.014s | series=2193916 mem=8.2GB cpu=0.09879166666666682
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+
+[runner] Duration reached (2728s / 2700s). Stopping.
+
+[runner] Writing summary...
+Scenario R3 Summary
+==========================
+Nodes:               200
+Targets:             800
+Actual duration:     2728s (45m)
+Data points:         83
+
+Scrape Success:
+  Mean:              100.0%
+  Min:               100.0%
+
+Scrape Duration:
+  p50 (mean):        0.0058s
+  p95 (mean):        0.0493s
+  max (peak):        8.7916s
+
+Ingestion:
+  samples/sec (last):36716
+
+Head Series:
+  Start:             1696980
+  End:               2193916
+  Peak:              2218374
+
+Memory:
+  Start:             8.76 GB
+  End:               8.24 GB
+  Peak:              8.93 GB
+
+CPU:
+  Mean:              0.110 cores
+  Peak:              0.175 cores
+
+
+Results in: /home/ubuntu/oci-ai-incubations/lens-stress-testing/Prometheus testing/results/R3/
+total 44K
+-rw-rw-r-- 1 ubuntu ubuntu   26 Feb  7 01:32 DONE
+-rw-rw-r-- 1 ubuntu ubuntu 3.1K Feb  7 01:32 R3_health.csv
+-rw-rw-r-- 1 ubuntu ubuntu  12K Feb  7 01:32 R3_metrics.csv
+-rw-rw-r-- 1 ubuntu ubuntu  13K Feb  7 01:32 R3_monitor.log
+-rw-rw-r-- 1 ubuntu ubuntu    8 Feb  7 00:44 R3_monitor.pid
+-rw-rw-r-- 1 ubuntu ubuntu  640 Feb  7 01:32 R3_summary.txt
+
+Scenario R3 complete.
+
+[runner] Cleaning up...
+[2026-02-07 01:33:16] COMPLETED R3 in 48m
+[2026-02-07 01:33:16] Clearing targets (N=0)...
+Generating targets for N=0 nodes (0 total targets)...
+  targets-node-exporter.json: 1 lines
+  targets-amd-gpu.json: 1 lines
+  targets-lens-node.json: 1 lines
+  targets-drhpc.json: 1 lines
+Patching ConfigMap lens-prometheus-server with new target files...
+DEBUG:oci_cli.cli_util:Check if Propagation Enabled: None
+DEBUG:oci_cli.cli_util:Is Propagation Enabled: None
+configmap/lens-prometheus-server configured
+
+Targets cleared. Prometheus will drop targets on next file_sd refresh.
+[2026-02-07 01:33:19] Waiting 90s for targets to drain and Prometheus to stabilize...
+[2026-02-07 01:34:49] 
+[2026-02-07 01:34:49] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-02-07 01:34:49] STARTING R4
+[2026-02-07 01:34:49] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+═══════════════════════════════════════════════════════════════
+  Scenario R4: Push ceiling
+═══════════════════════════════════════════════════════════════
+
+  Nodes:            250
+  Targets:          1000
+  Duration:         2700s (45m)
+  Poll interval:    30s
+  Results dir:      /home/ubuntu/oci-ai-incubations/lens-stress-testing/Prometheus testing/results/R4
+
+[runner] Starting port-forward to Prometheus...
+[runner] Port-forward active (PID 1652168)
+[runner] Starting health monitor...
+[runner] Monitor PID: 1652205
+
+[runner] Setting targets to N=250...
+Generating targets for N=250 nodes (1000 total targets)...
+  targets-node-exporter.json: 2002 lines
+  targets-amd-gpu.json: 2002 lines
+  targets-lens-node.json: 2002 lines
+  targets-drhpc.json: 2002 lines
+Patching ConfigMap lens-prometheus-server with new target files...
+DEBUG:oci_cli.cli_util:Check if Propagation Enabled: None
+DEBUG:oci_cli.cli_util:Is Propagation Enabled: None
+[monitor] Started for R4 (PID 1652205), pod=lens-prometheus-server-6b44bdc9b7-vm7lx
+configmap/lens-prometheus-server configured
+
+Targets set to N=250 (1000 total).
+Prometheus will discover them within ~15–60 seconds (file_sd refresh + kubelet sync).
+
+[runner] Waiting for Prometheus to discover 1000 targets...
+[runner] Discovered 800/1000 — waiting... (10/180s)
+[runner] Discovered 690/1000 — waiting... (20/180s)
+[runner] Discovered 565/1000 — waiting... (30/180s)
+[runner] Discovered 583/1000 — waiting... (40/180s)
+[runner] Discovered 624/1000 — waiting... (50/180s)
+[runner] Discovered 645/1000 — waiting... (60/180s)
+[runner] Discovered 746/1000 — waiting... (70/180s)
+[runner] Discovered 958/1000 — waiting... (80/180s)
+[runner] All 1000 targets discovered.
+
+[runner] Starting metric collection for 2700s...
+
+[2026-02-07T01:36:20+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.024s p95=5.702s | series=2512138 mem=9.0GB cpu=0.11452448799346673
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:36:53+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.007s p95=0.991s | series=2724916 mem=9.1GB cpu=0.1407916666666665
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:37:26+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.013s | series=2724916 mem=9.1GB cpu=0.1407916666666665
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:37:59+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.015s | series=2724916 mem=9.2GB cpu=0.12341666666667
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:38:32+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.028s | series=2724916 mem=9.2GB cpu=0.12341666666667
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:39:05+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.017s | series=2724916 mem=9.2GB cpu=0.16587500000000166
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:39:37+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.014s | series=2724916 mem=9.2GB cpu=0.16587500000000166
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:40:10+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.014s | series=2724916 mem=9.2GB cpu=0.12668566951709273
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:40:43+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.026s | series=2724916 mem=9.2GB cpu=0.12668566951709273
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:41:16+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.021s | series=2724916 mem=8.2GB cpu=0.13133333333333136
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:41:49+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.014s | series=2724916 mem=8.2GB cpu=0.1314139288764816
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:42:22+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.014s | series=2724916 mem=8.2GB cpu=0.1314139288764816
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:42:55+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.031s | series=2724916 mem=8.1GB cpu=0.11891666666666652
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:43:28+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.020s | series=2724916 mem=8.1GB cpu=0.11891666666666652
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:44:01+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.005s p95=0.015s | series=2724916 mem=8.1GB cpu=0.11933333333333469
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:44:34+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.005s p95=0.014s | series=2724916 mem=8.1GB cpu=0.11933333333333469
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:45:07+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.024s | series=2724916 mem=8.1GB cpu=0.1189583333333341
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:45:40+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.020s | series=2724916 mem=8.1GB cpu=0.1189583333333341
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:46:13+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.013s | series=2724916 mem=8.1GB cpu=0.11887747661409508
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:46:46+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.014s | series=2724916 mem=8.1GB cpu=0.11887747661409508
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:47:18+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.047s | series=2724916 mem=8.1GB cpu=0.10721828125846013
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:47:51+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.028s | series=2724916 mem=8.1GB cpu=0.13183333333333092
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:48:24+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.004s p95=0.015s | series=2724916 mem=8.1GB cpu=0.13183333333333092
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:48:57+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.004s p95=0.014s | series=2724916 mem=8.1GB cpu=0.10499999999999925
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:49:30+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.022s | series=2724916 mem=8.1GB cpu=0.10499999999999925
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:50:03+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.022s | series=2724916 mem=8.1GB cpu=0.13016666666666576
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:50:35+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.014s | series=2724916 mem=8.1GB cpu=0.13016666666666576
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:51:08+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.015s | series=2724916 mem=8.1GB cpu=0.12853802583264276
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:51:41+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.024s | series=2724916 mem=8.1GB cpu=0.12853802583264276
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:52:14+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.024s | series=2724916 mem=8.1GB cpu=0.12958333333333485
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:52:47+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.014s | series=2724916 mem=8.1GB cpu=0.12958333333333485
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:53:20+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.014s | series=2724916 mem=8.1GB cpu=0.12954166666666728
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:53:53+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.031s | series=2724916 mem=8.2GB cpu=0.12358333333333273
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:54:25+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.033s | series=2724916 mem=8.2GB cpu=0.12358333333333273
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:54:58+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.015s | series=2724916 mem=8.2GB cpu=0.12370833333333166
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:55:31+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.016s | series=2724916 mem=8.2GB cpu=0.12370833333333166
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:56:04+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.055s | series=2724916 mem=8.2GB cpu=0.11006682330983715
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:56:37+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.005s p95=0.055s | series=2724916 mem=8.2GB cpu=0.11006682330983715
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:57:10+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.004s p95=0.013s | series=2724916 mem=8.2GB cpu=0.12445833333333288
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:57:43+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.005s p95=0.012s | series=2724916 mem=8.2GB cpu=0.12445833333333288
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:58:16+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.005s p95=0.021s | series=2724916 mem=8.2GB cpu=0.10500000000000304
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:58:49+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.005s p95=0.022s | series=2724916 mem=8.3GB cpu=0.12941666666666835
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:59:22+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.005s p95=0.014s | series=2724916 mem=8.3GB cpu=0.12941666666666835
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T01:59:55+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.015s | series=2724916 mem=8.3GB cpu=0.11685086096247756
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:00:28+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.028s | series=2724916 mem=8.3GB cpu=0.11685086096247756
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:01:01+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.007s p95=0.077s | series=2724916 mem=8.4GB cpu=0.13658333333333228
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:01:34+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.055s | series=2724916 mem=8.4GB cpu=0.13658333333333228
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:02:06+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.015s | series=2724916 mem=8.8GB cpu=0.14149999999999635
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:02:39+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.024s | series=2724916 mem=8.8GB cpu=0.14149999999999635
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:03:12+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.024s | series=2724916 mem=8.9GB cpu=0.14845833333333378
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:03:45+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.015s | series=2724916 mem=8.9GB cpu=0.14845833333333378
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:04:18+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.015s | series=2724916 mem=8.9GB cpu=0.1482499999999997
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:04:51+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.021s | series=2724916 mem=8.9GB cpu=0.12305615843167954
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:05:24+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.005s p95=0.035s | series=2724916 mem=8.9GB cpu=0.12305615843167954
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:05:57+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.004s p95=0.017s | series=2724916 mem=8.3GB cpu=0.1394583333333344
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:06:30+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.004s p95=0.013s | series=2724916 mem=8.3GB cpu=0.1394583333333344
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:07:02+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.013s | series=2724916 mem=8.3GB cpu=0.10733333333333045
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:07:36+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.006s p95=0.021s | series=2724916 mem=8.3GB cpu=0.10733333333333045
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:08:09+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.005s p95=0.014s | series=2724916 mem=8.4GB cpu=0.12091666666666849
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:08:41+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.005s p95=0.013s | series=2724916 mem=8.4GB cpu=0.12091666666666849
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:09:14+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.005s p95=0.017s | series=2724916 mem=8.4GB cpu=0.11131624900498875
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:09:47+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.004s p95=0.023s | series=2724916 mem=8.4GB cpu=0.11131624900498875
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:10:20+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.004s p95=0.016s | series=2724916 mem=8.4GB cpu=0.12004166666666834
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:10:53+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.005s p95=0.012s | series=2724916 mem=8.4GB cpu=0.11975000000000288
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:11:26+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.004s p95=0.013s | series=2724916 mem=8.4GB cpu=0.11975000000000288
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:11:59+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.004s p95=0.025s | series=2724916 mem=8.4GB cpu=0.13624999999999923
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:12:32+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.004s p95=0.020s | series=2724916 mem=8.4GB cpu=0.13624999999999923
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:13:05+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.004s p95=0.012s | series=2724916 mem=8.5GB cpu=0.13604166666666895
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:13:38+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.004s p95=0.013s | series=2724916 mem=8.5GB cpu=0.13604166666666895
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:14:11+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.005s p95=0.042s | series=2724916 mem=8.5GB cpu=0.11727407555533184
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:14:44+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.004s p95=0.049s | series=2724916 mem=8.5GB cpu=0.11727407555533184
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:15:17+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.004s p95=0.011s | series=2724916 mem=8.5GB cpu=0.13645833333333332
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:15:49+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.004s p95=0.011s | series=2724916 mem=8.5GB cpu=0.10604034116240138
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:16:23+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.004s p95=0.030s | series=2724916 mem=8.5GB cpu=0.10604034116240138
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:16:55+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.004s p95=0.030s | series=2724916 mem=8.5GB cpu=0.1324166666666656
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:17:28+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.004s p95=0.013s | series=2724916 mem=8.5GB cpu=0.1324166666666656
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:18:01+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.004s p95=0.013s | series=2724916 mem=8.6GB cpu=0.12051807771165705
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:18:34+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.004s p95=0.020s | series=2724916 mem=8.6GB cpu=0.12051807771165705
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:19:07+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.004s p95=0.021s | series=2724916 mem=8.6GB cpu=0.11654166666666393
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:19:40+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.004s p95=0.013s | series=2724916 mem=8.6GB cpu=0.11654166666666393
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:20:13+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.004s p95=0.013s | series=2724916 mem=8.6GB cpu=0.11675145939324423
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:20:46+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.004s p95=0.021s | series=2724916 mem=8.6GB cpu=0.11675145939324423
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+[2026-02-07T02:21:19+00:00] targets=1000/1000 up=1000 (100%) | dur_p50=0.005s p95=0.021s | series=2724916 mem=8.7GB cpu=0.12041666666666515
+[runner] WARNING: Prometheus has 1 restarts — possible OOM.
+
+[runner] Duration reached (2732s / 2700s). Stopping.
+
+[runner] Writing summary...
+Scenario R4 Summary
+==========================
+Nodes:               250
+Targets:             1000
+Actual duration:     2732s (45m)
+Data points:         83
+
+Scrape Success:
+  Mean:              100.0%
+  Min:               100.0%
+
+Scrape Duration:
+  p50 (mean):        0.0055s
+  p95 (mean):        0.1016s
+  max (peak):        12.6731s
+
+Ingestion:
+  samples/sec (last):45566
+
+Head Series:
+  Start:             2512138
+  End:               2724916
+  Peak:              2724916
+
+Memory:
+  Start:             9.01 GB
+  End:               8.67 GB
+  Peak:              9.16 GB
+
+CPU:
+  Mean:              0.125 cores
+  Peak:              0.166 cores
+
+
+Results in: /home/ubuntu/oci-ai-incubations/lens-stress-testing/Prometheus testing/results/R4/
+total 44K
+-rw-rw-r-- 1 ubuntu ubuntu   26 Feb  7 02:21 DONE
+-rw-rw-r-- 1 ubuntu ubuntu 3.1K Feb  7 02:21 R4_health.csv
+-rw-rw-r-- 1 ubuntu ubuntu  12K Feb  7 02:21 R4_metrics.csv
+-rw-rw-r-- 1 ubuntu ubuntu  13K Feb  7 02:21 R4_monitor.log
+-rw-rw-r-- 1 ubuntu ubuntu    8 Feb  7 01:34 R4_monitor.pid
+-rw-rw-r-- 1 ubuntu ubuntu  642 Feb  7 02:21 R4_summary.txt
+
+Scenario R4 complete.
+
+[runner] Cleaning up...
+[2026-02-07 02:22:16] COMPLETED R4 in 47m
+[2026-02-07 02:22:16] 
+[2026-02-07 02:22:16] 
+[2026-02-07 02:22:16] ╔══════════════════════════════════════════════════════════════╗
+[2026-02-07 02:22:16] ║       PROMETHEUS STRESS TEST SUITE — COMPLETE               ║
+[2026-02-07 02:22:16] ║       Total time: 2h 53m                                 ║
+[2026-02-07 02:22:16] ║       Highest stable N: 250                                   ║
+[2026-02-07 02:22:16] ╚══════════════════════════════════════════════════════════════╝
