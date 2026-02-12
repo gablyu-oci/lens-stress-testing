@@ -1,0 +1,5 @@
+timestamp,cycle,response_bytes,response_time_ms,status_code,error
+1770931572.091,1,17385111,412.3,200,
+1770931840.246,5,24656995,565.69,200,
+1770932118.680,10,0,0.9,0,"Cannot connect to host 10.96.242.191:9091 ssl:default [Connect call failed ('10.96.242.191', 9091)]"
+1770932419.683,15,8911,5.95,200,

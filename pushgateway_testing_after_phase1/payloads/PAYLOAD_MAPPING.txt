@@ -1,0 +1,54 @@
+================================================================================
+PUSHGATEWAY STRESS TEST 2.0 - PAYLOAD MAPPING
+================================================================================
+
+ONLY these 4 components push to Pushgateway (others use Prometheus scrape):
+
+1. DRHPC (oci_lens_drhpc_metrics)
+2. Active Healthcheck (oci_lens_healthchecks)
+3. Go Plugin (oci_lens_node_metrics)
+4. Pod Node Mapper (oci_lens_pod_metrics)
+
+================================================================================
+REGULAR PUSHES (Every 60 seconds)
+================================================================================
+
+1. OCI LENS DRHPC METRICS (passive healthcheck)
+   File: payload-oci-lens-drhpc.txt (17 KB)
+   Job name: oci_lens_drhpc_metrics
+   Instance: <node-name>
+   Pushes: 1 per node
+
+2. OCI LENS NODE METRICS (Go Plugin)
+   File: payload-oci-lens-node.txt (26 KB)
+   Job name: oci_lens_node_metrics
+   Instance: <node-name>
+   Pushes: 1 per node
+
+3. OCI LENS POD METRICS (Pod Node Mapper)
+   File: payload-oci-lens-pod.txt (21 KB)
+   Job name: oci_lens_pod_metrics
+   Instance: <pod-name>
+   Pushes: 1 per cluster
+
+4. OCI LENS HEALTHCHECKS (Active Healthcheck, Job parallelism 3)
+   File: payload-oci-lens-healthcheck.txt (37 KB)
+   Job name: oci_lens_healthchecks
+   Instance: <node-name>
+   Pushes: 3 per cycle
+
+================================================================================
+EXCLUDED (use Prometheus scrape, not Pushgateway)
+================================================================================
+
+- AMD GPU Exporter, NVIDIA DCGM Exporter, Node Exporter
+- Node problem detector
+
+================================================================================
+STRESS TEST MODEL
+================================================================================
+
+Pushes per cycle: 2×N + 1 + 3 = 2N + 4
+  (drhpc + lens-node per node, pod-mapper ×1, healthcheck ×3)
+
+ClusterIP: http://10.96.242.191:9091

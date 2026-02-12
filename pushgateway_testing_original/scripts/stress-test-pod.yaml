@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pushgateway-stress-test
+  namespace: oci-gpu-scanner-plugin
+  labels:
+    app: pushgateway-stress-test
+spec:
+  restartPolicy: Never
+  containers:
+    - name: stress-test
+      image: python:3.10-slim
+      command: ["sleep", "infinity"]
+      resources:
+        requests:
+          cpu: "2"
+          memory: "2Gi"
+        limits:
+          cpu: "4"
+          memory: "4Gi"
+      env:
+        - name: PYTHONUNBUFFERED
+          value: "1"
